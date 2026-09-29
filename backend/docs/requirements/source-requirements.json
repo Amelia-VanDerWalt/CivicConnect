@@ -1,0 +1,149 @@
+[
+  {
+    "id": "FR-001",
+    "priority": "Must",
+    "wording": "Sign In and Out\nThe platform shall authenticate users and apply their assigned role permissions (Requester, Staff, Oversight). Users must be able to securely sign out.",
+    "source": "All users;\nMB \u00a7\u00a73, 16",
+    "acceptance": "AC-F01: A valid login grants access only to authorised features. Invalid credentials prevent login. Post sign-out, browser navigation backward cannot retrieve or modify protected records."
+  },
+  {
+    "id": "FR-002",
+    "priority": "Must",
+    "wording": "Submit Request\nThe system shall accept requests containing a title, description, and active category (location or asset details remain optional). Upon submission, it auto-assigns a unique reference ID, creation time, Normal priority, and Received status.",
+    "source": "Requester;\nMB \u00a73",
+    "acceptance": "AC-F02: Submitting a valid form creates a retrievable database record and displays a confirmation screen. Missing required fields blocks submission, highlights the missing inputs, and retains already entered text."
+  },
+  {
+    "id": "FR-003",
+    "priority": "Must",
+    "wording": "Controlled Categories\nThe system shall restrict category selection to an approved active list. Existing requests must maintain their category label if that category is later retired.",
+    "source": "Requester / Staff;\nMB \u00a73",
+    "acceptance": "AC-F03: Active categories are accepted. Invalid or inactive category submissions are rejected. Deactivating or retiring a category does not remove or alter category labels on existing ticket histories."
+  },
+  {
+    "id": "FR-004",
+    "priority": "Must",
+    "wording": "Submission History\nThe system shall allow requesters to view a list of their past submissions and inspect current status, submitted details, and visible history (including closed and rejected tickets).",
+    "source": "Requester;\nMB \u00a73",
+    "acceptance": "AC-F04: Requesters can see all their submitted records and associated status details upon refreshing. Requesters cannot view or access another user's submissions."
+  },
+  {
+    "id": "FR-005",
+    "priority": "Must",
+    "wording": "In-App Feedback\nThe system shall retain in-platform activity updates for receipt, assignment, rejection, priority updates, due-date changes, status transitions, and public comments. Resolution and closure must be clearly highlighted.",
+    "source": "Requester;\nMB \u00a73",
+    "acceptance": "AC-F05: After any update, the requester\u2019s dashboard displays the timestamp, reference ID, and clear explanation note. Rejections display reasons, and resolutions display summaries. Internal staff notes remain hidden. Feedback persists across sign-outs."
+  },
+  {
+    "id": "FR-006",
+    "priority": "Must",
+    "wording": "Authorised Work Queue\nThe system shall display tickets within a staff member's authorised categories and allow full inspection of submitted details, owner, priority, due time, status, and history.",
+    "source": "Staff;\nMB \u00a73",
+    "acceptance": "AC-F06: Queues display only in-scope category tickets for the logged-in staff member. Opening an in-scope record displays all fields. Direct access attempts to out-of-scope categories are denied."
+  },
+  {
+    "id": "FR-007",
+    "priority": "Must",
+    "wording": "Search, Filter, and Sort\nThe system shall support reference code or title searches, filters (by status, category, owner, priority, creation date), and ascending/descending sorting by creation date or due date.",
+    "source": "Staff;\nMB \u00a73",
+    "acceptance": "AC-F07: Search and combined filters return exact matching records within authorised categories. Sorting correctly orders results, placing unscheduled/undated items last. Empty searches show a clear 'No results found' message."
+  },
+  {
+    "id": "FR-008",
+    "priority": "Must",
+    "wording": "Assign Responsibility\nAuthorised staff shall accept/assign a Received request (updating status to Assigned) or reassign an active request to another eligible team member. Assignment requires setting a priority and due time.",
+    "source": "Staff;\nMB \u00a73",
+    "acceptance": "AC-F08: Assignment locks the ticket to one category-authorized owner. Ineligible owners or missing due dates abort the assignment. Reassignment preserves the prior owner in the history log and notifies the requester."
+  },
+  {
+    "id": "FR-009",
+    "priority": "Must",
+    "wording": "Priority and Due Date Management\nAuthorised staff shall set or update priorities (Low, Normal, High) and set target completion dates (must be later than creation time).",
+    "source": "Staff / Oversight;\nMB \u00a7\u00a72, 3",
+    "acceptance": "AC-F09: Valid priorities and future due dates are saved successfully. Past due dates or invalid values are rejected. Modifications retain previous values, actor ID, timestamp, and update reason in the audit history."
+  },
+  {
+    "id": "FR-010",
+    "priority": "Must",
+    "wording": "Controlled Lifecycle Transitions\nStaff shall transition request statuses strictly following Rule R2. Rejections require reason notes, resolutions require summaries, and closure requires prior resolution.",
+    "source": "Staff;\nMB \u00a73",
+    "acceptance": "AC-F10: Valid state transitions execute properly with mandatory notes. Missing notes or invalid state jump attempts are blocked without changing database state. Resolution and closure trigger requester notifications."
+  },
+  {
+    "id": "FR-011",
+    "priority": "Must",
+    "wording": "Work History & Action Logging\nAuthorised staff shall append work logs, progress notes, and resolution text. Every note must be explicitly flagged as Requester-Visible or Internal-Only before saving.",
+    "source": "Staff;\nMB \u00a73",
+    "acceptance": "AC-F11: Saved notes preserve author, timestamp, text, and visibility flag. Requesters only see public notes. Corrections are appended as new notes; historical logs cannot be edited or deleted through normal user interfaces."
+  },
+  {
+    "id": "FR-012",
+    "priority": "Must",
+    "wording": "Management Reporting\nThe system shall generate aggregate reports showing open, overdue, resolved, closed, and rejected counts by category for defined date ranges. It shall report undated tickets, ownership, and MTTR as defined in R4.",
+    "source": "Oversight;\nMB \u00a73",
+    "acceptance": "AC-F12: Generated report metrics, boundary date filters, and breakdown counts match underlying data exactly. Only resolved/closed tickets calculate into MTTR. Oversight roles cannot modify tickets without staff rights."
+  },
+  {
+    "id": "FR-013",
+    "priority": "Must",
+    "wording": "Audit Trail\nThe system shall maintain an immutable, chronological log of creation, ownership updates, priority shifts, due-date adjustments, status changes, and work logs.",
+    "source": "Staff / Oversight;\nMB \u00a7\u00a72, 3",
+    "acceptance": "AC-F13: System updates generate sequential audit log records capturing actor ID, timestamp, prior values, and new values. Standard interfaces prevent editing or deleting audit logs. Requesters cannot view internal audit details."
+  },
+  {
+    "id": "NFR-001",
+    "priority": "Must",
+    "wording": "Access Control & Least Privilege\nThe platform shall enforce strict role-based access checks on all protected API endpoints and system actions, blocking unauthorised direct backend requests.",
+    "source": "All users;\nMB \u00a716",
+    "acceptance": "AC-N01: Role matrix tests verify that unauthorised read/write attempts (e.g., cross-requester views, out-of-scope staff edits) fail cleanly without exposing sensitive system information or altering state."
+  },
+  {
+    "id": "NFR-002",
+    "priority": "Must",
+    "wording": "Data & Secret Protection\nTransmitted credentials and data must be encrypted in transit (TLS). Operational secrets, API keys, and passwords must be excluded from code repositories, client-side files, and logs.",
+    "source": "All users / Team;\nMB \u00a7\u00a79, 16",
+    "acceptance": "AC-N02: Network traffic audits confirm HTTPS/TLS encryption. Automated repository and log scans confirm no hardcoded secrets or credentials exist in codebase or build outputs."
+  },
+  {
+    "id": "NFR-003",
+    "priority": "Must",
+    "wording": "Data Integrity & Concurrency\nAcknowledged transactions must persist through system restarts. Failed operations must roll back completely. Concurrent edits must not cause data loss or duplicate records.",
+    "source": "Requester / Staff;\nMB \u00a7\u00a72, 4",
+    "acceptance": "AC-N03: Database recovery checks confirm zero state loss after forced application restarts. Failed updates leave no partial entries. Concurrent updates are handled cleanly without silent overwrites."
+  },
+  {
+    "id": "NFR-004",
+    "priority": "Should",
+    "wording": "System Responsiveness\nUnder load (5,000 active records, 20 concurrent users), 95% of read operations (search, lists, details) complete within 2.0s, and write operations complete within 3.0s.",
+    "source": "All users;\nMB \u00a7\u00a74, 11",
+    "acceptance": "AC-N04: A 15-minute steady-state load test (80% reads, 20% writes) measures client-to-server transaction times, verifying performance target compliance."
+  },
+  {
+    "id": "NFR-005",
+    "priority": "Should",
+    "wording": "User Accessibility & Usability\nAt least 80% of first-time test users can successfully submit a ticket and look up its status within 3 minutes without assistance.",
+    "source": "Requester;\nMB \u00a7\u00a72.1, 4",
+    "acceptance": "AC-N05: Unassisted usability testing with representative user groups tracks task completion time and error rates to verify target usability metrics."
+  },
+  {
+    "id": "NFR-006",
+    "priority": "Should",
+    "wording": "WCAG Accessibility Compliance\nSubmission, lookup, and staff queue workflows shall support full keyboard navigation, display visible focus indicators, and support 200% text zooming without loss of functionality.",
+    "source": "All users;\nMB \u00a7\u00a72.1, 4;\nW3C (2024)",
+    "acceptance": "AC-N06: Interface testing verifies keyboard navigation (WCAG 2.1.1), visible focus styling (WCAG 2.4.7), and responsive page rendering at 200% font scaling (WCAG 1.4.4)."
+  },
+  {
+    "id": "NFR-007",
+    "priority": "Must",
+    "wording": "Operational Monitoring\nSystem administrators must be alerted to service outages or critical infrastructure failures within 60 seconds. Diagnostic logs must exclude credentials and sensitive request text.",
+    "source": "Operations team;\nMB \u00a717",
+    "acceptance": "AC-N07: Simulated service outages confirm monitoring system alerts trigger within 60 seconds. System logs confirm error correlation IDs and timestamps are captured without logging sensitive payload data."
+  },
+  {
+    "id": "NFR-008",
+    "priority": "Must",
+    "wording": "Backup and Disaster Recovery\nIn a critical data-loss event, system recovery shall occur within 60 minutes (RTO), with no more than 24 hours of lost data (RPO).",
+    "source": "Organisation / Ops;\nMB \u00a717",
+    "acceptance": "AC-N08: Simulated database recovery tests verify full system restoration from backup files within 60 minutes, ensuring recovered data integrity."
+  }
+]

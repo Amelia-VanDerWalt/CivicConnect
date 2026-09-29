@@ -1,0 +1,6 @@
+{
+  "name": "civicconnect-m2", "version": "0.2.0", "private": true, "type": "module",
+  "description": "CivicConnect M2 review candidate: service request management",
+  "engines": {"node": ">=24.19.0 <25"},
+  "scripts": {"start": "node --env-file-if-exists=.env src/server.js", "setup": "node --env-file-if-exists=.env scripts/setup.js", "test": "node --test", "backup": "node --env-file-if-exists=.env scripts/backup.js"}
+}
