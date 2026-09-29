@@ -1,0 +1,154 @@
+TAP version 13
+# Subtest: T01 FR-002 creation persists defaults and receipt atomically
+ok 1 - T01 FR-002 creation persists defaults and receipt atomically
+  ---
+  duration_ms: 8.100279
+  type: 'test'
+  ...
+# Subtest: T02 FR-002 missing title and inactive category create no records
+ok 2 - T02 FR-002 missing title and inactive category create no records
+  ---
+  duration_ms: 1.405615
+  type: 'test'
+  ...
+# Subtest: T03 FR-003 retiring and renaming categories preserves historical label
+ok 3 - T03 FR-003 retiring and renaming categories preserves historical label
+  ---
+  duration_ms: 1.125984
+  type: 'test'
+  ...
+# Subtest: T04 FR-004 requester cannot list or retrieve another user request
+ok 4 - T04 FR-004 requester cannot list or retrieve another user request
+  ---
+  duration_ms: 1.11677
+  type: 'test'
+  ...
+# Subtest: T05 FR-006 staff category scope enforced on direct read and mutation
+ok 5 - T05 FR-006 staff category scope enforced on direct read and mutation
+  ---
+  duration_ms: 1.399736
+  type: 'test'
+  ...
+# Subtest: T06 FR-008 assignment requires eligible owner and future date
+ok 6 - T06 FR-008 assignment requires eligible owner and future date
+  ---
+  duration_ms: 3.813098
+  type: 'test'
+  ...
+# Subtest: T07 FR-010 lifecycle follows required order and notes
+ok 7 - T07 FR-010 lifecycle follows required order and notes
+  ---
+  duration_ms: 2.781064
+  type: 'test'
+  ...
+# Subtest: T08 FR-010 rejection needs reason and becomes terminal
+ok 8 - T08 FR-010 rejection needs reason and becomes terminal
+  ---
+  duration_ms: 1.514468
+  type: 'test'
+  ...
+# Subtest: T09 FR-005 FR-011 internal notes and audit snapshots hidden from requesters
+ok 9 - T09 FR-005 FR-011 internal notes and audit snapshots hidden from requesters
+  ---
+  duration_ms: 1.651075
+  type: 'test'
+  ...
+# Subtest: T10 NFR-003 competing stale edits return conflict without extra audit
+ok 10 - T10 NFR-003 competing stale edits return conflict without extra audit
+  ---
+  duration_ms: 1.465485
+  type: 'test'
+  ...
+# Subtest: T11 NFR-003 audit failure rolls back ticket mutation
+ok 11 - T11 NFR-003 audit failure rolls back ticket mutation
+  ---
+  duration_ms: 1.740849
+  type: 'test'
+  ...
+# Subtest: T12 FR-013 audit rows resist update and delete
+ok 12 - T12 FR-013 audit rows resist update and delete
+  ---
+  duration_ms: 1.027306
+  type: 'test'
+  ...
+# Subtest: T13 FR-012 oversight reads all but cannot modify requests
+ok 13 - T13 FR-012 oversight reads all but cannot modify requests
+  ---
+  duration_ms: 1.192144
+  type: 'test'
+  ...
+# Subtest: T14 FR-007 combined filters and null-last sorting
+ok 14 - T14 FR-007 combined filters and null-last sorting
+  ---
+  duration_ms: 1.763173
+  type: 'test'
+  ...
+# Subtest: T15 FR-012 report open overdue undated and MTTR are correct
+ok 15 - T15 FR-012 report open overdue undated and MTTR are correct
+  ---
+  duration_ms: 11.475417
+  type: 'test'
+  ...
+# Subtest: T16 FR-007 malformed or reversed report dates rejected
+ok 16 - T16 FR-007 malformed or reversed report dates rejected
+  ---
+  duration_ms: 1.427708
+  type: 'test'
+  ...
+# Subtest: T17 NFR-003 committed requests survive database close and reopen
+ok 17 - T17 NFR-003 committed requests survive database close and reopen
+  ---
+  duration_ms: 4.057325
+  type: 'test'
+  ...
+# Subtest: T18 NFR-008 backup restores readable complete data snapshot
+ok 18 - T18 NFR-008 backup restores readable complete data snapshot
+  ---
+  duration_ms: 10.793721
+  type: 'test'
+  ...
+# Subtest: T19 FR-009 priority scheduling records before after actor and reason
+ok 19 - T19 FR-009 priority scheduling records before after actor and reason
+  ---
+  duration_ms: 1.10299
+  type: 'test'
+  ...
+# Subtest: T20 FR-008 reassignment preserves original owner in audit
+ok 20 - T20 FR-008 reassignment preserves original owner in audit
+  ---
+  duration_ms: 1.06317
+  type: 'test'
+  ...
+# Subtest: T21 FR-002 SQL-like user input remains text
+ok 21 - T21 FR-002 SQL-like user input remains text
+  ---
+  duration_ms: 0.721416
+  type: 'test'
+  ...
+# Subtest: T22 NFR-001 unauthenticated HTTP request rejected
+ok 22 - T22 NFR-001 unauthenticated HTTP request rejected
+  ---
+  duration_ms: 27.023832
+  type: 'test'
+  ...
+# Subtest: T23 HTTP login submit CSRF cross-user access and logout
+ok 23 - T23 HTTP login submit CSRF cross-user access and logout
+  ---
+  duration_ms: 2225.806782
+  type: 'test'
+  ...
+# Subtest: T24 FR-011 visibility must be explicitly selected
+ok 24 - T24 FR-011 visibility must be explicitly selected
+  ---
+  duration_ms: 1.213265
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3059.359099

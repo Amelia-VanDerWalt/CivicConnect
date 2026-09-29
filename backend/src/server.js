@@ -1,0 +1,10 @@
+import { openDatabase } from './infrastructure/database.js';
+import { createApp } from './http/app.js';
+const host=process.env.HOST??'127.0.0.1',port=Number(process.env.PORT??3000),origin=process.env.APP_ORIGIN??`http://${host}:${port}`;
+const secure=process.env.COOKIE_SECURE==='true';
+if(!['127.0.0.1','::1','localhost'].includes(host)&&!secure) throw new Error('Non-loopback binding requires HTTPS configuration and COOKIE_SECURE=true');
+if(secure&&!origin.startsWith('https://')) throw new Error('Secure cookies require an HTTPS APP_ORIGIN');
+const db=openDatabase(process.env.DB_PATH??'data/civicconnect.sqlite');
+const server=createApp(db,{origin,secure});
+server.listen(port,host,()=>console.log(`CivicConnect available at ${origin}`));
+for(const signal of ['SIGINT','SIGTERM']) process.on(signal,()=>server.close(()=>{db.close();process.exit(0);}));

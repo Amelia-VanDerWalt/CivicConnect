@@ -1,0 +1,56 @@
+erDiagram
+ USERS ||--o{ SESSIONS : authenticates
+ USERS ||--o{ STAFF_CATEGORIES : eligible
+ CATEGORIES ||--o{ STAFF_CATEGORIES : grants
+ USERS ||--o{ REQUESTS : submits
+ USERS o|--o{ REQUESTS : owns
+ CATEGORIES ||--o{ REQUESTS : categorises
+ REQUESTS ||--o{ ACTIVITIES : records
+ USERS ||--o{ ACTIVITIES : performs
+ USERS {
+  int id PK
+  string username UK
+  string role
+  string password_hash
+  boolean active
+ }
+ CATEGORIES {
+  int id PK
+  string name UK
+  boolean active
+ }
+ STAFF_CATEGORIES {
+  int user_id PK,FK
+  int category_id PK,FK
+ }
+ REQUESTS {
+  int id PK
+  string reference UK
+  int requester_id FK
+  int category_id FK
+  int owner_id FK
+  string category_label
+  string status
+  string priority
+  datetime due_at
+  datetime created_at
+  datetime resolved_at
+  int version
+ }
+ ACTIVITIES {
+  int id PK
+  int request_id FK
+  int actor_id FK
+  string kind
+  string note
+  string visibility
+  string old_values
+  string new_values
+  datetime created_at
+ }
+ SESSIONS {
+  string token_hash PK
+  int user_id FK
+  string csrf
+  int expires_at
+ }

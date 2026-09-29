@@ -1,0 +1,66 @@
+[
+  [
+    "P2-R01",
+    "Single host/disk failure interrupts all requests",
+    3,
+    4,
+    "12",
+    "Consistent off-host backups and recovery drill; restore on replacement host"
+  ],
+  [
+    "P2-R02",
+    "Synchronous reads/one writer miss latency target",
+    3,
+    4,
+    "12",
+    "SQL filtering/pagination; load test; server DB if measured contention persists"
+  ],
+  [
+    "P2-R03",
+    "Backup cannot meet recovery/data-age targets",
+    3,
+    5,
+    "15",
+    "Daily protected off-host copy, integrity check and timed restore"
+  ],
+  [
+    "P2-R04",
+    "Runtime patch or binding change breaks persistence",
+    2,
+    4,
+    "8",
+    "Pin, review release notes and rerun suite; retain compatible prior release"
+  ],
+  [
+    "P2-R05",
+    "Custom HTTP/session code has security gaps",
+    3,
+    5,
+    "15",
+    "Peer review and negative tests; HTTPS/abuse controls; framework identity review"
+  ],
+  [
+    "P2-R06",
+    "Candidate differs from actual team stack/baseline",
+    4,
+    4,
+    "16",
+    "Reconcile approved PED, CR and real A2 evidence before merge"
+  ],
+  [
+    "P2-R07",
+    "Host/BC environment lacks runtime or durable disk",
+    3,
+    4,
+    "12",
+    "Run compatibility proof and obtain actual hosting quote before commitment"
+  ],
+  [
+    "P2-R08",
+    "Audit copies retain sensitive data and grow rapidly",
+    3,
+    4,
+    "12",
+    "Approve retention/access policy; measure growth and archive under control"
+  ]
+]
