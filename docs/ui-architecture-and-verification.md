@@ -6,15 +6,15 @@ To ensure the CivicConnect platform meets the operational needs of citizens and 
 The navigation hierarchy isolates capabilities to enforce security and usability, matching the implemented wireframes.
 
 **Requester Flow:**
-1. **Login:** User authenticates via Username and Password; the system securely stores the session and CSRF token[cite: 20].
-2. **Requester Dashboard (Home):** Displays a Welcome Message, quick-action buttons ("Submit A New Request", "View My Requests"), and a summary table of Recent Requests[cite: 22].
-3. **Submit Request:** A guided form capturing the mandatory Title, Category (Dropdown), Location, and Description[cite: 19].
-4. **My Requests:** A dedicated view of submitted tickets and their current statuses[cite: 22].
+1. **Login:** User authenticates via Username and Password; the system securely stores the session and CSRF token.
+2. **Requester Dashboard (Home):** Displays a Welcome Message, quick-action buttons ("Submit A New Request", "View My Requests"), and a summary table of Recent Requests.
+3. **Submit Request:** A guided form capturing the mandatory Title, Category (Dropdown), Location, and Description.
+4. **My Requests:** A dedicated view of submitted tickets and their current statuses.
 
 **Staff Flow:**
-1. **Login:** Authenticates as a staff role[cite: 20].
-2. **Staff Dashboard (Requests Queue):** Displays the work queue with quick-filter tabs for "All Requests", "Unassigned", and "My Requests" to streamline task allocation[cite: 21].
-3. **Staff Request View (Update Status):** A detail screen showing the ticket's history and an action panel to submit a "New Status" alongside an "Optional Note"[cite: 18].
+1. **Login:** Authenticates as a staff role.
+2. **Staff Dashboard (Requests Queue):** Displays the work queue with quick-filter tabs for "All Requests", "Unassigned", and "My Requests" to streamline task allocation.
+3. **Staff Request View (Update Status):** A detail screen showing the ticket's history and an action panel to submit a "New Status" alongside an "Optional Note".
 
 ### 2. Wireframes & Usability Rationale
 *(Note: Visual wireframes are located in the `/docs/diagrams/` directory).*
@@ -35,8 +35,8 @@ Provides staff with a clear overview of service requests and separates all, unas
 Displays the request information staff need to manage a case and provides controls for updating its status and recording notes. This supports FR-009, FR-010 and FR-011. The layout keeps actions grouped with the request details to reduce navigation and improve usability.
 
 The interface layouts were explicitly driven by our baselined Non-Functional Requirements (NFRs):
-* **Minimizing Cognitive Load (NFR-005):** To ensure 80% of first-time users can successfully submit a ticket within 3 minutes, the `Submit Request` form relies on the backend's `/categories` endpoint to populate dropdowns[cite: 19]. This prevents open-text data entry errors and ensures clean data for the `RequestService`. The dashboards utilize clear sidebar navigation (Home, Submit Request, My Requests) to prevent users from getting lost[cite: 22].
-* **Handling API Conflicts:** The Staff `Update Status` UI is designed to catch backend responses[cite: 18]. If a staff member attempts an update and receives a `409 Conflict` (indicating a stale-record overwrite attempt), the UI prompts the user to reload the latest state, protecting data integrity.
+* **Minimizing Cognitive Load (NFR-005):** To ensure 80% of first-time users can successfully submit a ticket within 3 minutes, the `Submit Request` form relies on the backend's `/categories` endpoint to populate dropdowns. This prevents open-text data entry errors and ensures clean data for the `RequestService`. The dashboards utilize clear sidebar navigation (Home, Submit Request, My Requests) to prevent users from getting lost.
+* **Handling API Conflicts:** The Staff `Update Status` UI is designed to catch backend responses. If a staff member attempts an update and receives a `409 Conflict` (indicating a stale-record overwrite attempt), the UI prompts the user to reload the latest state, protecting data integrity.
 
 ### 3. Initial UI Verification Evidence
 To prove the initial frontend implementation meets our baselined accessibility and usability standards, the following manual verification checks were completed against the working UI slice:
