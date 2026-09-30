@@ -252,35 +252,45 @@ This Risk Register is a live engineering artefact and must be reviewed at every 
 
 ## 7. Requirements Traceability Matrix (RTM)
 
-The M1 requirement descriptions and acceptance criteria remain in section 4. This matrix extends their links into M2. All code paths below are relative to `backend/src/` unless stated otherwise; frontend paths refer to `src/frontend/`. ASRs are defined in section 11. Persistence uses ADR-P2-001, technology ADR-P2-002, interfaces ADR-P2-003 and architecture ADR-ARCH-001. DES-001/002 apply to category validation and audit coordination respectively. Verification names refer to `backend/tests/civicconnect.test.js`.
+The M1 requirement wording and acceptance criteria remain controlled in Section 4. This M2 RTM extends those requirements into architecture, data, design, technology, implementation and verification evidence. Evidence that does not yet exist is explicitly marked as Planned, Partial or Pending rather than being treated as complete.
 
-| Requirement | ASR | Architecture/design responsibility | Implementation/interface evidence | Initial verification | Current acceptance position |
-|---|---|---|---|---|---|
-| FR-001 | ASR-001 | Auth/session boundary | auth.js; app.js; login view | T22–T23 | Initially verified API; browser session checks pending |
-| FR-002 | ASR-002,005 | Service transaction; request form | request-service.js; request-repository.js; app.js; submit view | T01–T02,T21,T23 | Initially verified API; form acceptance pending |
-| FR-003 | ASR-002 | Active catalogue; historical snapshot | 001_initial.sql; request-service.js | T02–T03 | Initially verified data rules; catalogue administration deferred |
-| FR-004 | ASR-001,005 | Ownership-scoped reads | request-repository.js; requester dashboard | T04,T23 | API verified; browser detail/history incomplete |
-| FR-005 | ASR-002,005 | Persistent public activity projection | request-service.js; request-repository.js | T01,T09 | API implemented; requester feedback/history UI incomplete |
-| FR-006 | ASR-001 | Staff category scope | policy.js; request-service.js; staff dashboard | T05 | API verified; full staff history UI incomplete |
-| FR-007 | ASR-006 | Scoped query and sorting | request-repository.js; GET requests | T14,T16 | API verified; complete filter UI and load test pending |
-| FR-008 | ASR-001,002 | Eligible owner plus atomic assignment | request-service.js; POST assign; staff form | T06,T20 | API verified; UI self-assignment only |
-| FR-009 | ASR-002,003 | Versioned schedule update | request-service.js; POST schedule | T19 | API verified; scheduling editor pending |
-| FR-010 | ASR-002,003 | Explicit lifecycle policy | policy.js; request-service.js; status form | T07–T08 | API verified; UI mandatory-note behaviour needs correction |
-| FR-011 | ASR-001,003 | Explicit visibility; append-only notes | request-service.js; POST note; activities | T09,T24 | API verified; public/internal note editor pending |
-| FR-012 | ASR-001,006 | Read-only oversight; aggregate reporting | request-repository.js; GET reports | T13,T15–T16 | API verified; oversight UI unavailable |
-| FR-013 | ASR-002,003 | Atomic before/after audit; immutable rows | 001_initial.sql; request-repository.js | T11–T12,T19–T20 | Initially verified; operational access controls pending |
-| NFR-001 | ASR-001 | Server-side authorisation | policy.js; app.js | T04–T05,T13,T22–T23 | API checks pass; static delivery boundary needs correction |
-| NFR-002 | ASR-001 | Session secrets; planned HTTPS boundary | auth.js; .gitignore; deployment §16 | Code inspection; T23 partial | TLS and repository/log secret scans pending |
-| NFR-003 | ASR-002 | Transaction, constraints, version conflict | database.js; request-repository.js | T10–T11,T17 | Initial checks pass; forced-crash recovery pending |
-| NFR-004 | ASR-006 | Indexes; bounded initial workload | 001_initial.sql; query implementation | No target-load evidence | Planned: 5,000 records/20 users/15 minutes |
-| NFR-005 | ASR-005 | Short requester journey | index.html; app.js; UI wireframes | No measured representative-user study | Planned: 80% within three minutes |
-| NFR-006 | ASR-005 | Keyboard, focus and zoom design | style.css; index.html; UI verification notes | Contributor-reported checks; no reproducible run record | Await dated keyboard/focus/200% zoom evidence |
-| NFR-007 | ASR-007 | Health endpoint; proposed external monitor | app.js; GET health | Local health check only | 60-second outage alert not verified |
-| NFR-008 | ASR-007 | Consistent snapshot backup and restore | scripts/backup.js; database.js | T18 | Snapshot readability verified; RTO/RPO exercise pending |
+| Req. | Source / Priority | AC | ASR | Architecture / Module | Data / Persistence Impact | Design / Interface Decision | Technology | Implementation Evidence | Verification Evidence | Status | ADR / Change / Risk |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| FR-001 | All users; Must | AC-F01 | ASR-001 | HTTP authentication/session boundary | `users` and `sessions`; hashed passwords/tokens | Login/logout and role-based UI routing | Node.js HTTP, SQLite, browser JS | `auth.js`, `app.js`, frontend login view | T22–T23; browser role checks still pending | In Development | ADR-P2-002, ADR-P2-003, RISK-006 |
+| FR-002 | Requester; Must | AC-F02 | ASR-002, ASR-005 | Request service transaction and Submit Request UI | `requests` row plus receipt `activities` entry | DES-001; data-driven category validation; submit form | Node.js, SQLite, vanilla JS | `request-service.js`, `request-repository.js`, POST `/api/requests`, `src/frontend/` submit view | T01–T02, T21, T23; frontend manual submission verification pending | In Development | ADR-P2-001/002/003, DES-001, RISK-010 |
+| FR-003 | Requester / Staff; Must | AC-F03 | ASR-002 | Category catalogue responsibility | `categories`; `category_label` preserves historical label | DES-001 shared model instead of category factories | SQLite + Node.js | Category validation and GET `/api/categories`; frontend category dropdown | T02–T03; UI selection check pending | In Development | ADR-P2-001, DES-001 |
+| FR-004 | Requester; Must | AC-F04 | ASR-001, ASR-005 | Permission-scoped requester reads | Request ownership via `requester_id`; permitted activities | Requester dashboard and request-history journey | Node.js API + browser JS | `request-repository.js`; GET `/api/requests`; requester dashboard | T04, T23; complete browser history/detail verification pending | In Development | ADR-P2-003, RISK-013 |
+| FR-005 | Requester; Must | AC-F05 | ASR-002, ASR-005 | Public activity projection | `activities.visibility`; persistent request activity | Public versus internal activity boundary | SQLite + JSON API | Request service/repository activity handling | T01, T09; full requester activity UI incomplete | In Development | ADR-P2-001/003 |
+| FR-006 | Staff; Must | AC-F06 | ASR-001 | Staff category-scoped work queue | `staff_categories`, request owner/category data | Staff Dashboard and Staff Request View | Node.js API + browser JS | `policy.js`, `request-service.js`, staff dashboard | T05; manual queue/detail UI verification pending | In Development | ADR-P2-003, RISK-010 |
+| FR-007 | Staff; Must | AC-F07 | ASR-006 | Scoped query/filter responsibility | Indexed request fields used by query/filter operations | Initial All / Unassigned / My Assigned UI filters | Node.js + SQLite | GET `/api/requests`; `loadStaffDashboard()` | T14, T16; complete frontend search/filter/sort not yet implemented | Partial | ADR-P2-001/003, RISK-013 |
+| FR-008 | Staff; Must | AC-F08 | ASR-001, ASR-002 | Assignment orchestration | `owner_id`, priority, due time and assignment activity | Initial self-assignment interface | Node.js + SQLite | POST `/api/requests/{id}/assign`; staff UI | T06, T20; frontend currently supports self-assignment only | Partial | ADR-P2-001/003, RISK-011 |
+| FR-009 | Staff / Oversight; Must | AC-F09 | ASR-002, ASR-003 | Versioned schedule update | Priority/due time with before/after audit values | Scheduling API established; full UI editor not yet present | Node.js + SQLite | POST `/api/requests/{id}/schedule`; current frontend supplies Normal/+7 days during assignment | T19; full priority/due-date UI pending | Partial | ADR-P2-001/003, CR-P2-001, M2-R06 |
+| FR-010 | Staff; Must | AC-F10 | ASR-002, ASR-003 | Domain lifecycle policy | Status/version and lifecycle activity | DES-002 direct transactional coordination; status UI | Node.js + SQLite + browser JS | `policy.js`, `request-service.js`, POST `/status`, frontend status form | T07–T08; frontend mandatory-note behaviour still requires verification/correction | In Development | DES-002, ADR-P2-001/003, RISK-011 |
+| FR-011 | Staff; Must | AC-F11 | ASR-001, ASR-003 | Append-only work/activity history | `activities` stores actor, note, visibility and timestamp | DES-002; explicit Public/Internal API decision | SQLite + JSON API | POST `/api/requests/{id}/note`; activity persistence | T09, T24; complete frontend Public/Internal note editor pending | Partial | DES-002, ADR-P2-001/003 |
+| FR-012 | Oversight; Must | AC-F12 | ASR-001, ASR-006 | Read-only reporting responsibility | Aggregation of request status/category/ownership/time data | Oversight reporting API; UI deferred | Node.js + SQLite | GET `/api/reports` | T13, T15–T16; Oversight frontend not implemented | In Development | ADR-P2-003, DEC-003 |
+| FR-013 | Staff / Oversight; Must | AC-F13 | ASR-002, ASR-003 | Transactional audit responsibility | Append-only `activities` with before/after snapshots | DES-002 direct audit call in transaction | SQLite + Node.js | migration triggers, repository/activity implementation | T11–T12, T19–T20 | Initially Verified | ADR-P2-001, DES-002 |
+| NFR-001 | All users; Must | AC-N01 | ASR-001 | Server-side authorisation boundary | Permission-scoped reads/writes | Session identity rather than caller-provided identity | Node.js | `policy.js`, `request-service.js`, `app.js` | T04–T05, T13, T22–T23 | Initially Verified | ADR-P2-003, RISK-006 |
+| NFR-002 | All users / Team; Must | AC-N02 | ASR-001 | Authentication/security and deployment boundary | Password/session-secret protection | Same-origin + CSRF; HTTPS planned for staging/deployment | Node.js, secure deployment configuration | `auth.js`, origin/CSRF checks, `.gitignore` | T23 partial; TLS and formal secret scan still pending | In Development | ADR-P2-003, M2-R02 |
+| NFR-003 | Requester / Staff; Must | AC-N03 | ASR-002 | Transaction and optimistic concurrency boundary | Transactions, constraints and `version` field | Direct transactional update/audit | SQLite | `database.js`, `request-repository.js` | T10–T11, T17 | Initially Verified | ADR-P2-001, DES-002 |
+| NFR-004 | All users; Should | AC-N04 | ASR-006 | Indexed query path | Indexes and bounded query workload | Performance measurement deliberately deferred | Node.js + SQLite | schema indexes and query implementation | Required target load test not yet performed | Planned | ADR-P2-001, M2-R03 |
+| NFR-005 | Requester; Should | AC-N05 | ASR-005 | Short requester interaction path | No special persistence impact beyond request workflow | Single-column form and simple role-specific navigation | HTML/CSS/JS | requester dashboard and submit form | Representative-user 80% / 3-minute test not yet performed | Planned | RISK-013 |
+| NFR-006 | All users; Should | AC-N06 | ASR-005 | Presentation/UI responsibility | None directly | Semantic buttons, visible focus and responsive layout | HTML/CSS/JS | `src/frontend/index.html`, `style.css` | Keyboard/focus/200% zoom evidence still requires dated manual verification | In Development | RISK-012 |
+| NFR-007 | Operations; Must | AC-N07 | ASR-007 | Health/operations boundary | Database/process health | External monitoring deliberately deferred | Node.js | GET `/health` | Local health response only; 60-second alert not verified | Planned | M2-R07 |
+| NFR-008 | Organisation / Ops; Must | AC-N08 | ASR-007 | Backup/recovery responsibility | SQLite consistent snapshot | Local backup mechanism; off-host recovery remains future work | SQLite + Node.js script | `scripts/backup.js` | T18 verifies readable snapshot; RTO/RPO drill pending | In Development | ADR-P2-001, M2-R03 |
 
-**Trace example:** FR-002 → AC-F02 → ASR-002/005 → layered request service → ADR-P2-001/002/003 → `POST /api/requests` → `RequestService` and repository transaction → `requests` plus receipt `activities` row → T01/T02/T23. A rejected submission creates neither row; the successful API response contains the unique reference. Browser confirmation and retention of input require their own UI evidence.
+### 7.1 End-to-End Trace Example
 
-**Change control:** CR-P2-001 proposes a due date strictly later than the current time. FR-009 states later than creation, while AC-F09 refers to future dates. The implementation enforces the stronger future-time rule. Team approval must resolve this discrepancy; the baseline wording above is deliberately retained. DEC-004's inherited category references should be FR-002/FR-003; FR-001 concerns authentication. This correction records a traceability error rather than changing requirements.
+**FR-002 Submit Request**
+
+FR-002 → AC-F02 → ASR-002 / ASR-005 → Presentation Submit Request form → RequestService → active-category validation / DES-001 → RequestRepository transaction → SQLite `requests` + receipt `activities` → ADR-P2-001 / ADR-P2-002 / ADR-P2-003 → POST `/api/requests` → T01 / T02 / T23 → frontend submission confirmation.
+
+This trace shows how one M1 requirement now connects to architecture, data, design, technology, application implementation and initial verification.
+
+### 7.2 Change Control Note
+
+CR-P2-001 proposes that due dates must be later than the current time. FR-009 states later than creation time, while AC-F09 refers to future dates. The implementation currently applies the stronger future-time rule. This remains a pending team change-control decision and must not silently replace the baselined requirement wording.
+
+DEC-004 contains an inherited traceability reference to FR-001/FR-002 for category behaviour. Category selection is more directly traced to FR-002 and FR-003; this is recorded as a traceability correction rather than a requirements change.
 
 ---
 
@@ -343,6 +353,7 @@ The M1 requirement descriptions and acceptance criteria remain in section 4. Thi
 | 09/09/2026 | Albert | Gemini | Task Brainstorming Forward Engineering Considerations | Suggested a list of 10 potential future lifecycle concerns related to web architectures AI generated | Cross-referenced the suggestions against the CivicConnect scenario to ensure relevance. Filtered out suggestions that crossed into premature implementation checked it | MODIFIED | AI suggested finalizing the CI/CD pipeline immediately; rejected this to comply with M1 boundaries against premature implementation |
 | 09/09/2026 | Albert | Gemini | Provide format for AI register and decision log table | Generated the initial Markdown syntax for the AI Usage Register and Engineering Decision Log tables. | Checked to see if coloumns aligned with project | ACCEPTED | None |
 | 09/09/2026 | Edward Goosen 602882 | ChatGPT | Reviewing and organising the Person 2 requirements section | Suggested clearer wording and a structure for presenting the requirements, acceptance criteria and RTM | Compared the suggestions with the Master Project Brief, checked the requirement links and reviewed the final content myself | MODIFIED | Some suggested rules and targets were not confirmed by the brief, so I marked them for team review |
+
 
 ---
 
@@ -572,6 +583,10 @@ These additions extend, rather than erase, the M1 register. Ratings are qualitat
 | M2-R07 | Manual quality claims lack dated reproducible evidence | Medium / High | Record tester, browser, steps/results, defects and retest; execute usability/load/recovery targets | Shared team / pending |
 | M2-R08 | Test suite excludes static integration; regression can pass API tests | High / High | Add meaningful entry-point checks for root/assets/configuration and rejection paths | Albert + Edward / pending |
 | M2-R09 | Formal shared baseline or CI is assumed from a merge alone | Medium / High | Verify two peer reviews and protection settings; introduce PR test gate | Amelia / pending |
+| M2-R10 | Frontend behaviour may become inconsistent with backend API behaviour or lifecycle rules | Medium / High | Keep frontend interactions aligned with documented endpoints, status rules and backend validation; repeat relevant integration checks after changes | Albert / open |
+| M2-R11 | Users may be offered invalid or unsupported actions through the frontend | Medium / Medium | Restrict UI controls to supported lifecycle actions and rely on backend validation as the final authority; remove or correct unsupported controls when found | Albert / open |
+| M2-R12 | Accessibility defects may prevent keyboard or zoom users from completing core workflows | Medium / High | Use semantic controls and visible focus styling; complete and record keyboard, focus and 200% zoom checks | Albert / pending verification |
+| M2-R13 | The initial frontend may give the impression that partially implemented requirements are complete | Medium / Medium | Keep incomplete RTM items marked Partial/Planned/Pending and document known frontend limitations explicitly | Albert / open |
 
 **Assumptions and dependencies:** one persistent host; moderate initial writer contention; all members can explain the selected runtime; same-origin browser/API; approved categories and staff eligibility maintained by controlled setup; HTTPS termination and backup storage available for staging. These are not provider or capability commitments. Runtime minimum, storage behaviour and representative usage require validation before deployment.
 
@@ -597,11 +612,12 @@ Repository: [CivicConnect](https://github.com/Amelia-VanDerWalt/CivicConnect). T
 
 | Contributor | M2 contribution | Repository evidence |
 |---|---|---|
-| Amelia | ASRs, architecture alternatives, selected layers and deployment direction | Architecture contribution, PR #11; main architecture.md/architecture_continued.md |
-| Edward | Schema, persistence/service/API, technology/interface ADRs, CR, tests, data RTM and documentation | Backend commit `5b993e9`, PR #10; subsequent main includes backend/ |
-| Albert | Wireframes, browser implementation, design approach decisions, UI quality documentation and integration | PR #13; inspected main commit `1afade5` |
-| Edward | Supplementary referenced Word report and SA English Excel RTM | Feature commit `0c5fa7c`, PR #14; not present on inspected main |
-| Albert | Additional RTM and risk additions | Branch commit `edb614c`, PR #15; not present on inspected main |
+| Amelia | ASRs, architecture alternatives, selected layered architecture, architecture boundaries and deployment direction | Architecture contribution, PR #11; `architecture.md`; `architecture_continued.md` |
+| Edward | Schema, persistence/service/API, technology/interface ADRs, change proposal, automated tests, data/technology documentation and Person 2 RTM/reference material | Backend contribution and PR #10; Person 2 supporting documents merged through PR #14 |
+| Albert | DES-001/DES-002, design-quality analysis, wireframes, UI architecture, browser implementation and frontend/backend integration | PR #12 and PR #13; `docs/decisions/design-patterns.md`; `docs/design-quality.md`; `docs/ui-architecture-and-verification.md`; `src/frontend/` |
+| Albert | Additional frontend RTM, Risk Register and AI usage contributions | PR #15; merged into `main` at commit `68470259ce2720c3c4dbd16cb160b63edaed08e5` |
+
+PR and commit references identify repository evidence and contribution history; they do not by themselves represent baseline approval. Person 2 supporting material from PR #14 and Person 3 traceability/risk/AI material from PR #15 are now merged project evidence rather than pending supplementary contributions.
 
 PR numbers and commit inclusion identify contributions, not the number or substance of approvals. Supplementary reports do not create a second PED baseline. Their relevant engineering content is integrated here; the original files remain supporting evidence when merged. Earlier P2 caveats about unavailable team research are superseded for this consolidation by the supplied Assignment 2 and architecture/design contributions, without rewriting their historical files.
 
@@ -613,6 +629,12 @@ The M1 rows in section 10 remain intact. These additions disclose assistance bas
 |---|---|---|---|---|
 | September 2026 | Edward / backend and P2 deliverables | Codex assisted implementation, tests, ADRs, documentation, RTM and setup/debugging guidance | Edward supplied 24/24 local results and API demonstration; repository code and requirement links checked | Used with modifications; complete acceptance and shared approval remain pending |
 | 30/09/2026 | Edward / shared PED v2.0 consolidation | Codex assembled M1 and team M2 evidence, expanded RTM and identified integration mismatches | Current main inspected; 24 tests rerun on Node 24.19.0; documents checked against code; no human sign-off invented | Consolidated for peer review; team must confirm judgements and baseline approval |
+| 30/09/2026 | Albert / M2 design-problem decisions | ChatGPT assisted with reviewing Assignment 2 alternatives and structuring DES-001 and DES-002, including trade-offs and affected components | Suggestions were checked against the implemented RequestService, RequestRepository, policy rules, M2 brief and Assignment 2 evidence | Used with modifications; Factory and Observer approaches were rejected where they added unnecessary complexity |
+| 30/09/2026 | Albert / UI architecture and wireframes | ChatGPT assisted with identifying required screens, user journeys, wireframe rationale and requirement links | Suggestions were checked against CivicConnect requirements; unsupported attachments were removed, Location was corrected to optional and incorrect requirement references were corrected | Used with modifications after several AI errors were identified |
+| 30/09/2026 | Albert / frontend implementation review | ChatGPT reviewed the HTML, CSS and JavaScript against the existing backend API and project requirements | Suggested corrections were compared with implemented endpoints and requirements before being applied | Used with modifications; issues such as submission confirmation, role routing, Closed status and keyboard-accessible controls were corrected |
+| 30/09/2026 | Albert / Person 3 documentation and traceability | ChatGPT assisted with structuring design-quality explanations and RTM mappings from existing repository evidence | Mappings were checked against repository artefacts and incomplete requirements were retained as Partial or Pending | Used with modifications; unsupported completion claims were not accepted |
+| September 2026 | Amelia / converting project documentation to Markdown | Gemini converted existing document content into Markdown format | Reviewed the converted document against her original work and removed incorrect heading numbering that Gemini had added, which started at number 5 | Used with modification; incorrect automatic heading numbering was removed |
+| September 2026 | Amelia / document formatting and completeness review | ChatGPT assisted with document layout and formatting and checked whether required content had been covered | Reviewed the output against own work and the required content before using it | Used after review; no additional specific correction was recalled |
 
 ### 19.4 M2 baseline record
 
