@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicConnect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 1. LOGIN VIEW -->
+    <div id="login-view" class="view active">
+        <div class="login-container">
+            <div class="login-box">
+                <h2>CivicConnect</h2>
+                <p class="login-subtitle">Report. Track. Improve.</p>
+                <form id="login-form">
+                    <div class="error-box" id="login-error"></div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="e.g. requester" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn" style="margin-top: 10px;">Log In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. REQUESTER DASHBOARD VIEW -->
+    <div id="requester-home-view" class="view">
+        <header class="banner">
+            <h2>CivicConnect</h2>
+            <div class="user-controls">
+                <span>Requester</span>
+                <button class="btn-text" onclick="logout()" style="margin-left: 20px; text-decoration: underline;">Logout</button>
+            </div>
+        </header>
+        <div class="layout">
+            <nav class="sidebar">
+                <button class="nav-btn active" onclick="loadRequesterDashboard()">Home</button>
+                <button class="nav-btn" onclick="loadSubmitForm()">Submit Request</button>
+                <button class="nav-btn" onclick="loadRequesterDashboard()">My Requests</button>
+            </nav>
+            <main class="content">
+                <div class="card">
+                    <h2 id="req-welcome" style="margin-top:0;">Welcome, User</h2>
+                    <p style="color: #6b7280;">Here you can submit a new service request and view your existing requests.</p>
+                    
+                    <div class="dash-buttons">
+                        <button class="action-card" onclick="loadSubmitForm()">
+                            Submit a New<br>Request
+                        </button>
+                        <button class="action-card" onclick="loadRequesterDashboard()">
+                            View My<br>Requests
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 0;">
+                    <div style="padding: 20px; border-bottom: 1px solid #e5e7eb;">
+                        <h3 style="margin: 0;">Recent Requests</h3>
+                    </div>
+                    <table id="req-requests-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Category</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="req-requests-tbody"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- 3. SUBMIT REQUEST VIEW -->
+    <div id="submit-view" class="view">
+        <header class="banner">
+            <h2>CivicConnect</h2>
+            <div class="user-controls">
+                <span>Requester</span>
+                <button class="btn-text" onclick="logout()" style="margin-left: 20px; text-decoration: underline;">Logout</button>
+            </div>
+        </header>
+        <div class="layout">
+            <nav class="sidebar">
+                <button class="nav-btn" onclick="loadRequesterDashboard()">Home</button>
+                <button class="nav-btn active">Submit Request</button>
+                <button class="nav-btn" onclick="loadRequesterDashboard()">My Requests</button>
+            </nav>
+            <main class="content">
+                <div class="card" style="max-width: 600px;">
+                    <h2 style="margin-top:0;">Submit a New Request</h2>
+                    <form id="submit-request-form">
+                        <div class="error-box" id="submit-error"></div>
+                        
+                        <div class="form-group">
+                            <label>Title *</label>
+                            <input type="text" id="req-title" maxlength="120" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Category *</label>
+                            <select id="req-category" required>
+                                <option value="">Select a category</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="text" id="req-location" placeholder="Enter address or location" maxlength="200">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description *</label>
+                            <textarea id="req-description" rows="5" placeholder="Describe the issue..." maxlength="4000" required></textarea>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; margin-top: 30px;">
+                            <button type="submit" class="btn btn-inline">Submit Request</button>
+                            <button type="button" class="btn btn-secondary btn-inline" onclick="loadRequesterDashboard()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- 4. STAFF DASHBOARD VIEW -->
+    <div id="staff-dashboard-view" class="view">
+        <header class="banner">
+            <h2>CivicConnect</h2>
+            <div class="user-controls">
+                <span>Staff</span>
+                <button class="btn-text" onclick="logout()" style="margin-left: 20px; text-decoration: underline;">Logout</button>
+            </div>
+        </header>
+        <div class="layout">
+            <nav class="sidebar">
+                <button class="nav-btn" onclick="loadStaffDashboard('all')">Home</button>
+                <button class="nav-btn active" onclick="loadStaffDashboard('all')">Request Queue</button>
+                <button class="nav-btn">Manage Requests</button>
+                <button class="nav-btn">Reports</button>
+            </nav>
+            <main class="content">
+                <h2 style="margin-top:0;">Staff Dashboard</h2>
+                <p style="color: #6b7280; margin-bottom: 25px;">View and manage assigned and unassigned requests.</p>
+                
+                <div class="tabs">
+                    <button class="tab-btn active" id="tab-all" onclick="loadStaffDashboard('all')">All Requests</button>
+                    <button class="tab-btn" id="tab-unassigned" onclick="loadStaffDashboard('unassigned')">Unassigned</button>
+                    <button class="tab-btn" id="tab-mine" onclick="loadStaffDashboard('mine')">My Assigned</button>
+                </div>
+
+                <div class="card" style="padding: 0;">
+                    <table id="staff-requests-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Category</th>
+                                <th>Status</th>
+                                <th>Assigned To</th>
+                                <th>Date</th>
+                                <th>View</th>
+                            </tr>
+                        </thead>
+                        <tbody id="staff-requests-tbody"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- 5. STAFF REQUEST VIEW (UPDATE) -->
+    <div id="staff-detail-view" class="view">
+        <header class="banner">
+            <h2>CivicConnect</h2>
+            <div class="user-controls">
+                <span>Staff</span>
+                <button class="btn-text" onclick="logout()" style="margin-left: 20px; text-decoration: underline;">Logout</button>
+            </div>
+        </header>
+        <div class="layout">
+            <nav class="sidebar">
+                <button class="nav-btn" onclick="loadStaffDashboard('all')">Home</button>
+                <button class="nav-btn" onclick="loadStaffDashboard('all')">Request Queue</button>
+                <button class="nav-btn">Manage Requests</button>
+                <button class="nav-btn">Reports</button>
+            </nav>
+            <main class="content">
+                <button class="btn-text" style="color: var(--primary); padding: 0; margin-bottom: 20px;" onclick="loadStaffDashboard('all')">← Back to Request Queue</button>
+                
+                <div class="card" style="max-width: 600px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e7eb; padding-bottom: 15px; margin-bottom: 15px;">
+                        <h2 id="detail-id" style="margin:0;">Request REQ-001</h2>
+                        <span id="detail-status-badge"></span>
+                    </div>
+                    
+                    <div style="font-size: 14px; line-height: 1.8;">
+                        <p><strong>Category:</strong> <span id="detail-category" style="margin-left:20px; color:#4b5563;"></span></p>
+                        <p><strong>Location:</strong> <span id="detail-location" style="margin-left:24px; color:#4b5563;"></span></p>
+                        <p><strong>Description:</strong> <span id="detail-description" style="margin-left:10px; color:#4b5563;"></span></p>
+                        <p><strong>Assigned To:</strong> <span id="detail-owner" style="margin-left:8px; color:#4b5563;"></span></p>
+                        <p><strong>Date Sub...:</strong> <span id="detail-date" style="margin-left:14px; color:#4b5563;"></span></p>
+                    </div>
+
+                    <h3 style="margin-top: 30px; border-top: 1px solid #e5e7eb; padding-top: 20px;">Update Status</h3>
+                    <form id="update-status-form">
+                        <div class="error-box" id="update-error"></div>
+                        
+                        <div class="form-group">
+                            <label>New Status</label>
+                            <select id="update-status" required>
+                                <option value="">Select a status</option>
+                                <option value="Assigned">Assigned (Assign to me)</option>
+                                <option value="In progress">In progress</option>
+                                <option value="Resolved">Resolved</option>
+                                <option value="Closed">Closed</option>
+                                <option value="Rejected">Rejected</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Add Note (optional)</label>
+                            <textarea id="update-note" rows="3" placeholder="Enter a note..." maxlength="2000"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-inline">Update Status</button>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
