@@ -95,3 +95,28 @@ Status: Pending team review. These additions retain the existing M1 risks and ma
 The inspected main snapshot was commit 1afade59adb1bf1ae57fc4d88b1032ee4dc65e0f. On 30 September 2026, all 24 backend tests passed on Node.js 24.19.0.
 
 These tests do not establish complete browser acceptance, production TLS, target-load performance, outage alerts or timed recovery. Keep this register aligned with PED v2.0 section 18. Formal M2 approval remains pending.
+
+## Architecture Risks — Amelia's M2 Contribution
+
+Contributor: Amelia van der Walt — 601649.
+Source: Notes_260930_224615.pdf, supplied 30 September 2026.
+
+ARCH risk IDs avoid collisions with other contributions. Original source IDs are retained below. These entries supplement related existing risks; they do not replace them or establish baseline approval.
+
+| Risk ID | Source ID | Description | Cause | Probability | Impact | Priority | Mitigation | Contingency | Owner | Status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| ARCH-R01 | RISK-010 | The selected architecture may become unnecessarily complex for the agreed system scope. | Additional layers, abstractions or patterns are introduced without a demonstrated requirement. | Medium | High | High | Keep the architecture proportional to the system scope and document architectural decisions in ADRs. | Remove unnecessary abstractions and simplify affected components before implementation continues. | Amelia | Open |
+| ARCH-R02 | RISK-011 | Components may become tightly coupled, making the system difficult to maintain or change. | Responsibilities and boundaries between architectural layers are unclear or bypassed. | Medium | High | High | Define clear component responsibilities and enforce layer boundaries through design reviews and pull requests. | Refactor affected components and update architecture documentation before further integration. | Amelia | Open |
+| ARCH-R03 | RISK-012 | Security requirements may not be consistently enforced across architectural layers. | Authentication or authorisation checks are implemented only at the interface level. | Medium | High | High | Define security as an ASR and enforce authorisation at protected application operations as well as the interface. | Disable affected functionality, correct access controls and perform negative access tests. | Amelia | Open |
+| ARCH-R04 | RISK-013 | Architectural decisions may not be reflected consistently in implementation. | Developers implement components differently from the agreed architecture or ADR decisions. | Medium | High | High | Link architecture decisions to the RTM and review implementation changes against the approved architecture once baselined. | Identify deviations and update implementation, or formally revise the ADR and related documentation. | Amelia | Open |
+| ARCH-R05 | RISK-014 | The architecture may not adequately support future changes or growth. | Important quality requirements or future operational constraints are not considered during architectural design. | Low | Medium | Medium | Maintain clear module boundaries and consider maintainability, performance and availability as architectural quality drivers. | Reassess affected boundaries and introduce changes only where justified by demonstrated requirements. | Amelia | Monitoring |
+
+### Links to Existing Evidence
+
+- ARCH-R01: RISK-001; ASR-004/008; architecture selection and DES-001/002.
+- ARCH-R02: RISK-005; ASR-004; component responsibilities and layer boundaries.
+- ARCH-R03: RISK-006 and M2-R01/04; ASR-001; NFR-001/002.
+- ARCH-R04: RISK-005 and M2-R02/08; shared RTM and architecture ADRs.
+- ARCH-R05: RISK-004/009 and M2-R03; ASR-004/006/007; NFR-004/007/008.
+
+Related risks are linked to avoid treating overlapping concerns as independent evidence. Ratings and statuses above reflect Amelia's supplied contribution and remain subject to shared review.
