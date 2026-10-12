@@ -1,0 +1,3 @@
+
+# Preserve runner-produced TAP diagnostics without rewriting raw evidence.
+backend/docs/quality/m3/*.tap -whitespace

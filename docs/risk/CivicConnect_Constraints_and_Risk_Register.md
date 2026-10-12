@@ -120,3 +120,7 @@ ARCH risk IDs avoid collisions with other contributions. Original source IDs are
 - ARCH-R05: RISK-004/009 and M2-R03; ASR-004/006/007; NFR-004/007/008.
 
 Related risks are linked to avoid treating overlapping concerns as independent evidence. Ratings and statuses above reflect Amelia's supplied contribution and remain subject to shared review.
+
+## M3 Person2 verification update — 12 October 2026
+
+M2-R01/02/08: actual-process tests reproduced static traversal, ignored port and hanging favicon. DEF-M3-001..003 corrected locally with red-to-green evidence; team review and staging retest pending. RISK-006/007 remain open despite selected access/transaction tests. M2-R05 remains open for frontend reference/reasons/history/reporting. M2-R06 requires the CR-P2-001 decision. M2-R07/09 retain browser/operational verification and CI/approval gaps. No automatic closure follows from35/35 passing tests. See backend/docs/quality/m3/test-plan.md and docs/Defect_Register.md.

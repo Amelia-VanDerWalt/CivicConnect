@@ -1,0 +1,220 @@
+TAP version 13
+# Subtest: T01 FR-002 creation persists defaults and receipt atomically
+ok 1 - T01 FR-002 creation persists defaults and receipt atomically
+  ---
+  duration_ms: 6.038717
+  type: 'test'
+  ...
+# Subtest: T02 FR-002 missing title and inactive category create no records
+ok 2 - T02 FR-002 missing title and inactive category create no records
+  ---
+  duration_ms: 2.190385
+  type: 'test'
+  ...
+# Subtest: T03 FR-003 retiring and renaming categories preserves historical label
+ok 3 - T03 FR-003 retiring and renaming categories preserves historical label
+  ---
+  duration_ms: 27.794983
+  type: 'test'
+  ...
+# Subtest: T04 FR-004 requester cannot list or retrieve another user request
+ok 4 - T04 FR-004 requester cannot list or retrieve another user request
+  ---
+  duration_ms: 3.14805
+  type: 'test'
+  ...
+# Subtest: T05 FR-006 staff category scope enforced on direct read and mutation
+ok 5 - T05 FR-006 staff category scope enforced on direct read and mutation
+  ---
+  duration_ms: 3.13218
+  type: 'test'
+  ...
+# Subtest: T06 FR-008 assignment requires eligible owner and future date
+ok 6 - T06 FR-008 assignment requires eligible owner and future date
+  ---
+  duration_ms: 5.984896
+  type: 'test'
+  ...
+# Subtest: T07 FR-010 lifecycle follows required order and notes
+ok 7 - T07 FR-010 lifecycle follows required order and notes
+  ---
+  duration_ms: 4.397962
+  type: 'test'
+  ...
+# Subtest: T08 FR-010 rejection needs reason and becomes terminal
+ok 8 - T08 FR-010 rejection needs reason and becomes terminal
+  ---
+  duration_ms: 2.470326
+  type: 'test'
+  ...
+# Subtest: T09 FR-005 FR-011 internal notes and audit snapshots hidden from requesters
+ok 9 - T09 FR-005 FR-011 internal notes and audit snapshots hidden from requesters
+  ---
+  duration_ms: 4.583478
+  type: 'test'
+  ...
+# Subtest: T10 NFR-003 competing stale edits return conflict without extra audit
+ok 10 - T10 NFR-003 competing stale edits return conflict without extra audit
+  ---
+  duration_ms: 2.9605
+  type: 'test'
+  ...
+# Subtest: T11 NFR-003 audit failure rolls back ticket mutation
+ok 11 - T11 NFR-003 audit failure rolls back ticket mutation
+  ---
+  duration_ms: 3.102283
+  type: 'test'
+  ...
+# Subtest: T12 FR-013 audit rows resist update and delete
+ok 12 - T12 FR-013 audit rows resist update and delete
+  ---
+  duration_ms: 2.169694
+  type: 'test'
+  ...
+# Subtest: T13 FR-012 oversight reads all but cannot modify requests
+ok 13 - T13 FR-012 oversight reads all but cannot modify requests
+  ---
+  duration_ms: 2.056221
+  type: 'test'
+  ...
+# Subtest: T14 FR-007 combined filters and null-last sorting
+ok 14 - T14 FR-007 combined filters and null-last sorting
+  ---
+  duration_ms: 3.06278
+  type: 'test'
+  ...
+# Subtest: T15 FR-012 report open overdue undated and MTTR are correct
+ok 15 - T15 FR-012 report open overdue undated and MTTR are correct
+  ---
+  duration_ms: 24.3852
+  type: 'test'
+  ...
+# Subtest: T16 FR-007 malformed or reversed report dates rejected
+ok 16 - T16 FR-007 malformed or reversed report dates rejected
+  ---
+  duration_ms: 2.279653
+  type: 'test'
+  ...
+# Subtest: T17 NFR-003 committed requests survive database close and reopen
+ok 17 - T17 NFR-003 committed requests survive database close and reopen
+  ---
+  duration_ms: 5.432671
+  type: 'test'
+  ...
+# Subtest: T18 NFR-008 backup restores readable complete data snapshot
+ok 18 - T18 NFR-008 backup restores readable complete data snapshot
+  ---
+  duration_ms: 21.751591
+  type: 'test'
+  ...
+# Subtest: T19 FR-009 priority scheduling records before after actor and reason
+ok 19 - T19 FR-009 priority scheduling records before after actor and reason
+  ---
+  duration_ms: 3.672078
+  type: 'test'
+  ...
+# Subtest: T20 FR-008 reassignment preserves original owner in audit
+ok 20 - T20 FR-008 reassignment preserves original owner in audit
+  ---
+  duration_ms: 3.930731
+  type: 'test'
+  ...
+# Subtest: T21 FR-002 SQL-like user input remains text
+ok 21 - T21 FR-002 SQL-like user input remains text
+  ---
+  duration_ms: 2.401808
+  type: 'test'
+  ...
+# Subtest: T22 NFR-001 unauthenticated HTTP request rejected
+ok 22 - T22 NFR-001 unauthenticated HTTP request rejected
+  ---
+  duration_ms: 48.792366
+  type: 'test'
+  ...
+# Subtest: T23 HTTP login submit CSRF cross-user access and logout
+ok 23 - T23 HTTP login submit CSRF cross-user access and logout
+  ---
+  duration_ms: 1996.518538
+  type: 'test'
+  ...
+# Subtest: T24 FR-011 visibility must be explicitly selected
+ok 24 - T24 FR-011 visibility must be explicitly selected
+  ---
+  duration_ms: 2.908696
+  type: 'test'
+  ...
+# Subtest: M3-U01 FR-002 title BVA 0 1 120 121
+ok 25 - M3-U01 FR-002 title BVA 0 1 120 121
+  ---
+  duration_ms: 1.368553
+  type: 'test'
+  ...
+# Subtest: M3-U02 FR-002 description/location BVA
+ok 26 - M3-U02 FR-002 description/location BVA
+  ---
+  duration_ms: 0.213109
+  type: 'test'
+  ...
+# Subtest: M3-U03 FR-009 priority EP
+ok 27 - M3-U03 FR-009 priority EP
+  ---
+  duration_ms: 0.176156
+  type: 'test'
+  ...
+# Subtest: M3-U04 NFR-003 positive identifier EP
+ok 28 - M3-U04 NFR-003 positive identifier EP
+  ---
+  duration_ms: 0.191799
+  type: 'test'
+  ...
+# Subtest: M3-U05 FR-010 state transitions and required reasons
+ok 29 - M3-U05 FR-010 state transitions and required reasons
+  ---
+  duration_ms: 0.170455
+  type: 'test'
+  ...
+# Subtest: M3-U06 FR-009 due-time BVA/timezone EP
+ok 30 - M3-U06 FR-009 due-time BVA/timezone EP
+  ---
+  duration_ms: 0.757627
+  type: 'test'
+  ...
+# Subtest: M3-I01 actual entry honours port/origin and serves assets
+ok 31 - M3-I01 actual entry honours port/origin and serves assets
+  ---
+  duration_ms: 1969.003712
+  type: 'test'
+  ...
+# Subtest: M3-I02 static delivery rejects raw/encoded traversal and POST
+ok 32 - M3-I02 static delivery rejects raw/encoded traversal and POST
+  ---
+  duration_ms: 982.771702
+  type: 'test'
+  ...
+# Subtest: M3-I03 favicon finishes and health query routes correctly
+ok 33 - M3-I03 favicon finishes and health query routes correctly
+  ---
+  duration_ms: 1017.84941
+  type: 'test'
+  ...
+# Subtest: M3-S01 SYSTEM submit assign lifecycle private history and logout
+ok 34 - M3-S01 SYSTEM submit assign lifecycle private history and logout
+  ---
+  duration_ms: 2056.20002
+  type: 'test'
+  ...
+# Subtest: M3-S02 SYSTEM invalid submission isolation rejection and stale edit
+ok 35 - M3-S02 SYSTEM invalid submission isolation rejection and stale edit
+  ---
+  duration_ms: 2941.01616
+  type: 'test'
+  ...
+1..35
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9558.94786

@@ -81,3 +81,7 @@ Use synthetic data over loopback HTTP. Staging requires an actual HTTPS proxy, S
 24 automated tests passed. Load targets, forced-crash recovery, actual RTO/RPO, complete security, UI/accessibility/usability and monitoring alerts are not established. Lists/reports filter scoped rows in memory. No admin UI, password reset, role elevation, request reopening, email/SMS, attachments or semantic duplicate-submission prevention is included.
 
 Merge the Word contribution into the existing team PED and the RTM columns into the shared RTM. The original source was a Person 2 draft; the combined approved PED and actual A2 report were not supplied. Attach real A2 persistence/integration findings, reconcile CR-P2-001, and obtain genuine team reviews. Preserve existing repository files/history. Use actual issues and feature branches; substantive PRs need two independent teammate approvals. No GitHub contribution, approval or baseline sign-off has been fabricated.
+
+## M3 integrated server verification
+
+The server serves the repository frontend and API together. HOST/PORT/APP_ORIGIN/COOKIE_SECURE and DB_PATH are honoured by the M3 correction. Defaults are loopback3000. HTTPS settings are for a correctly configured proxy; they do not create TLS themselves. For isolated actual-process tests use npm test; M3 tests choose PORT0 and a separate configured Origin. See docs/quality/m3/test-plan.md for outcomes and limitations. Two HTTP system journeys are automated; browser acceptance remains separately pending.
