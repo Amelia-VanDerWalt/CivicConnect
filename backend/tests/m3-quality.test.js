@@ -1,0 +1,43 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {spawn} from 'node:child_process';
+import {once} from 'node:events';
+import {mkdtempSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {request} from 'node:http';
+import {openDatabase} from '../src/infrastructure/database.js';
+import {hashPassword} from '../src/infrastructure/auth.js';
+import {text,positiveId,priority,transition,futureDate} from '../src/domain/policy.js';
+const invalid=fn=>assert.throws(fn,e=>e.status===400);
+test('M3-U01 FR-002 title BVA 0 1 120 121',()=>{invalid(()=>text('','Title',120));assert.equal(text('a','Title',120),'a');assert.equal(text('a'.repeat(120),'Title',120).length,120);invalid(()=>text('a'.repeat(121),'Title',120));});
+test('M3-U02 FR-002 description/location BVA',()=>{assert.equal(text('a'.repeat(4000),'Description',4000).length,4000);invalid(()=>text('a'.repeat(4001),'Description',4000));assert.equal(text('','Location',200,false),'');assert.equal(text('a'.repeat(200),'Location',200,false).length,200);invalid(()=>text('a'.repeat(201),'Location',200,false));});
+test('M3-U03 FR-009 priority EP',()=>{for(const p of ['Low','Normal','High'])assert.equal(priority(p),p);for(const p of ['Urgent','normal','',null])invalid(()=>priority(p));});
+test('M3-U04 NFR-003 positive identifier EP',()=>{assert.equal(positiveId(1),1);assert.equal(positiveId(Number.MAX_SAFE_INTEGER),Number.MAX_SAFE_INTEGER);for(const v of [0,-1,1.5,'1',Number.MAX_SAFE_INTEGER+1])invalid(()=>positiveId(v));});
+test('M3-U05 FR-010 state transitions and required reasons',()=>{assert.equal(transition('Assigned','In progress',''),'In progress');invalid(()=>transition('Received','Closed','x'));invalid(()=>transition('In progress','Resolved',''));assert.equal(transition('In progress','Resolved','Repaired'),'Resolved');invalid(()=>transition('Closed','Received','reopen'));});
+test('M3-U06 FR-009 due-time BVA/timezone EP',()=>{const now='2030-01-01T12:00:00.000Z';invalid(()=>futureDate(now,now));invalid(()=>futureDate('2030-01-01T11:59:59.999Z',now));assert.equal(futureDate('2030-01-01T12:00:00.001Z',now),'2030-01-01T12:00:00.001Z');invalid(()=>futureDate('2030-01-02T12:00:00',now));});
+async function boot(t){
+ const dir=mkdtempSync(join(tmpdir(),'civic-m3-')),db=openDatabase(join(dir,'test.sqlite')),password=crypto.randomUUID(),hash=await hashPassword(password);
+ const insert=db.prepare('INSERT INTO users(id,username,name,password_hash,role) VALUES(?,?,?,?,?)');
+ for(const [id,name,role] of [[1,'requester','Requester'],[2,'requester2','Requester'],[3,'staff','Staff'],[4,'itstaff','Staff']])insert.run(id,name,name,hash,role);
+ db.exec("INSERT INTO categories VALUES(1,'Facilities',1),(2,'IT',1); INSERT INTO staff_categories VALUES(3,1),(4,2)");db.close();
+ const child=spawn(process.execPath,['src/server.js'],{cwd:new URL('../',import.meta.url),env:{...process.env,DB_PATH:join(dir,'test.sqlite'),HOST:'127.0.0.1',PORT:'0',APP_ORIGIN:'http://127.0.0.1:3999',COOKIE_SECURE:'false'},stdio:['ignore','pipe','pipe']});let logs='';child.stderr.on('data',c=>{logs+=c;});
+ t.after(async()=>{if(child.exitCode===null){child.kill();await Promise.race([once(child,'exit'),new Promise(resolve=>setTimeout(()=>{child.kill('SIGKILL');resolve();},1500).unref())]);}rmSync(dir,{recursive:true,force:true});});
+ const origin=await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(new Error('Startup timeout')),5000);child.stdout.on('data',c=>{logs+=c;const m=logs.match(/http:\/\/127\.0\.0\.1:(\d+)/);if(m){clearTimeout(timer);resolve(m[0]);}});child.once('exit',()=>{clearTimeout(timer);reject(new Error('Exited before ready'));});});
+ const source=origin.endsWith(':3000')?origin:'http://127.0.0.1:3999';
+ const post=async(path,data,user)=>{const response=await fetch(origin+path,{method:'POST',headers:{'Content-Type':'application/json',Origin:source,...(user?{Cookie:user.cookie,'X-CSRF-Token':user.csrf}:{})},body:JSON.stringify(data),signal:AbortSignal.timeout(3000)});return {status:response.status,data:await response.json()};};
+ const login=async username=>{const response=await fetch(origin+'/api/login',{method:'POST',headers:{'Content-Type':'application/json',Origin:source},body:JSON.stringify({username,password}),signal:AbortSignal.timeout(3000)});assert.equal(response.status,200);return {cookie:response.headers.get('set-cookie').split(';')[0],...await response.json()};};
+ const get=async(path,user)=>{const response=await fetch(origin+path,{headers:user?{Cookie:user.cookie}:{},signal:AbortSignal.timeout(3000)});return {status:response.status,data:await response.json()};};
+ const raw=path=>new Promise((resolve,reject)=>{const req=request(origin,{path},res=>{res.resume();res.on('end',()=>resolve(res.statusCode));});req.on('error',reject);req.setTimeout(1500,()=>req.destroy(new Error('Response did not finish')));req.end();});return {origin,post,login,get,raw};
+}
+test('M3-I01 actual entry honours port/origin and serves assets',async t=>{const f=await boot(t);assert.notEqual(new URL(f.origin).port,'3000');for(const p of ['/','/app.js','/style.css'])assert.equal(await f.raw(p),200);assert.equal((await f.get('/health')).data.status,'ok');await f.login('requester');});
+test('M3-I02 static delivery rejects raw/encoded traversal and POST',async t=>{const f=await boot(t);assert.equal(await f.raw('/../../backend/package.json'),404);assert.equal(await f.raw('/%2e%2e/%2e%2e/backend/package.json'),404);assert.equal((await fetch(f.origin+'/',{method:'POST',signal:AbortSignal.timeout(3000)})).status,405);});
+test('M3-I03 favicon finishes and health query routes correctly',async t=>{const f=await boot(t);assert.equal(await f.raw('/favicon.ico'),404);assert.equal((await f.get('/health?probe=1')).status,200);});
+test('M3-S01 SYSTEM submit assign lifecycle private history and logout',async t=>{const f=await boot(t),r=await f.login('requester'),s=await f.login('staff');let out=await f.post('/api/requests',{title:'Broken hallway light',description:'Light does not work',category_id:1},r);assert.equal(out.status,201);let ticket=out.data;assert.equal(ticket.status,'Received');assert.ok((await f.get('/api/requests',r)).data.some(x=>x.id===ticket.id));
+ out=await f.post(`/api/requests/${ticket.id}/assign`,{version:ticket.version,owner_id:3,priority:'High',due_at:new Date(Date.now()+86400000).toISOString(),note:'Inspect fitting'},s);assert.equal(out.status,200);ticket=out.data;
+ out=await f.post(`/api/requests/${ticket.id}/note`,{version:ticket.version,note:'Staff-only diagnostic',visibility:'Internal'},s);assert.equal(out.status,200);ticket=out.data;
+ for(const [status,note] of [['In progress','Inspection started'],['Resolved','Replaced fitting'],['Closed','Work confirmed']]){out=await f.post(`/api/requests/${ticket.id}/status`,{version:ticket.version,status,note},s);assert.equal(out.status,200);ticket=out.data;}
+ const visible=await f.get(`/api/requests/${ticket.id}`,r);assert.equal(visible.data.status,'Closed');assert.ok(!JSON.stringify(visible.data).includes('Staff-only diagnostic'));assert.ok(visible.data.activities.some(a=>a.note==='Replaced fitting'));assert.equal((await f.get(`/api/requests/${ticket.id}`,s)).data.activities.length,6);assert.equal((await f.post('/api/logout',{},r)).status,200);assert.equal((await f.get('/api/requests',r)).status,401);
+});
+test('M3-S02 SYSTEM invalid submission isolation rejection and stale edit',async t=>{const f=await boot(t),r=await f.login('requester'),other=await f.login('requester2'),s=await f.login('staff'),it=await f.login('itstaff');assert.equal((await f.post('/api/requests',{title:'',description:'Issue',category_id:1},r)).status,400);assert.equal((await f.get('/api/requests',r)).data.length,0);const created=await f.post('/api/requests',{title:'Duplicate fault',description:'Previously reported',category_id:1},r);assert.equal(created.status,201);const id=created.data.id;assert.equal((await f.get(`/api/requests/${id}`,other)).status,404);assert.equal((await f.get(`/api/requests/${id}`,it)).status,404);assert.equal((await f.post(`/api/requests/${id}/status`,{version:1,status:'Rejected',note:''},s)).status,400);assert.equal((await f.post(`/api/requests/${id}/status`,{version:1,status:'Rejected',note:'Duplicate of existing fault'},s)).status,200);const visible=await f.get(`/api/requests/${id}`,r);assert.equal(visible.data.status,'Rejected');assert.ok(visible.data.activities.some(a=>a.note==='Duplicate of existing fault'));assert.equal((await f.post(`/api/requests/${id}/note`,{version:1,note:'stale',visibility:'Public'},s)).status,409);assert.equal((await f.get(`/api/requests/${id}`,s)).data.activities.length,2);
+});

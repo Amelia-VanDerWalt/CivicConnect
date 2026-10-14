@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-12",
+  "node": "24.19.0",
+  "platform": "Linux x86_64",
+  "source_main": "c21cacd472e896548b63a4125565501f653f1793",
+  "candidate": "uncommitted review changes over source_main; not final release identifier",
+  "test_count": 35,
+  "pass": 35,
+  "fail": 0,
+  "files": {
+    "backend/db/migrations/001_initial.sql": "0d90017297c33fe88249eba5ea6231908e1759480188ff3cbebcaff1267828c8",
+    "backend/package-lock.json": "4b2e08cb8061325d8d4d4c4003ae4234e9e38e59e45c0847d4ec74a4b67b7321",
+    "backend/package.json": "ef417243001e39997586e48ea607a7418afea2a866e38107c3ab307fbe8f714b",
+    "backend/src/application/request-service.js": "b32e2d376878fa63a2606f2525b4d6e0b571aefd49553f9f78a4ac1997c34add",
+    "backend/src/domain/policy.js": "b7418203ff89aef0106f48e8e4760adeec19b8d8d11474c3042489e03762151a",
+    "backend/src/http/app.js": "71d7969a0be1e7a96ca6a1047e21279e2c10253a55dad3ff7ea560d4b5976400",
+    "backend/src/infrastructure/auth.js": "27dbd31c00a72e59541dd3572a81ae48edc6b31c7eb89500bdf53a181f2a58cd",
+    "backend/src/infrastructure/database.js": "e672d8b32a8a435e76d7aa31e1d8e7d87a3c4e6ed62af0692853bc64cc097fb6",
+    "backend/src/infrastructure/request-repository.js": "58ffdb7cc8dfac024241f26f0532f2cd844eee4a570f0fe095c4ed7d78765a92",
+    "backend/src/server.js": "37f02c8e5c019b0bbaf4f6b28aa45f109c650c512c602612e851936c64041433",
+    "backend/tests/civicconnect.test.js": "2e70d2abacb9175658bf853f47581ba3eb318cc2ea0032c5aa77c3ab194fd420",
+    "backend/tests/m3-quality.test.js": "4d6bbeb7c4f41e10c1c50337bafee47bfe495db36d60ecbbeda516c7bbd60883",
+    "src/frontend/app.js": "a6345e1e644b5251fa2161da5cf47b15b46f3493fee5d67e69e221cffad18d79",
+    "src/frontend/index.html": "cdf9d5bc7edb2420426d1d3d32ed1a57caf71f56bdc03a8fd9466464686385df",
+    "src/frontend/style.css": "e7a3131471157657acc0a1394152ad0efd05d1263bf41f21d276533be8c2e6cb"
+  },
+  "reports": {
+    "before-fix.tap": "2efb7c83c28623070e08c72df7fdf821cb7ed7ef6ca60352045a4524b281c884",
+    "after-fix.tap": "6200f74a26c3c62c10dd8d17b219cf26d5fecbb0cf0aa513e36151b0befc32e5"
+  }
+}

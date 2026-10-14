@@ -13,5 +13,8 @@
 |24/09/2026|Edward Goosen 602882|ChatGPT|Milestone 2 backend and supporting documents|Assisted with backend code, tests, data model, ADRs, API documentation and RTM|Ran all 24 tests successfully and demonstrated login, submission, assignment and status updates locally|MODIFIED|  Setup and login needed troubleshooting,full interface and acceptance checks remain incomplete|
 |28/09/2026|Edward Goosen 602882|ChatGPT|Consolidating PED v2.0|Helped combine M1 and M2 contributions.|Codex checked repository evidence and reran 24 tests successfully |MODIFIED|Server configuration differed from documentation; some interface features and verification remain incomplete |
 
+### M3 Person2 assistance — 12 October 2026
 
-
+| Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
+|---|---|---|---|---|---|---|---|
+| 12/10/2026 | Edward Goosen602882 | ChatGPT/Codex | M3 testing and quality | Assisted test design/code, reproduced server defects, implemented scoped fixes and prepared RTM/quality records | Assistant ran11 new checks on baseline:8 pass/3 fail; after correction full35 pass. Student/local rerun and peer review pending | Review candidate; human approval not claimed | Configuration ignored, traversal exposure, hanging favicon; UI acceptance and release evidence remain incomplete |

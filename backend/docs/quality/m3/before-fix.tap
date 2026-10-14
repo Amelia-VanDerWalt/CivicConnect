@@ -1,0 +1,124 @@
+TAP version 13
+# Subtest: M3-U01 FR-002 title BVA 0 1 120 121
+ok 1 - M3-U01 FR-002 title BVA 0 1 120 121
+  ---
+  duration_ms: 2.023685
+  type: 'test'
+  ...
+# Subtest: M3-U02 FR-002 description/location BVA
+ok 2 - M3-U02 FR-002 description/location BVA
+  ---
+  duration_ms: 0.21628
+  type: 'test'
+  ...
+# Subtest: M3-U03 FR-009 priority EP
+ok 3 - M3-U03 FR-009 priority EP
+  ---
+  duration_ms: 0.170027
+  type: 'test'
+  ...
+# Subtest: M3-U04 NFR-003 positive identifier EP
+ok 4 - M3-U04 NFR-003 positive identifier EP
+  ---
+  duration_ms: 0.438693
+  type: 'test'
+  ...
+# Subtest: M3-U05 FR-010 state transitions and required reasons
+ok 5 - M3-U05 FR-010 state transitions and required reasons
+  ---
+  duration_ms: 0.417349
+  type: 'test'
+  ...
+# Subtest: M3-U06 FR-009 due-time BVA/timezone EP
+ok 6 - M3-U06 FR-009 due-time BVA/timezone EP
+  ---
+  duration_ms: 2.22764
+  type: 'test'
+  ...
+# Subtest: M3-I01 actual entry honours port/origin and serves assets
+not ok 7 - M3-I01 actual entry honours port/origin and serves assets
+  ---
+  duration_ms: 1055.376889
+  type: 'test'
+  location: '/workspace/scratch/abe536bfaaf4/CivicConnect_PED_review/backend/tests/m3-quality.test.js:33:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected "actual" to be strictly unequal to:
+    
+    '3000'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '3000'
+  actual: '3000'
+  operator: 'notStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/abe536bfaaf4/CivicConnect_PED_review/backend/tests/m3-quality.test.js:33:105)
+    process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: M3-I02 static delivery rejects raw/encoded traversal and POST
+not ok 8 - M3-I02 static delivery rejects raw/encoded traversal and POST
+  ---
+  duration_ms: 959.829459
+  type: 'test'
+  location: '/workspace/scratch/abe536bfaaf4/CivicConnect_PED_review/backend/tests/m3-quality.test.js:34:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    200 !== 404
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 404
+  actual: 200
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///workspace/scratch/abe536bfaaf4/CivicConnect_PED_review/backend/tests/m3-quality.test.js:34:109)
+    process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: M3-I03 favicon finishes and health query routes correctly
+not ok 9 - M3-I03 favicon finishes and health query routes correctly
+  ---
+  duration_ms: 2524.598302
+  type: 'test'
+  location: '/workspace/scratch/abe536bfaaf4/CivicConnect_PED_review/backend/tests/m3-quality.test.js:35:1'
+  failureType: 'testCodeFailure'
+  error: 'Response did not finish'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    ClientRequest.<anonymous> (file:///workspace/scratch/abe536bfaaf4/CivicConnect_PED_review/backend/tests/m3-quality.test.js:31:204)
+    Object.onceWrapper (node:events:630:28)
+    ClientRequest.emit (node:events:509:28)
+    Socket.emitRequestTimeout (node:_http_client:1099:9)
+    Object.onceWrapper (node:events:630:28)
+    Socket.emit (node:events:521:24)
+    Socket._onTimeout (node:net:740:8)
+    Timeout.onStreamTimeout [as _onTimeout] (node:internal/stream_base_commons:237:10)
+    listOnTimeout (node:internal/timers:637:11)
+    process.processTimers (node:internal/timers:571:7)
+  ...
+# Subtest: M3-S01 SYSTEM submit assign lifecycle private history and logout
+ok 10 - M3-S01 SYSTEM submit assign lifecycle private history and logout
+  ---
+  duration_ms: 1946.877715
+  type: 'test'
+  ...
+# Subtest: M3-S02 SYSTEM invalid submission isolation rejection and stale edit
+ok 11 - M3-S02 SYSTEM invalid submission isolation rejection and stale edit
+  ---
+  duration_ms: 2903.715019
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 8
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9953.272844
