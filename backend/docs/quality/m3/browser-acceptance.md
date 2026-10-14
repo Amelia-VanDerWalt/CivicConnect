@@ -1,4 +1,4 @@
-# Browser acceptance — pending human execution
+# Browser acceptance — execution and retests
 
 These records are NOT passed by the HTTP system suite. Record tester, date, browser, exact candidate SHA, expected/actual, status and evidence. Use synthetic data, test DB and generated setup passwords.
 
@@ -8,12 +8,12 @@ These records are NOT passed by the HTTP system suite. Record tester, date, brow
 | B02 | FR-001/002/004/006/010 | Blank required input retains fields and prevents submission. Requester2 cannot see requester1's record. IT staff cannot act on Facilities request. Empty rejection/resolution reasons blocked by UI. Logout prevents protected navigation. | Not run |
 | B03 | NFR-005/006 | Keyboard-only submit/lookup/staff journey with visible focus and 200% zoom. Separate representative-user study measures unassisted 80%/3-minute target. | Not run |
 
-Known blockers: frontend uses REQ-id rather than full reference; requester detail/history and oversight UI incomplete; fallback status text may bypass meaningful reason capture. Person 1/3 implementation work is required. Attach actual observations, not anticipated results.
+Initial blockers: reference mismatch and generic status-note fallback were identified before correction. Their retests are recorded below. Requester detail/history and oversight UI remain incomplete.
 
 ## Edward's browser execution — 12–13 October 2026
 
 Tester: Edward Goosen — 602882
-Browser: d controls usable | Pass — tested scope |
+Browser: browser name/version was not reliably recorded.
 Environment: Windows, Node.js 24.20.0
 URL: http://127.0.0.1:3018
 Tested commit: df237bd477c36cc94ce77d09047bb65db43df139
@@ -37,13 +37,14 @@ Evidence: tester observations and screenshots reviewed during the guided checks.
 | Logout and refresh | Login screen; protected data unavailable | Login screen displayed without request data | Pass |
 | Browser Back after logout | Attempt return to protected view | Back button disabled | Not applicable |
 | Requester keyboard/focus | Tested controls reachable with visible focus | Tester confirmed login and submission-form navigation | Pass — tested scope |
-| Requester 200% zoom | Dashboard/form readable and usable | Tester confirme| Staff keyboard/focus and 200% zoom | Queue/details controls reachable and readable | Screenshot and tester confirmation | Pass — tested scope |
+| Requester 200% zoom | Dashboard/form readable and usable | Tester confirmed controls usable | Pass — tested scope |
+| Staff keyboard/focus and 200% zoom | Queue/details controls reachable and readable | Screenshot and tester confirmation | Pass — tested scope |
 
 ### Interpretation and remaining work
 
 These results update the initial Not run checklist above; they do not mark every part of B01–B03 passed.
 
-The resolution-summary failure and reference mismatch remain open.
+The original resolution-summary failure and reference mismatch are preserved above. Corrections and subsequent retests are recorded below.
 Direct-resource browser isolation, rejection with an empty reason,
 complete activity-history acceptance and representative-user usability
 were not established by these checks.
@@ -51,3 +52,37 @@ were not established by these checks.
 Keyboard and browser-zoom checks do not establish full WCAG compliance.
 Retest corrected defects and critical journeys on the final release candidate.
 No passwords are included in this record.
+
+## Edward's correction retests — 14 October 2026
+
+Tester: Edward Goosen — 602882
+Environment: Windows PowerShell, Node.js 24.20.0
+URL: http://127.0.0.1:3018
+Test database: m3-browser-20261012-153500.sqlite
+Base commit: 9b9878aa294fe135e57ac4bb8ab0c8845f405cf0
+Candidate: base commit plus uncommitted src/frontend/app.js corrections.
+Frontend file SHA-256: 32769F15F3E93499496D8D600CF6D5D880A4C8991549E6FACC866535C970573E
+Browser name/version: not recorded.
+Evidence: screenshots and tester confirmations during guided browser checks.
+
+| Check | Expected result | Actual result | Status |
+|---|---|---|---|
+| Requester reference | Display full backend CC reference | Tester confirmed full reference displayed | Pass — DEF-M3-004 |
+| Staff queue reference | Display full backend CC reference | Screenshot confirmed full reference displayed | Pass — DEF-M3-004 |
+| Staff details reference | Match the queue's full CC reference | Tester confirmed matching reference | Pass — DEF-M3-004 |
+| Empty resolution summary | Show validation error and retain In progress | Tester confirmed error and unchanged status | Pass — DEF-M3-005 |
+| Supplied resolution summary | Allow transition to Resolved | Tester confirmed successful update | Pass — DEF-M3-005 |
+| Empty rejection reason | Show validation error and retain Received | Tester confirmed both rejection checks passed | Pass — DEF-M3-005 |
+| Supplied rejection reason | Allow transition to Rejected | Tester confirmed successful rejection | Pass — DEF-M3-005 |
+
+Automated regression: npm.cmd test; 35 passed, 0 failed, 0 cancelled,
+0 skipped; duration 10445.88 ms.
+Frontend syntax: node --check src/frontend/app.js completed without errors.
+The automated suite does not execute the frontend DOM validation; the
+browser checks above provide evidence for those corrections.
+
+DEF-M3-004 and DEF-M3-005 are fixed and retested, pending peer review.
+DEF-M3-006 remains open. Full activity-history/reporting acceptance,
+representative-user usability and full WCAG compliance are not established.
+The longer references have not been retested at 200% zoom.
+No credentials are included.

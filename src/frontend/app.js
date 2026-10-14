@@ -87,7 +87,7 @@ async function loadRequesterDashboard() {
         requests.forEach(req => {
             tbody.innerHTML += `
                 <tr>
-                    <td>REQ-${req.id}</td>
+                    <td>${req.reference}</td>
                     <td>${req.category_label || req.category_id}</td>
                     <td>${getStatusBadge(req.status)}</td>
                     <td style="color: #6b7280;">${req.created_at.split('T')[0]}</td>
@@ -160,7 +160,7 @@ async function loadStaffDashboard(filterType) {
 
             tbody.innerHTML += `
                 <tr>
-                    <td>REQ-${req.id}</td>
+                    <td>${req.reference}</td>
                     <td>${req.category_label || req.category_id}</td>
                     <td>${getStatusBadge(req.status)}</td>
                     <td>${ownerText}</td>
@@ -186,7 +186,7 @@ async function loadStaffDetail(id) {
             ownerText = (currentRequestData.owner_id === currentUser.id) ? 'You' : `Staff ID ${currentRequestData.owner_id}`;
         }
 
-        document.getElementById('detail-id').textContent = `Request REQ-${currentRequestData.id}`;
+        document.getElementById('detail-id').textContent = `Request ${currentRequestData.reference}`;
         document.getElementById('detail-status-badge').innerHTML = getStatusBadge(currentRequestData.status);
         document.getElementById('detail-category').textContent = currentRequestData.category_label;
         document.getElementById('detail-location').textContent = currentRequestData.location || 'N/A';
@@ -202,7 +202,15 @@ document.getElementById('update-status-form').addEventListener('submit', async (
     e.preventDefault();
     const errorBox = document.getElementById('update-error');
     const newStatus = document.getElementById('update-status').value;
-    const note = document.getElementById('update-note').value;
+    const note = document.getElementById('update-note').value.trim();
+    errorBox.textContent = '';
+
+    if (['Resolved', 'Rejected'].includes(newStatus) && !note) {
+        errorBox.textContent = newStatus === 'Resolved'
+            ? 'Enter a resolution summary before resolving this request.'
+            : 'Enter a reason before rejecting this request.';
+        return;
+    }
 
     try {
         if (newStatus === 'Assigned' && currentRequestData.status === 'Received') {
