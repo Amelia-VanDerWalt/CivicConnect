@@ -326,15 +326,15 @@
             "HTTPS proposed; Secure cookie option; sanitized errors",
             "Node 24.x / SQLite candidate; tested Node 24.19.0, SQLite 3.53.3",
             "auth.js; app.js; .env.example; .gitignore",
-            "T23 partial; selected static/secret-pattern and dependency-audit checks reported passing in CI run #11 on baseline 53bf185a2938d20df5d0d12a1a3ea120d635d6f5; production TLS and full secret/log scan remain unproven.",
-            "Partial implementation; no TLS or repository/log scan evidence",
+            "CI run #30 reported successful on commit 98ff24f459de205cb125ab88a6c26e0ef5b27912: selected static/security checks, repository hygiene checks and npm audit passed. The Person 3 handoff reports 15 JavaScript files checked, no unignored .env/SQLite artefacts, no selected hard-coded secret-token patterns, and no high/critical npm dependency vulnerabilities. This is a selected pattern check, not a comprehensive secret/log scan; production TLS is not demonstrated.",
+            "Partial: selected static/security and repository-hygiene checks have CI evidence; production TLS, network traffic audit, and comprehensive repository/build/log secret scanning remain unverified.",
             "ADR-P2-001; ADR-P2-002; ADR-P2-003; P2-R05; P2-R07",
             "Original supplied status: Draft; team approval pending",
-            "[PR #23 CI workflow](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/23); [PR #25 Person 3 evidence](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/25); [Actions run #30, successful on prior candidate SHA 98ff24f459de205cb125ab88a6c26e0ef5b27912](https://github.com/Amelia-VanDerWalt/CivicConnect/actions/runs/38797557518). Final current SHA requires its own check.",
+            "[PR #23 — CI, security, staging and performance implementation](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/23); [PR #25 — merged Person 3 handoff](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/25); [successful GitHub Actions run #30 on commit `98ff24f459de205cb125ab88a6c26e0ef5b27912`](https://github.com/Amelia-VanDerWalt/CivicConnect/actions/runs/38797557518); [PR #27 — PED/RTM integration and review](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/27). The cited CI run is evidence for its recorded commit, not a substitute for a fresh run on the final submitted SHA.",
             "T21, M3-I01, M3-I02",
             "Text preserved; table intact; Dynamic port;assets200;health ok;configured-Origin login200; 404 traversal;405 unsupported method",
-            "Selected static/security checks reportedly passed on CI run #11: syntax/static checks, ignored runtime artefacts and selected hard-coded secret-token patterns; dependency audit configured at high severity. This is not proof of complete repository/log secret scanning or production TLS.",
-            "Selected checks evidenced; TLS, full secret/log scanning and production security acceptance remain pending. DEF-M3-002 fix is recorded in defect register; peer review/acceptance status remains separate."
+            "Person 3 handoff reports selected security checks passed in CI: 15 JS files passed syntax/static checks; no exposed .env/SQLite runtime artefacts; no selected hard-coded secret-token patterns; no high/critical npm dependency vulnerabilities. The configured audit threshold is high severity. No claim of production TLS or exhaustive secret/log scanning.",
+            "Selected CI checks evidenced; TLS and comprehensive secret/log scan remain open. DEF-M3-002 is recorded as fixed in the defect register, but the original NFR acceptance criterion is only partially evidenced."
         ],
         [
             "NFR-003",
@@ -368,15 +368,15 @@
             "List/read/write timing across endpoints",
             "Node 24.x / SQLite candidate; tested Node 24.19.0, SQLite 3.53.3",
             "migration 001 indexes; RequestService.list/report; perf-check.js",
-            "Small smoke workload only: 200 seeded records, 50 reads and 10 writes; measured p95 values meet configured smoke thresholds. Formal 5,000-record, 20-user, 15-minute workload not executed.",
-            "Planned; no load compliance claimed",
+            "Performance smoke test in CI run #30 used 200 seeded requests, 10 live writes and 50 authenticated sequential read/filter requests. Reported results: total 943.37 ms; reads 50/50, average 4.51 ms, p95 6.81 ms, max 13.08 ms; writes 10/10, average 5.05 ms, p95/max 9.99 ms. These are smoke-test figures only.",
+            "Partial performance evidence: configured smoke thresholds passed for the tested small workload. Formal AC-N04 workload (5,000 active records, 20 concurrent users, 15 minutes, 80/20 read-write mix) has not been run; no full NFR-004 compliance claim.",
             "ADR-P2-001; ADR-P2-002; ADR-P2-003; P2-R02",
             "Original supplied status: Draft; team approval pending",
-            "[Person 3 handoff](../../docs/PED/m3-albert-handoff.md); [PED v3.0 performance section](../../docs/PED/PED_v3.0.md#8-performance-and-reliability); [PR #25](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/25); [Actions run #30, successful on prior candidate SHA 98ff24f459de205cb125ab88a6c26e0ef5b27912](https://github.com/Amelia-VanDerWalt/CivicConnect/actions/runs/38797557518). Final current SHA requires its own check.",
-            "Small performance smoke: 200 seeded records, 50 authenticated read/filter requests, 10 authenticated writes; see PED v3.0 Section 8 and Person 3 handoff.",
-            "See original acceptance criterion",
-            "Run #11 figures recorded in Person 3 handoff/PED: total 943.37 ms; read average/p95/max 4.51/6.81/13.08 ms; write average/p95/max 5.05/9.99/9.99 ms. Smoke thresholds passed only for this workload.",
-            "Small workload evidenced; formal NFR-004 acceptance pending. No full-load compliance claimed; TD-M3-001 remains open."
+            "[PR #23 — CI, security, staging and performance implementation](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/23); [PR #25 — merged Person 3 handoff](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/25); [successful GitHub Actions run #30 on commit `98ff24f459de205cb125ab88a6c26e0ef5b27912`](https://github.com/Amelia-VanDerWalt/CivicConnect/actions/runs/38797557518); [PR #27 — PED/RTM integration and review](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/27). The cited CI run is evidence for its recorded commit, not a substitute for a fresh run on the final submitted SHA.",
+            "Person 3 performance smoke test: 200 seeded records, 50 authenticated read/filter requests, 10 authenticated writes; automated perf-check.js; CI run #30.",
+            "For the smoke workload, read p95 <= 2,000 ms and write p95 <= 3,000 ms; separately, formal NFR-004 requires the 5,000-record / 20-user / 15-minute workload.",
+            "CI smoke results reported: total 943.37 ms; read average/p95/max 4.51/6.81/13.08 ms (50/50 success); write average/p95/max 5.05/9.99/9.99 ms (10/10 success). Smoke thresholds passed; full load criterion not tested.",
+            "Smoke-test evidence incorporated. Full NFR-004 acceptance remains pending; TD-M3-001 scalability concern remains relevant."
         ],
         [
             "NFR-005",
@@ -452,15 +452,15 @@
             "Operator script, no public recovery endpoint",
             "Node 24.x / SQLite candidate; tested Node 24.19.0, SQLite 3.53.3",
             "scripts/backup.js; node:sqlite backup",
-            "Backup snapshot creation/readability and SQLite integrity check are reported in simulated staging. Timed restore, off-site recovery and formal RTO/RPO target not demonstrated.",
-            "Partial evidence; RTO/RPO targets not demonstrated",
+            "Simulated staging verification ran the real server on an isolated staging SQLite database, completed the critical Requester/Staff lifecycle, created a backup snapshot, checked SQLite integrity and confirmed retained request state in the backup. Timed full restore and off-site recovery are not demonstrated.",
+            "Partial: backup snapshot creation/readability and SQLite integrity are evidenced by the simulated staging CI flow. RTO <=60 minutes, RPO <=24 hours and off-site disaster recovery remain unproven.",
             "ADR-P2-001; ADR-P2-002; ADR-P2-003; P2-R01; P2-R03",
             "Original supplied status: Draft; team approval pending",
-            "[Person 3 handoff](../../docs/PED/m3-albert-handoff.md); [PR #25](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/25); [Actions run #30, successful on prior candidate SHA 98ff24f459de205cb125ab88a6c26e0ef5b27912](https://github.com/Amelia-VanDerWalt/CivicConnect/actions/runs/38797557518). Final current SHA requires its own check.",
-            "T18",
-            "One request and activity; integrity_check ok",
-            "Simulated staging reportedly created a backup snapshot, verified integrity and retained request state. Evidence supports snapshot/readability checks, not a timed full-system recovery drill.",
-            "Partial evidence; RTO <=60 minutes, RPO <=24 hours, off-site retention and full disaster recovery remain unproven."
+            "[PR #23 — CI, security, staging and performance implementation](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/23); [PR #25 — merged Person 3 handoff](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/25); [successful GitHub Actions run #30 on commit `98ff24f459de205cb125ab88a6c26e0ef5b27912`](https://github.com/Amelia-VanDerWalt/CivicConnect/actions/runs/38797557518); [PR #27 — PED/RTM integration and review](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/27). The cited CI run is evidence for its recorded commit, not a substitute for a fresh run on the final submitted SHA.",
+            "T18 plus Person 3 staging/backup verification in CI run #30; simulated staging lifecycle and backup snapshot checks.",
+            "Create and validate a backup snapshot and preserve request data; separately prove full restore within 60 minutes and <=24 hours data loss to satisfy formal AC-N08.",
+            "Person 3 handoff reports simulated staging success, backup snapshot creation, PRAGMA integrity_check success and confirmation that the completed request exists in the backup. No timed full-system restore or off-site recovery evidence.",
+            "Backup snapshot/integrity evidence incorporated. Formal RTO/RPO and disaster-recovery acceptance remain pending; do not claim full NFR-008 compliance."
         ]
     ]
 }
