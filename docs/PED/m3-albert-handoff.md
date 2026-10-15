@@ -132,7 +132,7 @@ The repository later incorporated the remaining Person 1 and Person 2 M3 handoff
 
 `53bf185a2938d20df5d0d12a1a3ea120d635d6f5`
 
-GitHub Actions **run #11** executed successfully on this current `main` commit.
+GitHub Actions [run #11 evidence](https://github.com/Amelia-VanDerWalt/CivicConnect/actions) is reported against this `main` baseline. The run-specific Actions URL must be confirmed from the workflow history before final submission.
 
 The CI evidence includes:
 
@@ -181,17 +181,19 @@ The verified GitHub Actions performance evidence recorded:
 | Measure | Result |
 |---|---:|
 | Dataset | 200 seeded requests + 10 live writes |
-| Total measured workload duration | 873.93 ms |
+| Total measured workload duration | 943.37 ms |
 | Read success | 50 / 50 |
-| Read average | 3.38 ms |
-| Read p95 | 3.86 ms |
-| Read maximum | 11.87 ms |
+| Read average | 4.51 ms |
+| Read p95 | 6.81 ms |
+| Read maximum | 13.08 ms |
 | Write success | 10 / 10 |
-| Write average | 3.70 ms |
-| Write p95 | 5.72 ms |
-| Write maximum | 5.72 ms |
+| Write average | 5.05 ms |
+| Write p95 | 9.99 ms |
+| Write maximum | 9.99 ms |
 
 The test compares read p95 against the existing `<= 2000 ms` target and write p95 against `<= 3000 ms`. The small M3 workload passed both thresholds.
+
+The reported measurements above are the values recorded for CI run #11 and are the figures to use in the consolidated PED and M3 RTM. They describe the 200-record smoke workload only; they do not satisfy the formal NFR-004 workload.
 
 ### 8.4 Interpretation and limitations
 
