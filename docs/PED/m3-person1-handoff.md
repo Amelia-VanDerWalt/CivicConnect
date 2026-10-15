@@ -2,7 +2,7 @@
 
 **Project:** CivicConnect  
 **Owner:** Person 1 — Architecture and implementation conformance  
-**Status:** Working draft for team review; not a release approval  
+**Status:** Supporting handoff; consolidated review candidate is `PED_v3.0.md`; not a release approval  
 **Baseline reference:** `docs/PED/PED_v2.0.md`, architecture documents, design decisions, requirements and current repository implementation  
 **Purpose:** Provide the Person 1 contribution for PED v3.0 sections 1–4. Integrate into the shared PED after the team checks the evidence and Person 3's release/CI work. This file is an evidence-oriented handoff, not a substitute for the shared PED.
 
@@ -68,7 +68,7 @@ Do not equate code presence with acceptance. Person 2's test results and Person 
 | Oversight reporting (FR-012) | Read-only aggregate reporting API | Oversight reporting is available through the API; Oversight browser interface is not implemented | **Partial.** Do not claim a complete Oversight user journey |
 | Audit trail (FR-013) | Activity entries coordinated with successful request mutations | Backend documentation describes activity/audit handling and tests | **Implemented / initially verified only to the extent covered by named tests.** Link the relevant tests and confirm failure/rollback behavior |
 | Persistence and consistency (NFR-003) | SQLite constraints, transactions, version checks and rollback | Repository documentation describes foreign keys, constraints, transactions, optimistic version checking and append-only activity history controls | **Implemented / initially verified.** Link persistence, stale-record and rollback tests; retain restart/recovery limitations |
-| Performance target (NFR-004) | Efficient reads/writes under the specified workload | The M2 requirement specifies a workload and response-time target; full performance/load target is documented as not yet fully verified | **Not demonstrated.** Person 3 owns the measured performance scenario and limitations |
+| Performance target (NFR-004) | Efficient reads/writes under the specified workload | Person 3 added `npm run perf` smoke testing with 200 pre-seeded records, 50 reads and 10 writes | **Partial evidence only.** This is smaller than the 5,000-record/20-concurrent-user/15-minute acceptance workload; full target not demonstrated |
 | Accessibility/usability (NFR-005, NFR-006) | Usable, keyboard-accessible and zoom-tolerant UI | Existing UI exists, but the full acceptance criterion needs user/interaction evidence | **Not demonstrated as fully accepted.** Link actual UI evidence or record the gap |
 | Availability/recovery (NFR-007, NFR-008) | Health checks, backup and documented recovery approach | A local health endpoint and local SQLite backup command are documented; production monitoring and disaster-recovery targets are not fully demonstrated | **Partial.** A local backup alone does not prove off-site backup, RTO or RPO compliance |
 | Secure transport / production deployment (NFR-002) | TLS, controlled configuration, no committed secrets | README states production HTTPS/TLS has not been established | **Known deployment gap.** Person 3 must record the actual M3 environment and residual risk; do not claim production TLS |
@@ -95,8 +95,8 @@ Only record a change as an actual deviation when the team can identify the earli
 | GAP-004 | FR-011: public/internal work-note workflow | Full public/internal note editing is not exposed through frontend | Partial workflow | Verify visibility enforcement and document UI gap | Person 1 + Person 2 |
 | GAP-005 | FR-012: management reporting | API exists; Oversight browser UI is absent | Partial workflow | Keep API and UI claims separate; assess acceptance scope | Person 1 + Person 2 |
 | GAP-006 | NFR-002: encrypted transport / TLS | README says production HTTPS/TLS deployment is not established | Operational conformance gap | Person 3 to document the actual test/staging setup and residual risk | Person 3 |
-| GAP-007 | NFR-004, NFR-007, NFR-008: performance, monitoring and recovery targets | Full performance/load, production monitoring and disaster recovery are not fully demonstrated | Evidence / operational gap | Provide measured results and a bounded recovery/rollback statement; do not infer compliance | Person 3 |
-| GAP-008 | M3 controlled construction and release gates | M2 PED records that no active GitHub Actions workflow existed in the inspected M2 snapshot; M3 status must be checked against current branch | Pending verification, not a claim of current absence | Confirm workflow, required checks, branch protection and review evidence after Person 3's work | Person 3 |
+| GAP-007 | NFR-004, NFR-007, NFR-008: performance, monitoring and recovery targets | CI contains a limited performance smoke test and simulated staging backup readability check; production monitoring and timed recovery are not demonstrated | Evidence / operational gap | Retain smoke-test output; run the full NFR-004 workload and document recovery objectives without inferring compliance | Person 3 |
+| GAP-008 | M3 controlled construction and release gates | `.github/workflows/ci.yml` is merged and defines install, static/security check, test, simulated staging and performance steps; workflow-run/status lookup returned no run for reviewed merge SHA | Workflow definition present; hosted run not demonstrated | Link a successful workflow run for the final candidate and verify branch protection/required checks and genuine reviews | Person 3 / team |
 
 ### 3.3 Architecture decisions carried forward
 
@@ -137,6 +137,9 @@ Run commands from the `backend/` directory unless otherwise stated.
 npm ci --ignore-scripts
 npm run setup
 npm test
+npm run check
+npm run staging:verify
+npm run perf
 npm start
 ```
 
@@ -157,7 +160,7 @@ The setup process creates the local SQLite database and demonstration accounts. 
 - [ ] Compare the final M3 candidate with the M2 baseline and confirm the current commit/branch identifier.
 - [ ] Link every conformance row to specific source files, tests, or evidence artifacts where available.
 - [ ] Have Person 2 confirm test names/results and distinguish local execution from CI execution.
-- [ ] Have Person 3 confirm workflow, branch protection/review, configuration, staging, performance, rollback and release evidence.
+- [ ] Person 3's workflow definition is now merged; still attach the actual successful hosted workflow run, confirm branch protection/review settings, and record final-candidate staging/performance/recovery evidence.
 - [ ] Confirm all gaps are either resolved with evidence or retained as explicit limitations/residual risks.
 - [ ] Record any real architectural change in the controlled-change table; do not manufacture changes to fill it.
 - [ ] Integrate reviewed content into the shared PED v3.0 and preserve PED v2.0 as history.
@@ -169,4 +172,6 @@ The setup process creates the local SQLite database and demonstration accounts. 
 - `architecture.md` and `architecture_continued.md` — ASRs and architectural rationale.
 - `docs/decisions/design-patterns.md` and `docs/design-quality.md` — DES-001, DES-002, coupling/cohesion and design principles.
 - `README.md` and `backend/README.md` — current documented behavior, commands and limitations.
-- `backend/docs/quality/m3/PED-handoff.md` and `backend/docs/quality/m3/README.md` — Person 2's M3 test evidence and outstanding Person 3 handoff.
+- `backend/docs/quality/m3/PED-handoff.md` and `backend/docs/quality/m3/README.md` — Person 2's M3 test evidence.
+- `.github/workflows/ci.yml` — Person 3's merged CI/staging/performance gate definition; successful hosted run still needs to be linked.
+- `docs/PED/PED_v3.0.md` — consolidated M3 review candidate integrating team contributions.
