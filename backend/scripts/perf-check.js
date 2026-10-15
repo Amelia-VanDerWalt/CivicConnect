@@ -29,17 +29,7 @@ const child = spawn(process.execPath, ['src/server.js'], {
   stdio: ['ignore', 'pipe', 'pipe']
 });
 
-const origin = await new Promise((resolve, reject) => {
-  const timer = setTimeout(() => reject(new Error('Server startup timeout')), 5000);
-  child.stdout.on('data', chunk => {
-    const match = chunk.toString().match(/http:\/\/127\.0\.0\.1:(\d+)/);
-    if (match) { clearTimeout(timer); resolve(match[0]); }
-  });
-  child.once('exit', code => {
-    clearTimeout(timer);
-    reject(new Error(`Perf server exited prematurely with code ${code}`));
-  });
-});
+let origin;
 
 function percentile(sorted, p) {
   const idx = Math.min(sorted.length - 1, Math.max(0, Math.ceil((p / 100) * sorted.length) - 1));
@@ -47,6 +37,30 @@ function percentile(sorted, p) {
 }
 
 try {
+  origin = await new Promise((resolve, reject) => {
+    const timer = setTimeout(() => {
+      reject(new Error('Server startup timeout'));
+    }, 5000);
+
+    child.stdout.on('data', chunk => {
+      const match = chunk.toString().match(/http:\/\/127\.0\.0\.1:(\d+)/);
+      if (match) {
+        clearTimeout(timer);
+        resolve(match[0]);
+      }
+    });
+
+    child.once('error', err => {
+      clearTimeout(timer);
+      reject(err);
+    });
+
+    child.once('exit', code => {
+      clearTimeout(timer);
+      reject(new Error(`Perf server exited prematurely with code ${code}`));
+    });
+  });
+
   const suiteStart = performance.now();
 
   const reqLogin = await fetch(`${origin}/api/login`, {
@@ -113,6 +127,11 @@ try {
     process.exitCode = 1;
   }
 } finally {
-  child.kill();
-  setTimeout(() => rmSync(dir, { recursive: true, force: true }), 500);
+  if (child.exitCode === null && !child.killed) {
+    child.kill();
+  }
+
+  setTimeout(() => {
+    rmSync(dir, { recursive: true, force: true });
+  }, 500);
 }

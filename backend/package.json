@@ -13,7 +13,7 @@
     "test": "node --test",
     "backup": "node --env-file-if-exists=.env scripts/backup.js",
     "check": "node scripts/checks.js",
-    "perf": "node scripts/perf-test.js",
+    "perf": "node scripts/perf-check.js",
     "staging:setup": "node --env-file=.env.staging.example scripts/setup.js",
     "staging:start": "node --env-file=.env.staging.example src/server.js",
     "staging:verify": "node scripts/staging-verify.js"

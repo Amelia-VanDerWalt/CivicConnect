@@ -30,19 +30,33 @@ const child = spawn(process.execPath, ['--env-file=.env.staging.example', 'src/s
   stdio: ['ignore', 'pipe', 'pipe']
 });
 
-const origin = await new Promise((resolve, reject) => {
-  const timer = setTimeout(() => reject(new Error('Staging startup timeout')), 5000);
-  child.stdout.on('data', chunk => {
-    const match = chunk.toString().match(/http:\/\/127\.0\.0\.1:3001/);
-    if (match) { clearTimeout(timer); resolve(match[0]); }
-  });
-  child.once('exit', code => {
-    clearTimeout(timer);
-    reject(new Error(`Staging server exited prematurely with code ${code}`));
-  });
-});
+let origin;
 
 try {
+  origin = await new Promise((resolve, reject) => {
+    const timer = setTimeout(() => {
+      reject(new Error('Staging startup timeout'));
+    }, 5000);
+
+    child.stdout.on('data', chunk => {
+      const match = chunk.toString().match(/http:\/\/127\.0\.0\.1:3001/);
+      if (match) {
+        clearTimeout(timer);
+        resolve(match[0]);
+      }
+    });
+
+    child.once('error', err => {
+      clearTimeout(timer);
+      reject(err);
+    });
+
+    child.once('exit', code => {
+      clearTimeout(timer);
+      reject(new Error(`Staging server exited prematurely with code ${code}`));
+    });
+  });
+
   console.log(`PASS: Simulated staging server running at ${origin} (isolated from dev port 3000)`);
 
   const uiRes = await fetch(`${origin}/`);
@@ -143,7 +157,10 @@ try {
   }
   console.log(`PASS: Staging backup snapshot created and verified readable for rollback (${relBackupPath}).`);
 } finally {
-  child.kill();
+  if (child.exitCode === null && !child.killed) {
+    child.kill();
+  }
+
   setTimeout(() => {
     for (const suffix of ['', '-wal', '-shm']) {
       if (existsSync(stagingDb + suffix)) rmSync(stagingDb + suffix, { force: true });
