@@ -22,7 +22,7 @@ This document preserves the M1/M2 baselines rather than silently rewriting them.
 - **Repository:** [CivicConnect on GitHub](https://github.com/Amelia-VanDerWalt/CivicConnect).
 - **PED version:** v3.0 review candidate; team approval remains pending.
 - **Final release-candidate SHA/tag:** **Pending.** Do not substitute the earlier baseline SHA for the final candidate. Record the exact submitted commit and tag, if created, after the final candidate is identified.
-- **RTM location:** [PED v2.0, Section 7 — Requirements Traceability Matrix](PED_v2.0.md#7-requirements-traceability-matrix-rtm). Reconcile this baseline traceability with the final M3 candidate before acceptance.
+- **RTM location:** [Current machine-readable M3 RTM](../../backend/docs/requirements/rtm-data.json); PED v2.0 Section 7 remains the historical M2 RTM baseline. Reconcile the current M3 rows with the exact final candidate before acceptance.
 - **CI/test evidence:** [GitHub Actions workflow runs](https://github.com/Amelia-VanDerWalt/CivicConnect/actions), [M3 test plan](../../backend/docs/quality/m3/test-plan.md), [test matrix](../../backend/docs/quality/m3/test-matrix.csv), [before-fix results](../../backend/docs/quality/m3/before-fix.tap), [after-fix results](../../backend/docs/quality/m3/after-fix.tap), and [run manifest](../../backend/docs/quality/m3/run-manifest.json). Run #11 is evidence for its recorded earlier baseline only; a fresh successful run for the final candidate is still required.
 - **Staging/demo instructions:** From `backend/`, use Node.js 24.19.0 or a compatible later 24.x release, then run `npm ci --ignore-scripts`, `npm run setup`, `npm test`, `npm run check`, `npm run staging:verify`, `npm run perf`, and `npm start`. Use only local/synthetic demo data and privately generated credentials. `staging:verify` is simulated local staging, not a production deployment. Verify these instructions against the final candidate before submission.
 - **Submission date:** 15 October 2026 (planned/documentation date; confirm the actual submission date when the team submits).
@@ -244,7 +244,7 @@ Person 3's `backend/scripts/perf-check.js` runs the real server against an isola
 | Write p95 | 9.99 ms |
 | Write maximum | 9.99 ms |
 
-These figures are the measurements reported for GitHub Actions run #11. See the [GitHub Actions runs page](https://github.com/Amelia-VanDerWalt/CivicConnect/actions) and select the run matching the handoff evidence; a direct run-specific URL should be added once its run ID is verified. The small workload passed its configured read p95 threshold of 2,000 ms and write p95 threshold of 3,000 ms.
+These figures are the measurements reported for GitHub Actions run #11 on baseline commit [`53bf185a2938d20df5d0d12a1a3ea120d635d6f5`](https://github.com/Amelia-VanDerWalt/CivicConnect/commit/53bf185a2938d20df5d0d12a1a3ea120d635d6f5). The [GitHub Actions runs page](https://github.com/Amelia-VanDerWalt/CivicConnect/actions) provides the workflow history; the run-specific URL still needs confirmation because the available evidence identifies the run number and commit but not its Actions run ID. The small workload passed its configured read p95 threshold of 2,000 ms and write p95 threshold of 3,000 ms.
 
 ### 8.2 Interpretation
 
@@ -318,7 +318,7 @@ Before approving the release, the team must:
 
 ## Evidence and supporting documents
 
-- [RTM — PED v2.0, Section 7](PED_v2.0.md#7-requirements-traceability-matrix-rtm); reconcile its status against the final M3 candidate.
+- [Current machine-readable M3 RTM](../../backend/docs/requirements/rtm-data.json); PED v2.0 Section 7 remains the historical M2 RTM baseline. The M3 rows are updated with the latest CI, security-check, performance-smoke and backup/staging evidence while keeping formal NFR-004 load compliance, production TLS and RTO/RPO marked unproven.
 - [Risk Register](../risk/CivicConnect_Constraints_and_Risk_Register.md)
 - [Defect Register](../Defect_Register.md)
 - [Technical Debt Register](../Technical_Debt_Register.md)
