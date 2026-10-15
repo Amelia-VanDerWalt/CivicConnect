@@ -175,3 +175,10 @@ The setup process creates the local SQLite database and demonstration accounts. 
 - `backend/docs/quality/m3/PED-handoff.md` and `backend/docs/quality/m3/README.md` — Person 2's M3 test evidence.
 - `docs/PED/m3-albert-handoff.md` — Person 3's merged CI, staging, performance and release-readiness evidence (PR #25).
 - `docs/PED/PED_v3.0.md` — consolidated M3 review candidate.
+
+
+## Review response — 15 October 2026
+
+The consolidated [PED v3.0 review candidate](PED_v3.0.md) was updated in response to PR #27 review feedback. The update adds an M3 submission-information block, restores the reported performance values specified in the review (total 943.37 ms; read average/p95/max 4.51/6.81/13.08 ms; write average/p95/max 5.05/9.99/9.99 ms), expands the release evidence summary and residual-risk statement, and adds direct links to the RTM baseline and available registers/evidence.
+
+The review comments are not treated as proof of acceptance. The final candidate SHA and its passing CI run, a direct run-specific URL for run #11, the formal team decision on `DEF-M3-006` and `CR-P2-001`, and final release classification still require verification or team action. Do not merge until the required approval is obtained.
