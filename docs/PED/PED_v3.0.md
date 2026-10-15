@@ -10,9 +10,22 @@
 
 | Version | Change | Status |
 |---|---|---|
-| 3.0 review candidate | M3 architecture/conformance, defects and controlled changes, construction/configuration, testing, CI, staging, performance and release readiness | Requires team review; not final production approval |
+| v1.0 | Original PED and M1 requirements baseline; retained as historical record | Historical — superseded, not deleted |
+| v2.0 | M2 architecture, design, requirements traceability and engineering baseline | Historical — superseded, not deleted |
+| v3.0 review candidate | Consolidated M3 architecture/conformance, defects, testing, CI, staging, performance and release evidence | Under review; not final approval or production release authorization |
 
-This document preserves the M2 baseline rather than silently rewriting it. CR-P2-001 (due date must be later than the current time) remains subject to a recorded team decision. The final tested commit and release classification must be recorded before the team declares M3 accepted.
+This document preserves the M1/M2 baselines rather than silently rewriting them. CR-P2-001 (due date must be later than the current time) remains subject to a recorded team decision. The final tested commit and release classification must be recorded before the team declares M3 accepted.
+
+## M3 submission information
+
+- **Team:** Amelia van der Walt, Edward Goosen and Albert Du Plooy.
+- **Repository:** [CivicConnect on GitHub](https://github.com/Amelia-VanDerWalt/CivicConnect).
+- **PED version:** v3.0 review candidate; team approval remains pending.
+- **Final release-candidate SHA/tag:** **Pending.** Do not substitute the earlier baseline SHA for the final candidate. Record the exact submitted commit and tag, if created, after the final candidate is identified.
+- **RTM location:** [PED v2.0, Section 7 — Requirements Traceability Matrix](PED_v2.0.md#7-requirements-traceability-matrix-rtm). Reconcile this baseline traceability with the final M3 candidate before acceptance.
+- **CI/test evidence:** [GitHub Actions workflow runs](https://github.com/Amelia-VanDerWalt/CivicConnect/actions), [M3 test plan](../../backend/docs/quality/m3/test-plan.md), [test matrix](../../backend/docs/quality/m3/test-matrix.csv), [before-fix results](../../backend/docs/quality/m3/before-fix.tap), [after-fix results](../../backend/docs/quality/m3/after-fix.tap), and [run manifest](../../backend/docs/quality/m3/run-manifest.json). Run #11 is evidence for its recorded earlier baseline only; a fresh successful run for the final candidate is still required.
+- **Staging/demo instructions:** From `backend/`, use Node.js 24.19.0 or a compatible later 24.x release, then run `npm ci --ignore-scripts`, `npm run setup`, `npm test`, `npm run check`, `npm run staging:verify`, `npm run perf`, and `npm start`. Use only local/synthetic demo data and privately generated credentials. `staging:verify` is simulated local staging, not a production deployment. Verify these instructions against the final candidate before submission.
+- **Submission date:** 15 October 2026 (planned/documentation date; confirm the actual submission date when the team submits).
 
 ## 1. M3 overview and architecture conformance
 
@@ -221,17 +234,17 @@ Person 3's `backend/scripts/perf-check.js` runs the real server against an isola
 | Measure | Reported CI result |
 |---|---:|
 | Dataset | 200 seeded requests + 10 live writes |
-| Total measured workload duration | 873.93 ms |
+| Total measured workload duration | 943.37 ms |
 | Reads successful | 50/50 |
-| Read average | 3.38 ms |
-| Read p95 | 3.86 ms |
-| Read maximum | 11.87 ms |
+| Read average | 4.51 ms |
+| Read p95 | 6.81 ms |
+| Read maximum | 13.08 ms |
 | Writes successful | 10/10 |
-| Write average | 3.70 ms |
-| Write p95 | 5.72 ms |
-| Write maximum | 5.72 ms |
+| Write average | 5.05 ms |
+| Write p95 | 9.99 ms |
+| Write maximum | 9.99 ms |
 
-The small workload passed its configured read p95 threshold of 2,000 ms and write p95 threshold of 3,000 ms.
+These figures are the measurements reported for GitHub Actions run #11. See the [GitHub Actions runs page](https://github.com/Amelia-VanDerWalt/CivicConnect/actions) and select the run matching the handoff evidence; a direct run-specific URL should be added once its run ID is verified. The small workload passed its configured read p95 threshold of 2,000 ms and write p95 threshold of 3,000 ms.
 
 ### 8.2 Interpretation
 
@@ -262,7 +275,34 @@ Person 3's handoff recommends **CONDITIONALLY READY for controlled M3 staging/de
 
 The current evidence supports passing selected automated, CI, simulated staging and small-scale performance checks. It does not establish complete requirement acceptance, the formal NFR-004 workload, production TLS, timed recovery or complete accessibility/usability acceptance.
 
-## 10. Release-readiness decision
+## 10. Release Evidence Summary
+
+| Evidence area | Evidence currently recorded | Interpretation | Outstanding action / owner |
+|---|---|---|---|
+| Build / CI | Workflow `CivicConnect M3 CI & Quality Gate`; run #11 reported successful on baseline `53bf185a2938d20df5d0d12a1a3ea120d635d6f5` | The workflow and that baseline's reported run provide CI evidence, not proof for a later candidate | Run the required gate on the exact final candidate SHA and link that run — Person 3 / release owner |
+| Regression | 35/35 automated tests reported passing locally on 14 October 2026; run #11 handoff reports 35/35 in CI | Supports the tested cases only; local and hosted evidence are distinct | Preserve environment/run metadata and verify candidate commit — Person 2 and Person 3 |
+| API / integration | Three actual-server integration tests and two HTTP system journeys are described in the M3 evidence | Selected server, session, origin/CSRF and persistence paths are exercised; not every API or role path is proven | Map evidence to RTM and review uncovered endpoints — Person 2 |
+| System / E2E | Two HTTP system journeys and recorded manual browser retests; simulated staging lifecycle and backup checks reported | Selected journeys pass according to the recorded evidence; not full browser automation or complete user acceptance | Repeat critical browser checks against final candidate and record browser/version — Person 2, with team review |
+| Static / security | `npm run check` reportedly passed static/syntax, repository hygiene, selected secret-pattern and dependency-audit checks | Limited checks passed; this is not a full security assessment and does not prove production TLS | Verify the final CI result and complete deployment security checks before any production claim — Person 3 |
+| Performance | Run #11: total 943.37 ms; read avg/p95/max 4.51/6.81/13.08 ms; write avg/p95/max 5.05/9.99/9.99 ms | Small workload of 200 seeded requests and 50 reads/10 writes only; formal NFR-004 workload remains unverified | Execute 5,000-record, 20-concurrent-user, 15-minute workload or record a formally approved deviation — Person 3 |
+| Defects | `DEF-M3-001` to `DEF-M3-005` reported corrected/covered by selected retests; `DEF-M3-006` remains open | Fix evidence does not equal complete requirement acceptance; history/reporting UI remains incomplete | Team to decide whether `DEF-M3-006` blocks M3 scope; implement or formally record accepted demo limitation — Person 1 with team decision |
+| Requirements / acceptance | `CR-P2-001` remains pending; several UI, TLS, recovery and accessibility criteria are partial/not demonstrated | No full release acceptance can be claimed | Record formal change decision and acceptance status in RTM/decision log; team owns decision |
+
+## 11. Residual Risk Statement
+
+The following risks remain open; none is represented as resolved by this PED update.
+
+| Risk / item | Why it remains | Current mitigation / bounded claim | Next action and evidence to close | Responsible owner |
+|---|---|---|---|---|
+| `DEF-M3-006` — incomplete requester history/reporting UI | Complete requester activity/history and Oversight browser reporting journeys are not established | API capability and current UI can support only a bounded demo; do not claim full FR-004/FR-005/FR-012 acceptance | Decide whether it blocks the agreed M3 scope; implement and retest missing UI or record a formally approved scope/acceptance decision | Person 1 to trace scope; team to decide; implementation owner to be assigned |
+| `CR-P2-001` — due-date rule | The test oracle uses a future-date rule, but formal requirement approval is pending | Treat the rule as proposed/implemented but not formally approved | Record the team's decision, update the controlled change record and RTM, and retest if the accepted rule differs | Person 2 to maintain change/RTM evidence; team to approve |
+| NFR-004 performance | Run #11 measures a small 200-record workload, not 5,000 records with 20 concurrent users for 15 minutes | Report run #11 numbers only for the measured smoke workload | Run the full workload with reproducible parameters/results, or obtain explicit approval for a deviation | Person 3 |
+| Production TLS / deployment security | Current evidence is local/simulated staging; production TLS is not proven | Restrict current claim to local/simulated staging; `COOKIE_SECURE` alone does not configure TLS | Configure deployment TLS and verify HTTPS, certificate and secure-cookie behavior in the target environment | Person 3 / deployment owner to be confirmed |
+| Recovery objectives | Backup integrity/readability is reported, but timed restore, off-site retention and RTO/RPO are not demonstrated | Keep a consistent local backup and document rollback; this is not disaster-recovery acceptance | Run and time a restore/recovery drill, record RTO/RPO targets and evidence off-site retention if required | Person 3, with Person 1 review |
+| Accessibility/usability | Selected keyboard/focus and zoom checks exist; complete WCAG and representative-user acceptance are absent | Claim only the specific checks recorded; do not claim full conformance | Recheck final candidate, capture browser/version and test results, and complete agreed accessibility/usability acceptance | Person 1 and Person 2; final acceptance by team |
+| Final candidate CI and traceability | Run #11 belongs to an earlier baseline, not necessarily the exact submitted candidate | Preserve run #11 as historical evidence only | Identify exact candidate SHA/tag, run required CI on it, confirm success, and link the exact run and SHA in this PED | Person 3 / release owner |
+
+## 12. Release-readiness decision
 
 Before approving the release, the team must:
 
@@ -278,11 +318,19 @@ Before approving the release, the team must:
 
 ## Evidence and supporting documents
 
+- [RTM — PED v2.0, Section 7](PED_v2.0.md#7-requirements-traceability-matrix-rtm); reconcile its status against the final M3 candidate.
+- [Risk Register](../risk/CivicConnect_Constraints_and_Risk_Register.md)
+- [Defect Register](../Defect_Register.md)
+- [Technical Debt Register](../Technical_Debt_Register.md)
+- [AI Usage Register](../../AI_Usage_Register.md)
+- [Engineering Decision Log / design decisions](../decisions/design-patterns.md); related persistence/integration ADRs are in [backend/docs/decisions](../../backend/docs/decisions/).
+- [PED v1.0 — historical baseline](PED_v1.0.md)
 - [PED v2.0 — M1/M2 baseline](PED_v2.0.md)
 - [Person 1 architecture/conformance handoff](m3-person1-handoff.md)
 - [Person 2 verification handoff](../../backend/docs/quality/m3/PED-handoff.md)
 - [Person 3 CI/deployment/release handoff](m3-albert-handoff.md)
 - [Person 2 test plan](../../backend/docs/quality/m3/test-plan.md)
+- [Test matrix](../../backend/docs/quality/m3/test-matrix.csv)
 - [Browser acceptance evidence](../../backend/docs/quality/m3/browser-acceptance.md)
 - [CI workflow](../../.github/workflows/ci.yml)
 - [GitHub Actions runs](https://github.com/Amelia-VanDerWalt/CivicConnect/actions)
