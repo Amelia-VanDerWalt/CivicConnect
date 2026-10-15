@@ -18,3 +18,9 @@
 | Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
 |---|---|---|---|---|---|---|---|
 | 12/10/2026 | Edward Goosen602882 | ChatGPT/Codex | M3 testing and quality | Assisted test design/code, reproduced server defects, implemented scoped fixes and prepared RTM/quality records | Assistant ran11 new checks on baseline:8 pass/3 fail; after correction full35 pass. Student/local rerun and peer review pending | Review candidate; human approval not claimed | Configuration ignored, traversal exposure, hanging favicon; UI acceptance and release evidence remain incomplete |
+
+### M3 verification and evidence follow-up — 15 October 2026
+
+| Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
+|---|---|---|---|---|---|---|---|
+| 12–15/10/2026 | Edward Goosen 602882 | ChatGPT/Codex | Browser verification, frontend corrections and M3 evidence updates | Assisted with browser test steps, reference-display and mandatory-note corrections, PowerShell commands, defect records and PED/RTM wording | Ran all 35 automated tests successfully on Windows with Node.js 24.20.0; syntax check passed; manually checked submission, isolation, lifecycle, references and resolution/rejection validation | MODIFIED; retained changes supported by observed results | Original browser record contained malformed lines, which were repaired. Full history/reporting UI, representative-user usability and final release checks remain unresolved in the available evidence |
