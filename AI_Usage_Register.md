@@ -24,3 +24,10 @@
 | Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
 |---|---|---|---|---|---|---|---|
 | 12–15/10/2026 | Edward Goosen 602882 | ChatGPT/Codex | Browser verification, frontend corrections and M3 evidence updates | Assisted with browser test steps, reference-display and mandatory-note corrections, PowerShell commands, defect records and PED/RTM wording | Ran all 35 automated tests successfully on Windows with Node.js 24.20.0; syntax check passed; manually checked submission, isolation, lifecycle, references and resolution/rejection validation | MODIFIED; retained changes supported by observed results | Original browser record contained malformed lines, which were repaired. Full history/reporting UI, representative-user usability and final release checks remain unresolved in the available evidence |
+
+
+### M3 Person 1 assistance — 15 October 2026
+
+| Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
+|---|---|---|---|---|---|---|---|
+| 15/10/2026 | Amelia van der Walt | ChatGPT / GitHub integration | Consolidating M3 PED v3.0 and architecture/conformance evidence | Assisted with repository inspection, drafting the Person 1 architecture/conformance handoff, consolidating Person 1/2/3 evidence into a PED v3.0 review candidate, and updating construction/quality-gate notes | Repository files, merged PRs #21–#24, local test report and workflow definition were inspected. Human team review of requirement wording, release SHA and final readiness decision remains required | Review candidate; human approval not claimed | No hosted workflow run was available in the status lookup for the reviewed merge SHA; full performance workload, TLS, timed recovery, complete history/reporting UI and full usability/accessibility acceptance remain unproven |
