@@ -56,3 +56,125 @@ FR-002: requester submission need -> atomic request and receipt creation -> crea
 FR-010: controlled lifecycle -> transition rules and required notes -> automated lifecycle cases -> browser failure DEF-M3-005 -> frontend validation correction -> successful resolution/rejection retests.
 
 NFR-002: static-file boundary -> M3-I02 reproduced traversal exposure -> ADR-P2-004 correction -> successful 404 regression. This evidence does not establish TLS or secret-scan compliance.
+
+## M4 baseline reconciliation and acceptance review — 17 October 2026
+
+Assessed candidate: f52bb8fd6c15e4a72abf182a9b4fe43511f1027e.
+
+### Scope baseline
+
+Use PED v1.0 Section 4 and its 21 named acceptance-criterion entries
+(AC-F01 to AC-F13 and AC-N01 to AC-N08).
+The requirement set and ACCEPTED sign-off are present in historical
+commit 7fa2794, dated 9 September 2026.
+
+The separate CivicConnect Requirements.docx uses conflicting IDs and
+remains labelled Proposed. Preserve it as a historical alternative;
+do not silently substitute it for the accepted PED baseline.
+Some historical decision references also use the alternative IDs.
+Trace those references by wording and record the discrepancy.
+
+No approved removal or requirement change has been established by this
+review. CR-P2-001 remains pending and does not change the denominator.
+
+### Current implementation findings
+
+Source inspection of src/frontend/app.js confirms:
+- Requester submission, request lists and status display exist.
+- Staff category-scoped queues, details, self-assignment and status updates exist.
+- Full requester details/activity-history views are absent.
+- Staff details do not display all required fields or activity history.
+- Full search/sort, reassignment, scheduling and separate note controls are absent.
+- The Oversight browser interface is explicitly unavailable.
+
+These findings support partial implementation assessments where applicable.
+Backend API functionality alone does not establish complete browser workflows.
+
+### Verification and next acceptance steps
+
+The 17 October local run passed all 35 automated cases on the candidate
+above. See edward-local-verification.md for the environment and result.
+
+Historical browser evidence remains dated to its original candidate.
+Reconfirm critical browser journeys and keyboard/zoom behaviour against
+the final candidate before assigning final acceptance statuses.
+
+Calculate scope completion from the 21 existing named acceptance entries:
+Met = 1, Partially Met = 0.5, Not Met = 0.
+Assess each complete entry consistently, retaining its wording and evidence.
+Do not split entries or remove unmet criteria to improve the percentage.
+
+Final scores, scope completion, team approval and release baseline
+have not yet been established. DEF-M3-006 remains open.
+
+## M4 provisional acceptance assessment — 17 October 2026
+
+Candidate: f52bb8fd6c15e4a72abf182a9b4fe43511f1027e
+Status: evidence-based proposal for team reconciliation, not final approval.
+
+Assessment uses the 21 accepted named criteria without changing their wording
+or denominator. Existing automated evidence and dated browser observations
+are considered together. Historical evidence is not presented as a new run.
+
+| Criterion | Assessment | Score | Evidence and limits |
+|---|---|---|---|
+| AC-F01 | Met | 1 | Login, access checks and logout tested; automated protected access after logout. |
+| AC-F02 | Met | 1 | Creation/defaults/retrieval tests; browser confirmation in earlier checks; M4 submission and blank-title retention passed. |
+| AC-F03 | Met | 1 | T02/T03 verify active categories, rejection and preserved historical labels. |
+| AC-F04 | Met | 1 | Own-record lists/status and isolation tested. Full requester detail/history functionality remains a requirement-level gap. |
+| AC-F05 | Partially Met | 0.5 | Persisted public/internal activities exist; dashboard does not display the required explanations and summaries. |
+| AC-F06 | Partially Met | 0.5 | Category isolation tested; staff details omit required fields/history. |
+| AC-F07 | Met | 1 | API combined-filter/sort tests and empty-result UI exist; full browser search/filter controls remain a requirement-level gap. |
+| AC-F08 | Partially Met | 0.5 | Owner eligibility, required due time and reassignment audit tested; requester-facing notification remains incomplete. |
+| AC-F09 | Partially Met | 0.5 | Priority/date validation and audit tested; CR-P2-001 date-rule discrepancy remains unresolved. |
+| AC-F10 | Partially Met | 0.5 | Lifecycle and mandatory notes tested, including M4 browser journey; requester notification content remains incomplete. |
+| AC-F11 | Met | 1 | API notes preserve metadata and explicit visibility; public projection and immutable history tested. Separate browser note controls remain absent. |
+| AC-F12 | Met | 1 | API report calculations, date validation and oversight permissions tested. Oversight browser interface remains absent. |
+| AC-F13 | Met | 1 | Audit metadata, prior/new values, immutability and requester restrictions covered by existing tests. |
+| AC-N01 | Met | 1 | Selected role-matrix tests cover unauthorised requester/staff/oversight operations. |
+| AC-N02 | Partially Met | 0.5 | Selected repository hygiene checks exist; TLS and complete repository/log/build-output coverage are not established. |
+| AC-N03 | Partially Met | 0.5 | Rollback, stale edits and normal close/reopen persistence tested; forced-restart recovery not established. |
+| AC-N04 | Not Met | 0 | Performance smoke evidence does not meet the specified workload and 15-minute test. |
+| AC-N05 | Not Met | 0 | Representative-user unassisted timed study not established. |
+| AC-N06 | Partially Met | 0.5 | Earlier selected keyboard/200% browser zoom checks passed; final-candidate font-scaling and complete workflow coverage not established. |
+| AC-N07 | Not Met | 0 | Timed outage alerts and required diagnostic-log properties not established. |
+| AC-N08 | Partially Met | 0.5 | Backup integrity/readback tested; timed full-system restoration not established. |
+
+Met: 9. Partially Met: 9. Not Met: 3.
+Weighted score: 13.5 / 21.
+Provisional scope completion: 64.29%.
+
+Criterion scores do not erase broader requirement-level interface gaps.
+DEF-M3-006 remains open. No approved scope removal has been established.
+
+Before finalising: reconcile Person 1/3 evidence, resolve CR-P2-001,
+confirm final-candidate applicability and obtain team review.
+Do not describe this provisional result as meeting the 80% target.
+
+### Team evidence reconciliation — 17 October 2026
+
+Reviewed m3-albert-handoff.md, m3-person1-handoff.md and the consolidated
+PED_v3.0.md against candidate f52bb8fd6c15e4a72abf182a9b4fe43511f1027e.
+
+Person 3 reports historical CI regression, staging lifecycle, selected
+security checks, backup integrity and performance-smoke passes.
+These strengthen existing partial evidence but do not establish TLS,
+forced-restart recovery, timed restoration, representative-user usability,
+outage alerts or the specified NFR-004 load scenario.
+
+The corrected performance figures in the consolidated PED and Person 3
+handoff supersede the older figures in the Person 1 handoff:
+200 seeded requests, 50 reads and 10 writes; duration 943.37 ms;
+read p95 6.81 ms; write p95 9.99 ms.
+These results belong to the recorded earlier CI candidate, not a new M4 run.
+The exact historical Actions run URL still requires confirmation.
+
+Both contributions identify incomplete browser workflows.
+DEF-M3-006 remains open and CR-P2-001 remains pending.
+Accepting a demo limitation does not automatically remove an approved
+criterion or make it Met.
+
+No additional evidence reviewed changes the provisional acceptance scores.
+The 64.29% assessment remains subject to team review, particularly where
+API-level criterion satisfaction differs from complete browser delivery.
+Final release approval and final-candidate CI remain separate.

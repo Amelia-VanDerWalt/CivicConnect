@@ -86,3 +86,30 @@ DEF-M3-006 remains open. Full activity-history/reporting acceptance,
 representative-user usability and full WCAG compliance are not established.
 The longer references have not been retested at 200% zoom.
 No credentials are included.
+
+## M4 critical browser verification — 17 October 2026
+
+Tester: Edward Goosen — 602882
+Tested commit: f52bb8fd6c15e4a72abf182a9b4fe43511f1027e
+Environment: Windows; Node.js 24.20.0
+URL: http://127.0.0.1:3018
+Database: presentation-20261016-120301.sqlite
+Browser name/version: not recorded.
+Evidence: tester confirmations during guided browser execution.
+
+| Check | Expected result | Actual result | Status |
+|---|---|---|---|
+| Blank title | Block submission and retain description | Tester confirmed both | Pass |
+| Valid submission | Create a request with Received status | Received request confirmed | Pass |
+| Assignment | Authorised staff assigns the request | Assigned status confirmed | Pass |
+| Progress | Assigned request advances to In progress | Tester confirmed transition | Pass |
+| Blank resolution note | Block resolution without changing status | Tester confirmed validation blocked update | Pass |
+| Resolution | Supplied summary allows Resolved status | Tester confirmed transition | Pass |
+| Closure | Resolved request advances to Closed | Tester confirmed transition | Pass |
+| Requester status | Requester sees final Closed status | Tester confirmed Closed displayed | Pass |
+
+These checks cover the selected browser journey only.
+Confirmation-to-dashboard reference matching, rejection, role isolation,
+keyboard/zoom behaviour and complete history/reporting were not established
+by this M4 execution. Earlier checks retain their original dates and candidates.
+DEF-M3-006 remains open. These results do not constitute team release approval.
