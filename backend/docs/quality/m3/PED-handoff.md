@@ -178,3 +178,68 @@ No additional evidence reviewed changes the provisional acceptance scores.
 The 64.29% assessment remains subject to team review, particularly where
 API-level criterion satisfaction differs from complete browser delivery.
 Final release approval and final-candidate CI remain separate.
+
+## M4 scope delivery and team handoff — 17 October 2026
+
+Application candidate tested: f52bb8fd6c15e4a72abf182a9b4fe43511f1027e.
+Evidence commit: 8513165; documentation/RTM updates only.
+Status: Person 2 assessment for integration into PED v4.0; team review pending.
+
+Implementation status describes delivered capability.
+Acceptance scores describe how far the complete named criterion is evidenced.
+An implemented feature can still lack acceptance evidence, and an API-level
+criterion can pass while the broader browser workflow remains partial.
+
+### Baseline-to-final scope position
+
+| Requirement | Delivery status | Delivered capability / remaining gap |
+|---|---|---|
+| FR-001 | IMPLEMENTED | Session login/logout and backend role checks; Requester/Staff browser login. Oversight reporting UI gap is recorded under FR-012. |
+| FR-002 | IMPLEMENTED | Submission, generated defaults/reference, confirmation and persistence; selected required-field browser validation verified. |
+| FR-003 | IMPLEMENTED | Active category selection, invalid/inactive rejection and historical category-label preservation. |
+| FR-004 | PARTIALLY IMPLEMENTED | Own-request list and status exist; full requester details/history view absent. |
+| FR-005 | PARTIALLY IMPLEMENTED | Persistent activities exist; required requester-facing explanations/highlights are incomplete. |
+| FR-006 | PARTIALLY IMPLEMENTED | Scoped staff queue/details exist; required fields/history are missing from details. |
+| FR-007 | PARTIALLY IMPLEMENTED | API search/filter/sort exists; complete staff browser controls absent. |
+| FR-008 | PARTIALLY IMPLEMENTED | Self-assignment and API eligibility/reassignment exist; full browser assignment controls and requester feedback incomplete. |
+| FR-009 | PARTIALLY IMPLEMENTED | Scheduling API and audit exist; browser controls absent and CR-P2-001 unresolved. |
+| FR-010 | PARTIALLY IMPLEMENTED | Controlled lifecycle and required notes work; requester notification presentation incomplete. |
+| FR-011 | PARTIALLY IMPLEMENTED | API supports explicit note visibility and append-only history; separate browser work-note controls absent. |
+| FR-012 | PARTIALLY IMPLEMENTED | Read-only reporting API exists; Oversight browser interface absent. |
+| FR-013 | IMPLEMENTED | Application audit records and normal-operation immutability; not protection against database administrators. |
+| NFR-001 | IMPLEMENTED | Backend role/ownership/category controls; selected negative tests pass. Broader security assurance is separate. |
+| NFR-002 | PARTIALLY IMPLEMENTED | Credential/configuration safeguards and limited scans exist; TLS and complete scanning not established. |
+| NFR-003 | IMPLEMENTED | Transactions, rollback, persistence and stale-version controls exist; forced-restart acceptance evidence remains incomplete. |
+| NFR-004 | PARTIALLY IMPLEMENTED | Read/write operations and a small performance workload exist; required scale/duration target not established. |
+| NFR-005 | PARTIALLY IMPLEMENTED | Submission/status workflows exist; representative-user usability target not established. |
+| NFR-006 | PARTIALLY IMPLEMENTED | Selected keyboard/focus/browser-zoom checks exist; complete final-candidate font-scaling/workflow coverage not established. |
+| NFR-007 | PARTIALLY IMPLEMENTED | Health endpoint exists; required outage alerting and diagnostic-log acceptance not established. |
+| NFR-008 | PARTIALLY IMPLEMENTED | Backup/snapshot integrity controls exist; full timed recovery and recovery-point objectives not established. |
+
+No item is classified CHANGED/REMOVED THROUGH APPROVED CHANGE:
+no supporting approval has been established.
+Partial implementation does not mean the quality target has been achieved.
+Use the separate 21-criterion assessment for the completion calculation,
+not the number of IMPLEMENTED rows in this table.
+
+### Integration and outstanding actions
+
+Proposed responsibilities below follow existing team roles and require confirmation.
+
+| Action | Proposed owner | Completion evidence |
+|---|---|---|
+| Review the 21 criterion scores and their evidence limits | All three members | Substantive PR review and recorded assessment decision |
+| Resolve missing browser workflows and DEF-M3-006 | Amelia coordinates; implementation allocation agreed by team | Completed/retested workflows or explicitly recorded residual scope; no automatic acceptance credit |
+| Decide CR-P2-001 | Team; Edward maintains traceability | Recorded decision and aligned requirement, implementation and tests |
+| Supply exact release SHA/tag and matching CI/staging evidence | Albert | Direct run links tied to final candidate |
+| Resolve operational verification gaps within agreed scope | Albert coordinates | Actual load, TLS, monitoring and recovery evidence where completed; otherwise explicit unmet/partial criteria |
+| Resolve representative-user/accessibility evidence gaps | Amelia and Edward | Dated actual observations, environment and measured results |
+| Consolidate PED v4.0 | Amelia, using all contributions | Scope table, calculated acceptance result, residual risks and team release decision |
+
+Current provisional acceptance result: 13.5/21 = 64.29%.
+It is below the 80% target. Additional implementation or valid evidence is
+needed to improve it; a review or accepted limitation alone does not do so.
+
+Person 2 has prepared local regression evidence, selected browser checks,
+the provisional acceptance assessment, synchronised RTM and register updates.
+Team review, final evidence reconciliation and release approval remain pending.
