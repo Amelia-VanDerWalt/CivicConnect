@@ -102,14 +102,63 @@ Evidence: tester confirmations during guided browser execution.
 | Blank title | Block submission and retain description | Tester confirmed both | Pass |
 | Valid submission | Create a request with Received status | Received request confirmed | Pass |
 | Assignment | Authorised staff assigns the request | Assigned status confirmed | Pass |
-| Progress | Assigned request advances to In progress | Tester confirmed transition | Pass |
-| Blank resolution note | Block resolution without changing status | Tester confirmed validation blocked update | Pass |
-| Resolution | Supplied summary allows Resolved status | Tester confirmed transition | Pass |
-| Closure | Resolved request advances to Closed | Tester confirmed transition | Pass |
-| Requester status | Requester sees final Closed status | Tester confirmed Closed displayed | Pass |
+| Progress | Execute the specified browser check | Tester clarified this step was not executed | Not run |
+| Blank resolution note | Execute the specified browser check | Tester clarified this step was not executed | Not run |
+| Resolution | Execute the specified browser check | Tester clarified this step was not executed | Not run |
+| Closure | Execute the specified browser check | Tester clarified this step was not executed | Not run |
+| Requester status | Execute the specified browser check | Tester clarified this step was not executed | Not run |
 
 These checks cover the selected browser journey only.
 Confirmation-to-dashboard reference matching, rejection, role isolation,
 keyboard/zoom behaviour and complete history/reporting were not established
 by this M4 execution. Earlier checks retain their original dates and candidates.
 DEF-M3-006 remains open. These results do not constitute team release approval.
+
+### Correction to M4 browser evidence — 17 October 2026
+
+The tester clarified that the remaining lifecycle checks had been assumed
+to pass rather than executed. Their earlier Pass entries are withdrawn.
+Submission and assignment remain confirmed. Automated lifecycle results
+remain separate evidence; historical browser results retain their dates.
+
+Screenshots of the uncommitted requester-history interface confirm:
+- Dashboard references are clickable and show timestamped public notes.
+- The selected request displays submitted details, priority and due date.
+- Receipt and assignment history show timestamps, authors and notes.
+- The request remains Assigned.
+
+Refresh/back controls, internal-note isolation, later lifecycle feedback
+and accessibility of the new view have not yet been confirmed.
+
+## M4 requester history verification — 17 October 2026
+
+Tester: Edward Goosen — 602882
+Candidate: f76b4f0b0c0e9fa9d8e07eedfd4d36a259599c04 plus the source changes fingerprinted below.
+Environment: Windows, Node.js 24.20.0; browser version not recorded.
+URL: http://127.0.0.1:3018
+Database: presentation-20261016-120301.sqlite
+
+### Source SHA-256
+- src/frontend/index.html: 73D5D3C9C43691883B27F65BEA81121407748A8EE770E404A607E9ADEEAA8617
+- src/frontend/requester-history.js: 56268EED31CA714C53EFB8A9A67487FEC911CEFEF8428CE785847040B81F88A3
+- backend/src/infrastructure/request-repository.js: 23DBB8DF97585E9C56AD28B27F2A5FB548D0DC3A463B681CDE7A9A737C68CC04
+
+| Check | Observed result | Status |
+|---|---|---|
+| Dashboard feedback | Full references, public update labels, timestamps and notes displayed | Pass — screenshots |
+| Request details | Submitted title/category/location/description, status, priority and due date displayed | Pass — screenshot |
+| Public history | Receipt and assignment show author, timestamp and note | Pass — screenshot |
+| Resolution feedback | Existing resolved request displays its summary; tester confirmed green resolution-history highlight | Pass — screenshot and tester confirmation |
+| Refresh updates | Tester confirmed successful refresh | Pass |
+| Back to My Requests | Tester confirmed return to dashboard | Pass |
+| Internal-note history privacy | Staff saved a marked Internal note; refreshed requester history excludes it | Pass — terminal confirmation and screenshot |
+| Internal-note dashboard privacy | Dashboard retains the latest public assignment note and excludes the Internal note | Pass — screenshot |
+
+Automated regression: 35 passed, 0 failed, 0 cancelled, 0 skipped;
+duration 7135.599 ms. This suite does not execute the new frontend DOM.
+
+Earlier assumed M4 lifecycle passes were withdrawn in the correction above.
+This execution inspected an existing resolved request; it did not perform
+new progress/resolution/closure transitions.
+Closed/rejected history, sign-out persistence, new-view keyboard/zoom and
+cross-account browser checks remain unverified for this source revision.

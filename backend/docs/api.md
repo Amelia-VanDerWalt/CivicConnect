@@ -40,3 +40,13 @@ Errors use `{ "error": "message", "correlation": "id" }`. HTTP 400 means validat
 Bodies are limited to 16 KiB. Title is 1-120 characters, description 1-4000, location 0-200 and note up to 2000. priority is Low, Normal or High; visibility is explicitly Public or Internal. Numeric IDs and version must be positive safe integers. Due times require a timezone and must be future times under proposed CR-P2-001.
 
 Breaking API changes require an ADR/change record and synchronized client/tests/RTM update. A versioned public API and external integrations are deferred until an independent client is justified.
+
+## M4 public activity status addition
+
+Requester GET /requests/{id} activity entries additionally include status:
+the request status recorded at the time of that activity.
+This supports accurate lifecycle labels and resolution/closure highlighting.
+
+Requester responses still exclude Internal activities and old_values/new_values
+audit snapshots. Staff/Oversight history responses retain their existing shape.
+No endpoint, permission rule or database migration changes.

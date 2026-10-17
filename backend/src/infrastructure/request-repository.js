@@ -30,6 +30,6 @@ export class RequestRepository {
   history(id, requester) {
     const rows = this.db.prepare(`SELECT a.*,u.name AS actor_name FROM activities a JOIN users u ON u.id=a.actor_id WHERE request_id=? ${requester ? "AND visibility='Public'" : ''} ORDER BY a.id`).all(id);
     // Never include internal audit snapshots in requester responses.
-    return rows.map(({ old_values, new_values, ...a }) => requester ? a : {...a,old_values:JSON.parse(old_values),new_values:JSON.parse(new_values)});
+    return rows.map(({ old_values, new_values, ...a }) => requester ? {...a,status:JSON.parse(new_values).status} : {...a,old_values:JSON.parse(old_values),new_values:JSON.parse(new_values)});
   }
 }
