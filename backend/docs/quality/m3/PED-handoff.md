@@ -243,3 +243,22 @@ needed to improve it; a review or accepted limitation alone does not do so.
 Person 2 has prepared local regression evidence, selected browser checks,
 the provisional acceptance assessment, synchronised RTM and register updates.
 Team review, final evidence reconciliation and release approval remain pending.
+
+## M4 requester-history correction follow-up — 17 October 2026
+
+Requester details, public activity history and latest dashboard feedback
+are now implemented on the requester-history branch.
+Selected details, public history, resolution highlighting, refresh/back
+and internal-note privacy checks passed; see browser-acceptance.md.
+
+This supersedes earlier claims that requester details/history are absent
+for this branch only. Staff controls/details and Oversight UI remain gaps.
+DEF-M3-006 is partially addressed, not closed.
+
+Correction: the initial M4 browser lifecycle passes were assumed rather
+than executed and are withdrawn. Historical 14 October browser evidence
+and actual automated results remain separate.
+
+The earlier RTM scores and 64.29% assessment describe the preceding candidate.
+They have not been upgraded for this branch. Reassess affected criteria,
+synchronise JSON/Excel and record the final candidate after verification.
