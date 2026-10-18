@@ -47,3 +47,15 @@
 | Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
 |---|---|---|---|---|---|---|---|
 | 17/10/2026 | Edward Goosen 602882 | ChatGPT/Codex | Complete requester history and public feedback | Assisted frontend implementation, safe text rendering, public activity-status projection, PowerShell updates and evidence records | Student ran 35 regression tests successfully and checked details/history, resolution highlighting, navigation and internal-note privacy in the browser | MODIFIED; peer review pending | Activity labels required correction. Earlier assumed lifecycle passes were withdrawn after tester clarification. Remaining browser and shared-interface gaps stay open |
+
+### M4 workflow completion — 18 October 2026
+
+| Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
+|---|---|---|---|---|---|---|---|
+| 18/10/2026 | Edward Goosen 602882 | ChatGPT/Codex | Complete existing staff/Oversight workflows and reassess acceptance | Assisted interface code, installer, mock DOM checks, browser steps and evidence/RTM updates | Student ran installer regression/static checks and confirmed the named browser steps. Assistant syntax/mock checks are distinct from real browser execution | MODIFIED; team review pending | Button styling adjusted. Remaining reassignment/rejection/accessibility and operational evidence limits retained. No final release approval claimed |
+
+### M4 measured verification and reconciliation — 18 October 2026
+
+| Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
+|---|---|---|---|---|---|---|---|
+| 18/10/2026 | Edward Goosen 602882 | ChatGPT/Codex | Verify assignment, recovery and formal performance; reconcile acceptance records | Assisted isolated verification runners, response assertions, source fingerprints, PowerShell automation and JSON/Excel/document updates | Student executed API/recovery and full 900-second load runners successfully. Scripts checked saved source hashes and reopened Excel for comparison. Results retain environment and workload limits | MODIFIED; provisional assessment for team review | API checks are not browser automation. Local recovery/load do not establish production TLS, outage alerting, representative usability or ongoing/off-site backup operations |

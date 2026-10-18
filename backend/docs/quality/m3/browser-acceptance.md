@@ -162,3 +162,44 @@ This execution inspected an existing resolved request; it did not perform
 new progress/resolution/closure transitions.
 Closed/rejected history, sign-out persistence, new-view keyboard/zoom and
 cross-account browser checks remain unverified for this source revision.
+
+## M4 completed-workflow browser checks — 18 October 2026
+
+Tester: Edward Goosen — 602882.
+Environment: Windows, Opera GX, Node.js 24.20.0.
+Browser version: not recorded.
+URL: http://127.0.0.1:3018.
+Database: presentation-20261016-120301.sqlite.
+Source: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus uncommitted interface changes.
+SHA-256:
+- src/frontend/index.html: 735C7F41D1A517ECEDE97E55E944F49E87332061FF38F0814DCB918A575F40B1
+- src/frontend/staff-workflows.js: D8EA64307B37489B43BE4F60EFE8CCBED2D3569804DA3FDE40C5AF6CA1951F96
+
+Evidence: tester confirmations of the specifically requested steps.
+The earlier withdrawn 17 October lifecycle claims remain withdrawn.
+
+| Check | Observed result | Status |
+|---|---|---|
+| Combined search/status filter | M4 + Assigned returns the expected request | Pass |
+| Empty search and reset | No results found; reset restores queue | Pass |
+| Staff details | Submitted fields, owner, priority, due date and history displayed | Pass |
+| Scheduling | High priority/future due date and reason saved; details/history updated | Pass |
+| Public work note | Saved through explicit Requester-visible selection; requester sees it | Pass |
+| Internal work note | Saved through explicit Internal selection; requester does not see it | Pass |
+| Oversight reports | Category counts, ownership and MTTR fields displayed | Pass |
+| Report date filter | 17 October creation-date filter and empty 2020 range behaved as expected | Pass |
+| Oversight details | Details/history available; mutation forms absent | Pass |
+| Lifecycle | Assigned -> In progress -> Resolved -> Closed succeeded | Pass |
+| Blank resolution | Empty summary blocked save | Pass |
+| Requester closure feedback | Closed status, summary and highlighted resolution/closure visible | Pass |
+| Sign-out persistence | Closed request, summary and history remain after new login | Pass |
+| Selected keyboard/200% zoom | Requester record/refresh/back and staff filters/details reachable with visible focus | Pass |
+
+Installer regression and static/security checks completed successfully.
+Exact run duration and detailed check output were not captured in this section.
+Automated suite does not execute the frontend DOM.
+
+Reassignment to a different eligible owner, new-interface rejection,
+stale-edit UI recovery, independent report-metric reconciliation and
+complete accessibility coverage were not established by these browser checks.
+No representative-user study, formal load result or release approval is claimed.

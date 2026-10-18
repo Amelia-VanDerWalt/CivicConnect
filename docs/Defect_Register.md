@@ -31,3 +31,14 @@ The team must record ownership and its final scope/release decision.
 
 These positions update the earlier snapshot; original failures and
 historical evidence remain intact. No final release approval is claimed.
+
+## M4 completed-interface review position — 18 October 2026
+
+The previously missing requester/staff/Oversight interfaces are implemented
+on feature/m4-complete-workflows. Selected browser workflow checks passed.
+Additional API reassignment, rejection, privacy, role and conflict checks passed.
+
+DEF-M3-006 is ready for peer closure review, not silently closed.
+Its final disposition must account for the complete baseline scope and
+remaining due-date/accessibility/operational acceptance gaps.
+See browser-acceptance.md and m4-api-recovery-results.md.

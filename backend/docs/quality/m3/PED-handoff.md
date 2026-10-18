@@ -286,3 +286,102 @@ DEF-M3-006 and CR-P2-001 remain open.
 
 The JSON is updated here; Excel must be synchronised and verified before
 this correction is committed.
+
+## Current M4 workflow reassessment — 18 October 2026
+
+This section supersedes earlier candidate assessments for the current
+interface changes. Earlier dated records remain historical.
+Application source: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus the two files fingerprinted in
+browser-acceptance.md.
+
+| Requirement | Acceptance assessment | Score | Evidence / limits |
+|---|---|---|---|
+| FR-001 | Met | 1 | Login, access checks and logout tested; automated protected access after logout. |
+| FR-002 | Met | 1 | Creation/defaults/retrieval tests; browser confirmation in earlier checks; M4 submission and blank-title retention passed. |
+| FR-003 | Met | 1 | T02/T03 verify active categories, rejection and preserved historical labels. |
+| FR-004 | Met | 1 | Requester list/status and ownership isolation covered by existing tests. PR #29 adds details and public history; 17 October screenshots confirm submitted fields, receipt/assignment history and resolution feedback. Refresh/back passed. Separate final-candidate release verification remains pending. |
+| FR-005 | Met | 1 | 18 October: public notes, scheduling updates, resolution/closure feedback and requester sign-out persistence confirmed. Internal notes hidden. Existing automated activity/privacy cases pass. |
+| FR-006 | Met | 1 | 18 October: staff queue/details show submitted fields, owner, priority, due date and history. Existing backend category/direct-access tests pass. |
+| FR-007 | Met | 1 | 18 October: combined title/status filtering, no-results message and reset passed in the browser. Search/filter/sort controls implemented; existing automated combined-filter/null-last-sort cases pass. |
+| FR-008 | Partially Met | 0.5 | Owner eligibility, required due time and reassignment audit tested; requester-facing notification remains incomplete. |
+| FR-009 | Partially Met | 0.5 | Priority/date validation and audit tested; CR-P2-001 date-rule discrepancy remains unresolved. |
+| FR-010 | Met | 1 | 18 October: Assigned to In progress to Resolved to Closed executed. Empty resolution summary blocked. Requester sees final status, summary and highlighted history. Existing rejection/transition tests pass; withdrawn 17 October assumptions remain withdrawn. |
+| FR-011 | Met | 1 | 18 October: explicit Public/Internal browser note controls saved notes; public note visible to requester and Internal note hidden. Staff history displays metadata/visibility. Existing immutable-history cases pass. |
+| FR-012 | Met | 1 | 18 October: Oversight report screen, date filtering, empty results and read-only details passed. Existing automated report/date/MTTR/role cases pass; browser observations do not independently recompute every metric. |
+| FR-013 | Met | 1 | Audit metadata, prior/new values, immutability and requester restrictions covered by existing tests. |
+| NFR-001 | Met | 1 | Selected role-matrix tests cover unauthorised requester/staff/oversight operations. |
+| NFR-002 | Partially Met | 0.5 | Selected repository hygiene checks exist; TLS and complete repository/log/build-output coverage are not established. |
+| NFR-003 | Partially Met | 0.5 | Rollback, stale edits and normal close/reopen persistence tested; forced-restart recovery not established. |
+| NFR-004 | Not Met | 0 | Performance smoke evidence does not meet the specified workload and 15-minute test. |
+| NFR-005 | Not Met | 0 | Representative-user unassisted timed study not established. |
+| NFR-006 | Partially Met | 0.5 | Earlier selected keyboard/200% browser zoom checks passed; final-candidate font-scaling and complete workflow coverage not established. |
+| NFR-007 | Not Met | 0 | Timed outage alerts and required diagnostic-log properties not established. |
+| NFR-008 | Partially Met | 0.5 | Backup integrity/readback tested; timed full-system restoration not established. |
+
+Current provisional score: 15/21 = 71.43%.
+Counts: 12 Met, 6 Partially Met, 3 Not Met.
+Denominator unchanged. Team acceptance and final release approval pending.
+The result remains below the 80% target.
+
+Previously missing staff controls and Oversight screens are implemented.
+DEF-M3-006 still needs final review against its full scope before closure.
+CR-P2-001 remains pending. Excel synchronisation is required before committing.
+
+## Current M4 acceptance position after measured verification — 18 October 2026
+
+This section supersedes preceding candidate totals for the current source.
+Evidence source hashes were checked against the application before this update.
+
+| Requirement | Assessment | Score | Evidence and limits |
+|---|---|---|---|
+| FR-001 | Met | 1 | Login, access checks and logout tested; automated protected access after logout. |
+| FR-002 | Met | 1 | Creation/defaults/retrieval tests; browser confirmation in earlier checks; M4 submission and blank-title retention passed. |
+| FR-003 | Met | 1 | T02/T03 verify active categories, rejection and preserved historical labels. |
+| FR-004 | Met | 1 | Requester list/status and ownership isolation covered by existing tests. PR #29 adds details and public history; 17 October screenshots confirm submitted fields, receipt/assignment history and resolution feedback. Refresh/back passed. Separate final-candidate release verification remains pending. |
+| FR-005 | Met | 1 | 18 October: public notes, scheduling updates, resolution/closure feedback and requester sign-out persistence confirmed. Internal notes hidden. Existing automated activity/privacy cases pass. |
+| FR-006 | Met | 1 | 18 October: staff queue/details show submitted fields, owner, priority, due date and history. Existing backend category/direct-access tests pass. |
+| FR-007 | Met | 1 | 18 October: combined title/status filtering, no-results message and reset passed in the browser. Search/filter/sort controls implemented; existing automated combined-filter/null-last-sort cases pass. |
+| FR-008 | Met | 1 | Assignment and reassignment controls implemented. Isolated automated check changed eligible owner 3 to 5, verified prior/new audit values and requester-visible feedback, and rejected ineligible/missing-date assignments without mutation. Browser controls were inspected; this reassignment execution was API-based. |
+| FR-009 | Partially Met | 0.5 | Priority/date validation and audit tested; CR-P2-001 date-rule discrepancy remains unresolved. |
+| FR-010 | Met | 1 | 18 October: Assigned to In progress to Resolved to Closed executed. Empty resolution summary blocked. Requester sees final status, summary and highlighted history. Existing rejection/transition tests pass; withdrawn 17 October assumptions remain withdrawn. |
+| FR-011 | Met | 1 | 18 October: explicit Public/Internal browser note controls saved notes; public note visible to requester and Internal note hidden. Staff history displays metadata/visibility. Existing immutable-history cases pass. |
+| FR-012 | Met | 1 | 18 October: Oversight report screen, date filtering, empty results and read-only details passed. Existing automated report/date/MTTR/role cases pass; browser observations do not independently recompute every metric. |
+| FR-013 | Met | 1 | Audit metadata, prior/new values, immutability and requester restrictions covered by existing tests. |
+| NFR-001 | Met | 1 | Selected role-matrix tests cover unauthorised requester/staff/oversight operations. |
+| NFR-002 | Partially Met | 0.5 | Selected repository hygiene checks exist; TLS and complete repository/log/build-output coverage are not established. |
+| NFR-003 | Met | 1 | Forced application termination preserved all acknowledged requests, activities, accounts and category permissions. Integrity checks passed. Existing rollback/stale-edit cases and the additional conflict check passed. Process-crash evidence does not establish host power-loss behaviour. |
+| NFR-004 | Met | 1 | Formal local workload passed: 900.015 seconds, 5000 initial active records, 20 concurrent virtual users, 7200 reads and 1800 writes. Read p95 395.5 ms; write p95 42.86 ms. Response content and acknowledged-write persistence checked. Loopback HTTP environment; not a production network claim. |
+| NFR-005 | Not Met | 0 | Representative-user unassisted timed study not established. |
+| NFR-006 | Partially Met | 0.5 | Earlier selected keyboard/200% browser zoom checks passed; final-candidate font-scaling and complete workflow coverage not established. |
+| NFR-007 | Not Met | 0 | Timed outage alerts and required diagnostic-log properties not established. |
+| NFR-008 | Met | 1 | Local backup restoration drill passed in 1262.77 ms. Restored server health, account access, requests, activities, permissions and report counts verified; zero acknowledged business-record loss in this drill. Fresh same-host snapshot; ongoing backup schedule, off-site retention and disaster-site recovery remain unproven. |
+
+Provisional completion: 17.5/21 = 83.33%.
+Counts: 16 Met, 3 Partially Met, 2 Not Met.
+The 21-entry denominator is unchanged. No scope removal is claimed.
+
+Formal load: 900.015 seconds; 5000 initial active
+records; 20 virtual users; 7200 reads and 1800
+writes. Read p95 395.5 ms; write p95 42.86 ms.
+Timed local restoration: 1262.77 ms.
+Forced restart: 655.72 ms; no acknowledged business-record loss.
+
+Evidence:
+- m4-formal-load-results.json and .md
+- m4-api-recovery-results.json and .md
+- browser-acceptance.md, dated 18 October workflow checks
+
+Remaining partial criteria: FR-009 (CR-P2-001), NFR-002 (TLS/security coverage),
+NFR-006 (complete accessibility coverage).
+Not Met: NFR-005 (representative-user timed study), NFR-007 (outage alerts).
+The numeric target is provisionally exceeded; unresolved Must requirements
+still require explicit treatment in the team's final decision.
+
+The local results do not establish public production readiness, off-site
+disaster recovery, a sustained backup schedule or final hosted CI success.
+No team approval is invented. Controlled local/simulated staging is the
+demonstrated environment; public production readiness remains unestablished.
+
+For PED v4.0: integrate this current assessment, the scope delivery table,
+remaining limitations and exact final release SHA/CI evidence.
+Earlier 17 October assumed browser lifecycle passes remain withdrawn.
