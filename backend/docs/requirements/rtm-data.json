@@ -49,8 +49,8 @@
                      "Met",
                      1,
                      "Login, access checks and logout tested; automated protected access after logout.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "FR-002",
@@ -75,8 +75,8 @@
                      "Met",
                      1,
                      "Creation/defaults/retrieval tests; browser confirmation in earlier checks; M4 submission and blank-title retention passed.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "FR-003",
@@ -101,8 +101,8 @@
                      "Met",
                      1,
                      "T02/T03 verify active categories, rejection and preserved historical labels.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "FR-004",
@@ -127,8 +127,8 @@
                      "Met",
                      1,
                      "Requester list/status and ownership isolation covered by existing tests. PR #29 adds details and public history; 17 October screenshots confirm submitted fields, receipt/assignment history and resolution feedback. Refresh/back passed. Separate final-candidate release verification remains pending.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "FR-005",
@@ -153,8 +153,8 @@
                      "Met",
                      1,
                      "18 October: public notes, scheduling updates, resolution/closure feedback and requester sign-out persistence confirmed. Internal notes hidden. Existing automated activity/privacy cases pass.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "FR-006",
@@ -179,8 +179,8 @@
                      "Met",
                      1,
                      "18 October: staff queue/details show submitted fields, owner, priority, due date and history. Existing backend category/direct-access tests pass.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "FR-007",
@@ -205,8 +205,8 @@
                      "Met",
                      1,
                      "18 October: combined title/status filtering, no-results message and reset passed in the browser. Search/filter/sort controls implemented; existing automated combined-filter/null-last-sort cases pass.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "FR-008",
@@ -231,8 +231,8 @@
                      "Met",
                      1,
                      "Assignment and reassignment controls implemented. Isolated automated check changed eligible owner 3 to 5, verified prior/new audit values and requester-visible feedback, and rejected ineligible/missing-date assignments without mutation. Browser controls were inspected; this reassignment execution was API-based.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "FR-009",
@@ -257,8 +257,8 @@
                      "Met",
                      1,
                      "AC-F09 supported by T19, M3-U03 and M3-U06, plus the recorded 18 October browser scheduling check. Valid priorities/future dates save; invalid values are rejected; audit retains previous values, actor, timestamp and reason. CR-P2-001 approved in PR #28: due dates must be strictly later than server current time when assigned or rescheduled.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "FR-009 reassessed after recorded team clarification approval, 18 October 2026; final release approval remains separate."
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "FR-010",
@@ -283,8 +283,8 @@
                      "Met",
                      1,
                      "18 October: Assigned to In progress to Resolved to Closed executed. Empty resolution summary blocked. Requester sees final status, summary and highlighted history. Existing rejection/transition tests pass; withdrawn 17 October assumptions remain withdrawn.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "FR-011",
@@ -309,8 +309,8 @@
                      "Met",
                      1,
                      "18 October: explicit Public/Internal browser note controls saved notes; public note visible to requester and Internal note hidden. Staff history displays metadata/visibility. Existing immutable-history cases pass.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "FR-012",
@@ -335,8 +335,8 @@
                      "Met",
                      1,
                      "18 October: Oversight report screen, date filtering, empty results and read-only details passed. Existing automated report/date/MTTR/role cases pass; browser observations do not independently recompute every metric.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "FR-013",
@@ -361,8 +361,8 @@
                      "Met",
                      1,
                      "Audit metadata, prior/new values, immutability and requester restrictions covered by existing tests.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "NFR-001",
@@ -387,8 +387,8 @@
                      "Met",
                      1,
                      "Selected role-matrix tests cover unauthorised requester/staff/oversight operations.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "NFR-002",
@@ -413,8 +413,8 @@
                      "Partially Met",
                      0.5,
                      "Selected repository hygiene checks exist; TLS and complete repository/log/build-output coverage are not established.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "NFR-003",
@@ -439,8 +439,8 @@
                      "Met",
                      1,
                      "Forced application termination preserved all acknowledged requests, activities, accounts and category permissions. Integrity checks passed. Existing rollback/stale-edit cases and the additional conflict check passed. Process-crash evidence does not establish host power-loss behaviour.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "NFR-004",
@@ -465,8 +465,8 @@
                      "Met",
                      1,
                      "Formal local workload passed: 900.015 seconds, 5000 initial active records, 20 concurrent virtual users, 7200 reads and 1800 writes. Read p95 395.5 ms; write p95 42.86 ms. Response content and acknowledged-write persistence checked. Loopback HTTP environment; not a production network claim.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "NFR-005",
@@ -491,8 +491,8 @@
                      "Not Met",
                      0,
                      "Representative-user unassisted timed study not established.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "NFR-006",
@@ -517,8 +517,8 @@
                      "Partially Met",
                      0.5,
                      "Earlier selected keyboard/200% browser zoom checks passed; final-candidate font-scaling and complete workflow coverage not established.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "NFR-007",
@@ -543,8 +543,8 @@
                      "Not Met",
                      0,
                      "Timed outage alerts and required diagnostic-log properties not established.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ],
                  [
                      "NFR-008",
@@ -569,8 +569,8 @@
                      "Met",
                      1,
                      "Local backup restoration drill passed in 1262.77 ms. Restored server health, account access, requests, activities, permissions and report counts verified; zero acknowledged business-record loss in this drill. Fresh same-host snapshot; ongoing backup schedule, off-site retention and disaster-site recovery remain unproven.",
-                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
-                     "Provisional 18 October 2026; team review and final release approval pending"
+                     "Integrated assessment baseline: 5d6069822d4c125ce642a5d119a28ca4555a2b32. Release owner reports hosted CI #88 SUCCESS on this candidate. Original local test provenance: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Assessment reconciled through merged PR #34 on 18 October 2026. CR-P2-001 approved and DEF-M3-006 closed through team confirmations in PR #28. Remaining Partial/Not Met results are retained. Production release is not approved; submission SHA and matching CI must be confirmed after the final documentation merge."
                  ]
              ]
 }
