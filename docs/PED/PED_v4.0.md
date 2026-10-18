@@ -400,3 +400,36 @@ Unresolved: CR-P2-001, production TLS/comprehensive security checks, representat
 **Provisional conclusion:** CivicConnect now supports the principal Requester, Staff and Oversight journeys and demonstrates meaningful improvement from the M3 baseline. The local workload and recovery drills add concrete quality evidence, but remaining operational and acceptance gaps require transparent final team decisions. The project outcome must be reported against the final frozen candidate, not historical CI runs.
 
 ---
+
+## M4 recorded team decisions — 18 October 2026
+
+This section supersedes earlier pending CR-P2-001/DEF-M3-006 positions
+and the preceding 83.33% assessment. Historical evidence retains its
+original dates and tested candidates.
+
+Decision evidence: https://github.com/Amelia-VanDerWalt/CivicConnect/pull/28
+Edward Goosen, Albert Du Plooy and Amelia van der Walt explicitly confirmed:
+
+- CR-P2-001 APPROVED: due dates must be strictly later than the server's
+  current time when assigned or rescheduled. Existing requests may
+  naturally become overdue.
+- DEF-M3-006 CLOSED: the merged Requester, Staff and Oversight workflows
+  resolve the original missing-interface defect. Remaining quality and
+  operational limitations are tracked separately.
+
+FR-009 is now assessed as Met against AC-F09, supported by T19,
+M3-U03, M3-U06 and the recorded 18 October browser scheduling check.
+Approval resolves the requirement ambiguity; it is not a new test run.
+
+The current assessment is 17 Met, 2 Partially Met and 2 Not Met:
+(17 + 2 x 0.5) / 21 = 85.71%. No criterion was removed.
+The JSON and Excel RTM contain the same assessment.
+
+NFR-002 and NFR-006 remain Partially Met.
+NFR-005 and NFR-007 remain Not Met.
+
+These decisions do not approve production release. Production TLS,
+comprehensive security assurance, complete accessibility, representative-user
+usability, outage alerting and production/off-site recovery remain
+limitations. The release owner must record the final candidate SHA/tag,
+matching hosted CI result and final deployment/readiness decision.

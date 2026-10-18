@@ -385,3 +385,24 @@ demonstrated environment; public production readiness remains unestablished.
 For PED v4.0: integrate this current assessment, the scope delivery table,
 remaining limitations and exact final release SHA/CI evidence.
 Earlier 17 October assumed browser lifecycle passes remain withdrawn.
+
+## Recorded team decisions and revised assessment — 18 October 2026
+
+Decision evidence: https://github.com/Amelia-VanDerWalt/CivicConnect/pull/28
+Edward, Albert and Amelia approved CR-P2-001 and agreed to close DEF-M3-006.
+
+FR-009 is reassessed as Met against the complete AC-F09: automated
+priority/date validation and audit tests, the recorded browser scheduling
+check and the approved clarification support the assessment.
+
+Current assessment: 17 Met, 2 Partially Met, 2 Not Met.
+Weighted result: 18/21 = 85.71%, superseding the preceding 83.33% assessment.
+No baseline criterion was removed.
+
+NFR-002 and NFR-006 remain Partially Met.
+NFR-005 and NFR-007 remain Not Met.
+
+Verification retains its original dates and source fingerprints.
+This documentation update is not a new runtime test or final release
+approval. Amelia should reflect these decisions in PED v4.0; Albert
+records the final frozen candidate, matching CI and deployment decision.

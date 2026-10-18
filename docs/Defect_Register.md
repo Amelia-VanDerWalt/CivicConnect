@@ -42,3 +42,19 @@ DEF-M3-006 is ready for peer closure review, not silently closed.
 Its final disposition must account for the complete baseline scope and
 remaining due-date/accessibility/operational acceptance gaps.
 See browser-acceptance.md and m4-api-recovery-results.md.
+
+## Team closure of DEF-M3-006 — 18 October 2026
+
+Current status: CLOSED, superseding the earlier open/peer-review position.
+
+Edward Goosen, Albert Du Plooy and Amelia van der Walt confirmed closure
+in PR #28: https://github.com/Amelia-VanDerWalt/CivicConnect/pull/28
+
+The merged requester details/history, Staff controls and Oversight reports
+resolve the original missing-interface defect. Evidence is recorded in
+browser-acceptance.md and m4-api-recovery-results.md; implementation
+commit 0230ddc is included in main.
+
+Closure applies to this interface defect. TLS, accessibility, usability,
+monitoring and production/off-site recovery limitations remain separately
+tracked. Closure does not establish production readiness.
