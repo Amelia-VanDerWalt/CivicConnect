@@ -14,7 +14,7 @@ The current Milestone 2 implementation includes:
 - Automated backend verification.
 - Architecture, design, traceability and engineering documentation.
 
-> **Project status:** CivicConnect is currently an academic Milestone 2 prototype. Some planned functionality is not yet available through the frontend.
+> **Project status:** CivicConnect is in final Milestone 4 project closure. The current product supports the core Requester and Staff service-request workflows, with remaining limitations documented in the PED, RTM and project registers. The final production/go-live decision is still to be concluded.
 
 ---
 
@@ -228,7 +228,7 @@ The project currently contains automated backend tests covering areas such as:
 - Reporting calculations.
 - API authentication/session behaviour.
 
-The current backend evidence contains **24 automated tests**.
+The current automated regression suite contains 35 tests.
 
 These tests provide initial implementation evidence and do not represent complete production acceptance testing.
 
@@ -402,7 +402,7 @@ architecture_continued.md
 
 ## Current Limitations
 
-The current application is an initial Milestone 2 implementation and is not a complete production system.
+The current application is the CivicConnect project candidate being finalised for Milestone 4. It is not currently considered a production-ready system.
 
 Known limitations include:
 
@@ -421,7 +421,7 @@ Known limitations include:
 - Performance/load targets have not yet been fully verified.
 - Disaster-recovery targets have not yet been fully demonstrated.
 
-These limitations are documented intentionally rather than presenting the Milestone 2 prototype as a completed production system.
+These limitations are documented intentionally rather than presenting the final academic project as a production-ready system.
 
 ---
 
@@ -431,7 +431,7 @@ Project engineering evidence can be found throughout the repository.
 
 Important documentation includes:
 
-- `docs/PED/PED_v2.0.md` — Project Engineering Document for Milestone 2
+- `docs/PED/PED_v3.0.md` — Milestone 3 engineering and release-readiness baseline
 - `architecture.md` and `architecture_continued.md` — architecture and ASR evidence
 - `docs/decisions/` — engineering and design decisions
 - `backend/docs/decisions/` — persistence, technology and interface ADRs
@@ -485,7 +485,7 @@ Important points:
 
 CivicConnect is developed by:
 
-| Team Member | Student Number | Milestone 2 Responsibility |
+| Team Member | Student Number | Project responsibility |
 |---|---:|---|
 | Amelia van der Walt | 601649 | Person 1 - Architecture and System Engineering |
 | Edward Goosen | 602882 | Person 2 - Data, Technology and Integration |
