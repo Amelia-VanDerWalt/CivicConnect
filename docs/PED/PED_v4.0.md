@@ -1,10 +1,10 @@
 # Project Engineering Document v4.0 — CivicConnect Final Project (DRAFT)
 
 **Document status:** M4 consolidation draft — final baseline, acceptance and team approval pending  
-**Baseline:** PED v2.0 and the original M1 requirements  
+**Baseline:** PED v3.0 continued into v4.0; original M1 acceptance criteria remain the scope baseline  
 **Repository baseline:** Person 3's merged contribution, PR #25, merge commit `4e988dcb8890dda9b15442ae4d4c2fe2ca3b2263`  
 **Team:** Amelia van der Walt, Edward Goosen, Albert Du Plooy  
-**Purpose:** Consolidate the Person 1 architecture/conformance work, Person 2 verification evidence and Person 3 CI/deployment/performance/release evidence into one M3 PED. PED v1.0 and v2.0 remain historical records.
+**Purpose:** Consolidate the Person 1 architecture/conformance work, Person 2 verification evidence and Person 3 CI/deployment/performance/release evidence into one M4 PED. PED v1.0 and v2.0 remain historical records.
 
 ## Document control
 
@@ -16,7 +16,7 @@
 
 This document preserves the M1/M2 baselines rather than silently rewriting them. CR-P2-001 (due date must be later than the current time) remains subject to a recorded team decision. The final tested commit and release classification must be recorded before the team declares M3 accepted.
 
-## M3 submission information
+## Historical M3 submission information
 
 - **Team:** Amelia van der Walt, Edward Goosen and Albert Du Plooy.
 - **Repository:** [CivicConnect on GitHub](https://github.com/Amelia-VanDerWalt/CivicConnect).
