@@ -2,9 +2,9 @@
 
 **Document status:** M4 consolidation draft — final baseline, acceptance and team approval pending  
 **Baseline:** PED v3.0 continued into v4.0; original M1 acceptance criteria remain the scope baseline  
-**Repository baseline:** Person 3's merged contribution, PR #25, merge commit `4e988dcb8890dda9b15442ae4d4c2fe2ca3b2263`  
+**Historical M3 evidence baseline:** Person 3's merged contribution, PR #25, merge commit `4e988dcb8890dda9b15442ae4d4c2fe2ca3b2263`; current M4 evidence is reconciled below  
 **Team:** Amelia van der Walt, Edward Goosen, Albert Du Plooy  
-**Purpose:** Consolidate the Person 1 architecture/conformance work, Person 2 verification evidence and Person 3 CI/deployment/performance/release evidence into one M4 PED. PED v1.0 and v2.0 remain historical records.
+**Purpose:** Consolidate the Person 1 architecture/conformance work, Person 2 verification evidence and Person 3 CI/deployment/performance/release evidence into one M4 PED. PED v1.0, v2.0 and v3.0 remain historical records.
 
 ## Document control
 
@@ -12,7 +12,8 @@
 |---|---|---|
 | v1.0 | Original PED and M1 requirements baseline; retained as historical record | Historical — superseded, not deleted |
 | v2.0 | M2 architecture, design, requirements traceability and engineering baseline | Historical — superseded, not deleted |
-| v3.0 review candidate | Consolidated M3 architecture/conformance, defects, testing, CI, staging, performance and release evidence | Under review; not final approval or production release authorization |
+| v3.0 review candidate | Consolidated M3 architecture/conformance, defects, testing, CI, staging, performance and release evidence | Historical M3 record |
+| v4.0 draft | Updated M4 scope, acceptance, workflows, measured verification and closure reflection | Pending final SHA/CI, release decision and team approval |
 
 This document preserves the M1/M2 baselines rather than silently rewriting them. CR-P2-001 (due date must be later than the current time) remains subject to a recorded team decision. The final tested commit and release classification must be recorded before the team declares M3 accepted.
 
@@ -399,65 +400,3 @@ Unresolved: CR-P2-001, production TLS/comprehensive security checks, representat
 **Provisional conclusion:** CivicConnect now supports the principal Requester, Staff and Oversight journeys and demonstrates meaningful improvement from the M3 baseline. The local workload and recovery drills add concrete quality evidence, but remaining operational and acceptance gaps require transparent final team decisions. The project outcome must be reported against the final frozen candidate, not historical CI runs.
 
 ---
-
-## M4 finalisation and project closure (Person 1 working section)
-
-**Status:** Working draft. This section must be reconciled with Edward's final RTM/acceptance and Albert's release/CI evidence before approval. Earlier M3 evidence remains historical and must not be represented as final-M4 verification.
-
-### Final submission identification
-
-- **Team:** Amelia van der Walt, Edward Goosen, Albert Du Plooy.
-- **Repository:** https://github.com/Amelia-VanDerWalt/CivicConnect
-- **PED:** v4.0 Final (draft pending team approval).
-- **Exact final assessed commit/tag:** PENDING — Albert to provide the frozen final release identifier.
-- **Final RTM:** [Existing RTM](../../backend/docs/requirements/rtm-data.json) — Edward to reconcile with final acceptance evidence.
-- **Deployment decision:** PENDING — Albert to confirm production, simulated production, or evidence-based staging no-go.
-- **Submission date:** PENDING — record actual submission date.
-
-### M1 commitments to final delivery — provisional comparison
-
-The following statuses are based on the documented M3 position, **not** a verified final M4 build. They must be updated using the final RTM and actual final demonstration. The full M1 acceptance-criteria inventory must be reconciled before scope completion is calculated.
-
-| M1 commitment | Provisional M3 delivery position | Final M4 status | Evidence / action needed |
-|---|---|---|---|
-| FR-001 authentication/roles | Selected backend and browser behaviours verified | Pending final confirmation | Final RTM, relevant CI and login/logout/authorization evidence |
-| FR-002/FR-003 request submission/categories | Selected workflows verified | Pending final confirmation | Final submission journey and acceptance criteria |
-| FR-004/FR-005 requester history/feedback | Partial; complete activity/history UI not established | Pending final confirmation | Verify final UI and requirement-specific criteria |
-| FR-006/FR-008/FR-010 staff queue/assignment/lifecycle | Selected workflows verified; reassignment incomplete | Pending final confirmation | Final staff journey and criteria |
-| FR-007/FR-009 filtering/sorting/scheduling | Partial; API capability not fully exposed in UI | Pending final confirmation | Final UI checks and RTM |
-| FR-011 notes and visibility | Partial UI; selected internal-note isolation evidence | Pending final confirmation | Final acceptance and visibility checks |
-| FR-012 Oversight reporting | Read-only API; browser UI absent | Pending final confirmation | Final interface/API scope comparison |
-| FR-013/NFR-003 audit/integrity | Selected tests verify behaviour | Pending final confirmation | Final-version integrity/rollback evidence |
-| NFR-002 secure transport/secrets | Selected scans; production TLS not established | Pending final confirmation | Final release classification and security evidence |
-| NFR-004 performance | Small smoke test only; full specified workload not proven | Pending final confirmation | Final CI/performance evidence and residual limitation |
-| NFR-005/NFR-006 usability/accessibility | Selected browser checks; full conformance unproven | Pending final confirmation | Final browser evidence and stated limitations |
-| NFR-007/NFR-008 availability/recovery | Local health/backup evidence; production monitoring and timed RTO/RPO unproven | Pending final confirmation | Albert's final deployment/recovery evidence |
-
-**Scope Completion Percentage:** PENDING EDWARD'S FINAL ACCEPTANCE-CRITERIA CALCULATION. Per M4 instructions, Met = 1, Partially Met = 0.5, Not Met = 0; divide the total by the number of applicable approved criteria and multiply by 100. Approved scope changes must have traceable change references. Do not invent a percentage or equate code presence with acceptance.
-
-### Important engineering decisions and consequences
-
-1. **Layered modular monolith with SQLite:** retained through M3; clear HTTP, application, domain and persistence boundaries support a proportionate system. The final conclusion must still acknowledge that local simulated staging does not prove production operations.
-2. **DES-001 — data-driven category validation instead of Factory Method:** retained because categories were treated as data labels rather than behavioural subclasses; avoids unnecessary complexity. Reconsider only if category-specific behaviour diverges.
-3. **DES-002 — direct application-service audit coordination instead of Observer:** retained for explicit mandatory state/audit coordination; introduces tighter coupling but avoids premature event infrastructure. Revisit if independent reactions or integrations multiply.
-
-### M3 issues carried into final closure
-
-- **DEF-M3-001 to DEF-M3-005:** M3 documentation reports corrections and selected retests; reverify the final candidate where affected by later changes.
-- **DEF-M3-006:** requester history and Oversight browser completeness was open in M3; record final implementation or explicit remaining limitation.
-- **CR-P2-001:** formal change approval was pending in the M3 document; link final decision rather than silently treating implementation as approval.
-- **Security/release:** production TLS, comprehensive secret scanning and public production deployment were not proven in the M3 document.
-- **Quality/recovery:** full NFR-004 workload, production alerting, off-site backup, timed RTO/RPO and complete accessibility acceptance were not proven by M3 evidence.
-
-### Final product and stakeholder-value conclusion (to approve after final evidence)
-
-CivicConnect addresses fragmented community service request handling by combining requester submission/status visibility and authorised staff request processing around a shared API and SQLite-backed record. The M3 evidence supports selected working requester/staff journeys and important security/integrity controls, but also records incomplete user-facing workflows and operational limits. The final M4 judgement must be based on the frozen product, Edward's criterion-level scope/acceptance results, and Albert's release/no-go evidence. The team should explicitly distinguish delivered value from remaining limitations and prioritise completion of original critical commitments over new optional features.
-
-### Person 1 integration/closure handoff
-
-- [ ] Compare the final frontend with the M1 baseline; prioritise critical incomplete approved journeys.
-- [ ] Receive Edward's final RTM, scope percentage, defect/risk statuses and acceptance limitations.
-- [ ] Receive Albert's exact final SHA/tag, CI result, deployment decision, technical debt and startup instructions.
-- [ ] Reconcile all evidence links and statuses against one frozen release.
-- [ ] Preserve PED v1.0/v2.0/v3.0 in repository history; do not delete earlier versions.
-- [ ] Obtain team review and approvals through the normal PR process before labelling this document v4.0 Final.
