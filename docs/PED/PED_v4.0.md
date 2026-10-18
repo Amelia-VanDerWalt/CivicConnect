@@ -342,6 +342,64 @@ Preserve PED v1.0 and v2.0 as historical baselines. Update this PED, the RTM, re
 
 ---
 
+## M4 updated evidence — 18 October 2026 (supersedes historical M3 findings)
+
+**Status:** Current provisional assessment; final team acceptance and release approval remain pending. The earlier M3 sections and older provisional M4 scoring remain historical, not the current position.
+
+### Scope and acceptance
+
+The approved M1 baseline contains 21 named acceptance criteria. The latest [Person 2 handoff](../../backend/docs/quality/m3/PED-handoff.md) and [RTM](../../backend/docs/requirements/rtm-data.json) report **16 Met, 3 Partially Met and 2 Not Met**. Weighted scope completion is **(16 + 3 × 0.5) / 21 = 83.33%**. This supersedes the earlier 57.14%, 64.29% and 71.43% assessments. The numerical 80% target is exceeded provisionally, but unresolved Must criteria and final team approval still matter.
+
+| M1 requirement | Latest criterion status | Final M4 implementation/evidence position |
+|---|---|---|
+| FR-001 | Met | Login/logout and role/ownership enforcement |
+| FR-002 | Met | Request submission and persisted defaults |
+| FR-003 | Met | Category validation and historical labels |
+| FR-004 | Met | Requester details, own requests and public history |
+| FR-005 | Met | Requester-visible public updates, feedback and privacy |
+| FR-006 | Met | Staff scoped queue, details and history |
+| FR-007 | Met | Staff browser search/filter/sort and reset |
+| FR-008 | Met | Assignment/reassignment; API reassignment and audit checked |
+| FR-009 | Partially Met | Scheduling exists; CR-P2-001 due-date decision pending |
+| FR-010 | Met | Status lifecycle, resolution summary and requester feedback |
+| FR-011 | Met | Public/Internal browser notes and visibility checks |
+| FR-012 | Met | Read-only Oversight browser reporting and date filters |
+| FR-013 | Met | Audit trail and requester restrictions |
+| NFR-001 | Met | Selected role and scope checks |
+| NFR-002 | Partially Met | Selected security checks; production TLS/full scanning unproven |
+| NFR-003 | Met | Transactions, stale edits and forced application restart |
+| NFR-004 | Met | Formal local 5,000-record, 20-user, 15-minute workload |
+| NFR-005 | Not Met | Representative-user timed usability study absent |
+| NFR-006 | Partially Met | Selected keyboard/zoom checks; full text-scaling coverage unproven |
+| NFR-007 | Not Met | Timed outage alerting and full diagnostic-log evidence absent |
+| NFR-008 | Met | Timed local restoration verified; off-site recovery unproven |
+
+No M1 criterion is treated as removed through an approved change. Do not infer acceptance merely from implementation.
+
+### Current M4 product and defect position
+
+Requester details/public history, Staff filtering/sorting, reassignment, scheduling, separate note visibility and the read-only Oversight interface are implemented in the merged M4 workflow work. Selected browser verification was recorded on 18 October; see [browser evidence](../../backend/docs/quality/m3/browser-acceptance.md). Earlier descriptions of absent browser functionality in this PED refer to the **historical M3 baseline**.
+
+The [Defect Register](../Defect_Register.md) now describes **DEF-M3-006 as ready for peer closure review**, not fully unresolved/unimplemented and not yet formally Closed. CR-P2-001 remains pending approval.
+
+### Updated performance and recovery
+
+The [formal M4 load evidence](../../backend/docs/quality/m3/m4-formal-load-results.md) reports **900.015 seconds**, **5,000 initial active records**, **20 concurrent virtual users**, **7,200 reads**, **1,800 writes**, read p95 **395.5 ms**, write p95 **42.86 ms**. This was local loopback HTTP testing, not a public production performance measurement.
+
+The [recovery evidence](../../backend/docs/quality/m3/m4-api-recovery-results.md) reports local backup restoration in **1,262.77 ms** and forced application restart in **655.72 ms**, with acknowledged business records retained in those drills. Same-host snapshot restoration does not prove ongoing off-site backup, disaster-site RTO/RPO or power-loss resilience.
+
+### Significant decisions and consequences
+
+The layered modular monolith and SQLite remain a proportionate solution with clear HTTP, service/policy and persistence responsibilities. DES-001 retained data-driven category validation instead of premature Factory Method subclasses; DES-002 retained explicit service-coordinated audit updates instead of an Observer/event system. These choices support clarity and maintainability but do not remove operational scaling and deployment responsibilities.
+
+### Residual risk, release and conclusion
+
+Unresolved: CR-P2-001, production TLS/comprehensive security checks, representative-user usability, complete accessibility, 60-second outage alerting/diagnostic logging, off-site recovery and sustained backup scheduling. **Albert must still provide the frozen final commit/tag, matching hosted CI result and documented deployment/go/no-go decision.** Neither the provisional 83.33% scope score nor local verification authorizes public production release.
+
+**Provisional conclusion:** CivicConnect now supports the principal Requester, Staff and Oversight journeys and demonstrates meaningful improvement from the M3 baseline. The local workload and recovery drills add concrete quality evidence, but remaining operational and acceptance gaps require transparent final team decisions. The project outcome must be reported against the final frozen candidate, not historical CI runs.
+
+---
+
 ## M4 finalisation and project closure (Person 1 working section)
 
 **Status:** Working draft. This section must be reconciled with Edward's final RTM/acceptance and Albert's release/CI evidence before approval. Earlier M3 evidence remains historical and must not be represented as final-M4 verification.
