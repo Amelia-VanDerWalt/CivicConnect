@@ -4,7 +4,7 @@ CivicConnect is a Community Service Request Management Platform developed for th
 
 The system provides a centralised way for requesters to submit and track community service requests, while authorised staff can view, assign and update requests through a controlled lifecycle.
 
-The current Milestone 2 implementation includes:
+The current CivicConnect implementation includes:
 
 - A browser-based HTML, CSS and JavaScript frontend.
 - A Node.js backend and JSON API.
@@ -14,7 +14,7 @@ The current Milestone 2 implementation includes:
 - Automated backend verification.
 - Architecture, design, traceability and engineering documentation.
 
-> **Project status:** CivicConnect is currently an academic Milestone 2 prototype. Some planned functionality is not yet available through the frontend.
+> **Project status:** CivicConnect is in final Milestone 4 project closure. The current product supports the core Requester and Staff service-request workflows, with remaining limitations documented in the PED, RTM and project registers. The final production/go-live decision is still to be concluded.
 
 ---
 
@@ -199,11 +199,9 @@ Invalid lifecycle transitions are rejected by the backend.
 
 ### Oversight
 
-The backend includes read-only Oversight/reporting functionality through the API.
+The current baseline includes read-only Oversight/reporting functionality through the API.
 
-However, the **Oversight browser interface is not yet implemented** in the current Milestone 2 frontend.
-
-The Oversight role is therefore currently useful mainly for backend/API reporting verification.
+The final M4 browser-interface status will be confirmed against the integrated release baseline.
 
 ---
 
@@ -228,7 +226,7 @@ The project currently contains automated backend tests covering areas such as:
 - Reporting calculations.
 - API authentication/session behaviour.
 
-The current backend evidence contains **24 automated tests**.
+The current automated regression suite contains 35 tests.
 
 These tests provide initial implementation evidence and do not represent complete production acceptance testing.
 
@@ -402,26 +400,19 @@ architecture_continued.md
 
 ## Current Limitations
 
-The current application is an initial Milestone 2 implementation and is not a complete production system.
+The current application is the CivicConnect project candidate being finalised for Milestone 4. It is not currently considered a production-ready system.
 
-Known limitations include:
+Known limitations and outstanding finalisation items include:
 
-- The Oversight/reporting browser UI is not yet implemented.
-- Full staff search, filtering and sorting functionality is not yet exposed through the frontend.
-- Full staff reassignment controls are not yet available in the frontend.
-- Full priority and due-date editing is not yet available in the frontend.
-- Full Public/Internal work-note editing is not yet available in the frontend.
-- Requester activity/history views are incomplete.
-- Request reopening is not supported.
-- Password reset is not implemented.
-- Email and SMS notifications are not implemented.
-- File/photo attachments are not implemented.
+- Final M4 browser-workflow and acceptance status is still being reconciled against the integrated release baseline.
 - Production HTTPS/TLS deployment has not been established.
-- Production monitoring and alerting have not been established.
-- Performance/load targets have not yet been fully verified.
-- Disaster-recovery targets have not yet been fully demonstrated.
+- Production monitoring and outage alerting have not been established.
+- Complete accessibility verification has not been demonstrated.
+- Representative-user usability testing has not been completed.
+- CR-P2-001 still requires a final team decision.
+- Production readiness has not been approved.
 
-These limitations are documented intentionally rather than presenting the Milestone 2 prototype as a completed production system.
+These limitations are documented intentionally rather than presenting the final academic project as a production-ready system.
 
 ---
 
@@ -431,7 +422,7 @@ Project engineering evidence can be found throughout the repository.
 
 Important documentation includes:
 
-- `docs/PED/PED_v2.0.md` — Project Engineering Document for Milestone 2
+- `docs/PED/PED_v3.0.md` — Milestone 3 engineering and release-readiness baseline
 - `architecture.md` and `architecture_continued.md` — architecture and ASR evidence
 - `docs/decisions/` — engineering and design decisions
 - `backend/docs/decisions/` — persistence, technology and interface ADRs
@@ -485,7 +476,7 @@ Important points:
 
 CivicConnect is developed by:
 
-| Team Member | Student Number | Milestone 2 Responsibility |
+| Team Member | Student Number | Project responsibility |
 |---|---:|---|
 | Amelia van der Walt | 601649 | Person 1 - Architecture and System Engineering |
 | Edward Goosen | 602882 | Person 2 - Data, Technology and Integration |
