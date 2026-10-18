@@ -251,7 +251,7 @@
                      "CR-P2-001 approved by Edward, Albert and Amelia on 18 October 2026; see PR #28 discussion. Final release approval remains separate.",
                      "https://github.com/Amelia-VanDerWalt/CivicConnect/pull/28",
                      "T19, M3-U03, M3-U06",
-                     "Before/after actor and reason recorded; Only Low Normal High accepted; Only future timezone-bearing due accepted;CR-P2-001 pending",
+                     "Before/after values, actor, timestamp and reason recorded; only Low, Normal and High accepted; only future timezone-bearing due dates accepted. Historical M3 expectation: CR-P2-001 was pending at that time. Current decision: approved by the team on 18 October 2026; see PR #28.",
                      "after-fix.tap: named tests pass; browser/operational checks not inferred",
                      "Selected automated behaviour verified; full acceptance/approval separate",
                      "Met",
