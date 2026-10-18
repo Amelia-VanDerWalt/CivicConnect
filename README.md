@@ -14,7 +14,7 @@ The current CivicConnect implementation includes:
 - Automated backend verification.
 - Architecture, design, traceability and engineering documentation.
 
-> > **Project status:** CivicConnect is in final Milestone 4 project closure. The current product supports the principal Requester, Staff and Oversight workflows. The final deployment decision is **Staging — NO-GO for production** because production TLS, operational outage alerting, representative-user usability, complete accessibility verification and production/off-site recovery controls have not been fully demonstrated.
+ > **Project status:** CivicConnect is in final Milestone 4 project closure. The current product supports the principal Requester, Staff and Oversight workflows. The final deployment decision is **Staging — NO-GO for production** because production TLS, operational outage alerting, representative-user usability, complete accessibility verification and production/off-site recovery controls have not been fully demonstrated.
 
 ---
 

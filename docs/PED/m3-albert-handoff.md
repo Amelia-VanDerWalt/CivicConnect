@@ -304,7 +304,7 @@ These remaining security and operational risks make production release unjustifi
 
 Production release should only proceed after these controls are implemented and verified.
 
-### Final startup / demonstration instructions
+### Final startup / demonstration instructions (See README fro full details)
 
 From the repository root:
 
@@ -313,3 +313,8 @@ cd backend
 npm ci --ignore-scripts
 npm run setup
 npm start
+
+
+The application is then available at:
+
+http://127.0.0.1:3000
