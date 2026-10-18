@@ -86,3 +86,120 @@ DEF-M3-006 remains open. Full activity-history/reporting acceptance,
 representative-user usability and full WCAG compliance are not established.
 The longer references have not been retested at 200% zoom.
 No credentials are included.
+
+## M4 critical browser verification — 17 October 2026
+
+Tester: Edward Goosen — 602882
+Tested commit: f52bb8fd6c15e4a72abf182a9b4fe43511f1027e
+Environment: Windows; Node.js 24.20.0
+URL: http://127.0.0.1:3018
+Database: presentation-20261016-120301.sqlite
+Browser name/version: not recorded.
+Evidence: tester confirmations during guided browser execution.
+
+| Check | Expected result | Actual result | Status |
+|---|---|---|---|
+| Blank title | Block submission and retain description | Tester confirmed both | Pass |
+| Valid submission | Create a request with Received status | Received request confirmed | Pass |
+| Assignment | Authorised staff assigns the request | Assigned status confirmed | Pass |
+| Progress | Execute the specified browser check | Tester clarified this step was not executed | Not run |
+| Blank resolution note | Execute the specified browser check | Tester clarified this step was not executed | Not run |
+| Resolution | Execute the specified browser check | Tester clarified this step was not executed | Not run |
+| Closure | Execute the specified browser check | Tester clarified this step was not executed | Not run |
+| Requester status | Execute the specified browser check | Tester clarified this step was not executed | Not run |
+
+These checks cover the selected browser journey only.
+Confirmation-to-dashboard reference matching, rejection, role isolation,
+keyboard/zoom behaviour and complete history/reporting were not established
+by this M4 execution. Earlier checks retain their original dates and candidates.
+DEF-M3-006 remains open. These results do not constitute team release approval.
+
+### Correction to M4 browser evidence — 17 October 2026
+
+The tester clarified that the remaining lifecycle checks had been assumed
+to pass rather than executed. Their earlier Pass entries are withdrawn.
+Submission and assignment remain confirmed. Automated lifecycle results
+remain separate evidence; historical browser results retain their dates.
+
+Screenshots of the uncommitted requester-history interface confirm:
+- Dashboard references are clickable and show timestamped public notes.
+- The selected request displays submitted details, priority and due date.
+- Receipt and assignment history show timestamps, authors and notes.
+- The request remains Assigned.
+
+Refresh/back controls, internal-note isolation, later lifecycle feedback
+and accessibility of the new view have not yet been confirmed.
+
+## M4 requester history verification — 17 October 2026
+
+Tester: Edward Goosen — 602882
+Candidate: f76b4f0b0c0e9fa9d8e07eedfd4d36a259599c04 plus the source changes fingerprinted below.
+Environment: Windows, Node.js 24.20.0; browser version not recorded.
+URL: http://127.0.0.1:3018
+Database: presentation-20261016-120301.sqlite
+
+### Source SHA-256
+- src/frontend/index.html: 73D5D3C9C43691883B27F65BEA81121407748A8EE770E404A607E9ADEEAA8617
+- src/frontend/requester-history.js: 56268EED31CA714C53EFB8A9A67487FEC911CEFEF8428CE785847040B81F88A3
+- backend/src/infrastructure/request-repository.js: 23DBB8DF97585E9C56AD28B27F2A5FB548D0DC3A463B681CDE7A9A737C68CC04
+
+| Check | Observed result | Status |
+|---|---|---|
+| Dashboard feedback | Full references, public update labels, timestamps and notes displayed | Pass — screenshots |
+| Request details | Submitted title/category/location/description, status, priority and due date displayed | Pass — screenshot |
+| Public history | Receipt and assignment show author, timestamp and note | Pass — screenshot |
+| Resolution feedback | Existing resolved request displays its summary; tester confirmed green resolution-history highlight | Pass — screenshot and tester confirmation |
+| Refresh updates | Tester confirmed successful refresh | Pass |
+| Back to My Requests | Tester confirmed return to dashboard | Pass |
+| Internal-note history privacy | Staff saved a marked Internal note; refreshed requester history excludes it | Pass — terminal confirmation and screenshot |
+| Internal-note dashboard privacy | Dashboard retains the latest public assignment note and excludes the Internal note | Pass — screenshot |
+
+Automated regression: 35 passed, 0 failed, 0 cancelled, 0 skipped;
+duration 7135.599 ms. This suite does not execute the new frontend DOM.
+
+Earlier assumed M4 lifecycle passes were withdrawn in the correction above.
+This execution inspected an existing resolved request; it did not perform
+new progress/resolution/closure transitions.
+Closed/rejected history, sign-out persistence, new-view keyboard/zoom and
+cross-account browser checks remain unverified for this source revision.
+
+## M4 completed-workflow browser checks — 18 October 2026
+
+Tester: Edward Goosen — 602882.
+Environment: Windows, Opera GX, Node.js 24.20.0.
+Browser version: not recorded.
+URL: http://127.0.0.1:3018.
+Database: presentation-20261016-120301.sqlite.
+Source: 11dc19df95590aa9daf518e0f04441cf389ad0ed plus uncommitted interface changes.
+SHA-256:
+- src/frontend/index.html: 735C7F41D1A517ECEDE97E55E944F49E87332061FF38F0814DCB918A575F40B1
+- src/frontend/staff-workflows.js: D8EA64307B37489B43BE4F60EFE8CCBED2D3569804DA3FDE40C5AF6CA1951F96
+
+Evidence: tester confirmations of the specifically requested steps.
+The earlier withdrawn 17 October lifecycle claims remain withdrawn.
+
+| Check | Observed result | Status |
+|---|---|---|
+| Combined search/status filter | M4 + Assigned returns the expected request | Pass |
+| Empty search and reset | No results found; reset restores queue | Pass |
+| Staff details | Submitted fields, owner, priority, due date and history displayed | Pass |
+| Scheduling | High priority/future due date and reason saved; details/history updated | Pass |
+| Public work note | Saved through explicit Requester-visible selection; requester sees it | Pass |
+| Internal work note | Saved through explicit Internal selection; requester does not see it | Pass |
+| Oversight reports | Category counts, ownership and MTTR fields displayed | Pass |
+| Report date filter | 17 October creation-date filter and empty 2020 range behaved as expected | Pass |
+| Oversight details | Details/history available; mutation forms absent | Pass |
+| Lifecycle | Assigned -> In progress -> Resolved -> Closed succeeded | Pass |
+| Blank resolution | Empty summary blocked save | Pass |
+| Requester closure feedback | Closed status, summary and highlighted resolution/closure visible | Pass |
+| Sign-out persistence | Closed request, summary and history remain after new login | Pass |
+| Selected keyboard/200% zoom | Requester record/refresh/back and staff filters/details reachable with visible focus | Pass |
+
+Installer regression and static/security checks completed successfully.
+Exact run duration and detailed check output were not captured in this section.
+Automated suite does not execute the frontend DOM.
+
+Reassignment to a different eligible owner, new-interface rejection,
+stale-edit UI recovery, independent report-metric reconciliation and
+complete accessibility coverage were not established by these browser checks.
+No representative-user study, formal load result or release approval is claimed.

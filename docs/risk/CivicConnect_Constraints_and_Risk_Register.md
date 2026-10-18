@@ -124,3 +124,56 @@ Related risks are linked to avoid treating overlapping concerns as independent e
 ## M3 Person2 verification update — 12 October 2026
 
 M2-R01/02/08: actual-process tests reproduced static traversal, ignored port and hanging favicon. DEF-M3-001..003 corrected locally with red-to-green evidence; team review and staging retest pending. RISK-006/007 remain open despite selected access/transaction tests. M2-R05 remains open for frontend reference/reasons/history/reporting. M2-R06 requires the CR-P2-001 decision. M2-R07/09 retain browser/operational verification and CI/approval gaps. No automatic closure follows from35/35 passing tests. See backend/docs/quality/m3/test-plan.md and docs/Defect_Register.md.
+
+## M4 Person 2 risk review — 17 October 2026
+
+Candidate: f52bb8fd6c15e4a72abf182a9b4fe43511f1027e.
+This dated review updates earlier positions without deleting their history.
+Existing owners and ratings remain unchanged pending shared review.
+
+| Existing risk | Current position | Evidence / remaining action |
+|---|---|---|
+| M2-R01 / M2-R02 / M2-R08 | Corrective controls implemented; monitor regression | Merged server fixes and passing actual-server M4 regression. Recheck when entry-point/static handling changes. |
+| M2-R03 / RISK-007 | Open; partially mitigated | Transaction, persistence and snapshot checks pass; forced restart and timed full recovery remain unproven. |
+| M2-R04 / RISK-006 | Open; partially mitigated | Selected access/security checks pass; TLS and comprehensive security verification remain incomplete. |
+| M2-R05 | Materialised; partially corrected | Reference/note fixes merged; Resolution/rejection browser retests remain dated 14 October; the assumed M4 resolution-validation pass was withdrawn. DEF-M3-006 browser-workflow gaps remain open. |
+| M2-R06 / RISK-002 | Pending change decision | CR-P2-001 has no established formal approval. Team must resolve and align the rule. |
+| M2-R07 | Open; evidence improved | Dated local and browser records exist; full load, representative usability, final accessibility, monitoring and timed recovery evidence remain incomplete. |
+| M2-R09 / RISK-005 | Controls reported; final confirmation required | Merged handoffs report PR reviews and CI gates. Exact final release CI, settings and approval must be confirmed by the release owner. |
+| RISK-001 / RISK-003 | Critical; open | Provisional acceptance score is 12/21 (57.14%), corrected after PR #28 review, below the 80% target. Prioritise agreed gaps; do not inflate scores or silently remove scope. |
+| RISK-008 | Monitoring | AI assistance recorded; assessments require evidence and team review. |
+| RISK-009 | Open | Production hosting, operational limits and costs are not established by local staging. |
+
+The provisional score is an assessment proposal, not team acceptance.
+Accepting a demo limitation does not automatically remove baseline scope.
+See the M4 sections in PED-handoff.md, browser-acceptance.md and the RTM.
+
+## M4 workflow follow-up — 18 October 2026
+
+Staff controls and Oversight reporting are now implemented on
+feature/m4-complete-workflows. Selected browser checks passed;
+see browser-acceptance.md for exact scope and source hashes.
+
+The current provisional assessment is 15/21 = 71.43%, superseding
+the preceding candidate's 57.14%. Scope/schedule risk remains open
+because the 80% target is not yet demonstrated.
+CR-P2-001, remaining verification gaps and release decisions stay open.
+No automatic closure of DEF-M3-006 or operational risks is claimed.
+
+## M4 measured-verification risk position — 18 October 2026
+
+This update supersedes earlier candidate percentages for the current source.
+Current provisional assessment: 17.5/21 = 83.33%; team review pending.
+
+Formal local load passed with 5000 initial active records and 20 virtual users
+for 900.015 seconds. Memory filtering/pagination debt
+remains; a local pass does not establish unlimited scalability.
+
+Forced-process restart and timed local restoration passed with zero
+acknowledged business-record loss in the drill. RISK-007/M2-R03 are further
+mitigated, not universally closed: host/disk failure, ongoing backup operations
+and off-site recovery remain operational limitations.
+
+TLS, comprehensive security assurance, outage alerting, representative-user
+usability and complete accessibility remain unresolved. CR-P2-001 needs a
+recorded team decision. Final release/production approval remains pending.

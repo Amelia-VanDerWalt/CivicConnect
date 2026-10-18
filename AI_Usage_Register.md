@@ -38,3 +38,26 @@
 
 |15/10/2026|Amelia van der Walt|ChatGPT / GitHub integration|Correct M3 RTM and reconcile performance evidence|Updated NFR-002, NFR-004 and NFR-008 in the machine-readable RTM with CI/security, small performance-smoke and backup/staging evidence; aligned Person 3 handoff performance values with run #11 figures|Compared row wording with PED v3.0, Person 3 handoff, defect/technical-debt records and available CI metadata. Kept formal load testing, production TLS, full secret/log scanning and timed recovery explicitly unproven|MODIFIED; review candidate only|Run-specific URL for run #11 still needs confirmation; latest current candidate SHA needs its own successful CI check; no full NFR-004, TLS or RTO/RPO acceptance claimed|
 
+### M4 Person 2 acceptance and closure — 17 October 2026
+
+| Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
+|---|---|---|---|---|---|---|---|
+| 17/10/2026 | Edward Goosen 602882 | ChatGPT/Codex | Final acceptance assessment and evidence reconciliation | Assisted baseline comparison, browser-check steps, provisional scoring, PowerShell automation, JSON/Excel synchronisation and register updates | Student ran 35 automated tests successfully and confirmed selected browser checks. Compared assessments with accepted PED criteria and merged team handoffs; synchronisation command reported successful execution | MODIFIED; provisional assessment pending team review | Conflicting historical requirement IDs, incomplete browser scope and operational evidence; provisional score below 80%. Final release approval remains outstanding |
+
+### M4 requester-history assistance — 17 October 2026
+
+| Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
+|---|---|---|---|---|---|---|---|
+| 17/10/2026 | Edward Goosen 602882 | ChatGPT/Codex | Complete requester history and public feedback | Assisted frontend implementation, safe text rendering, public activity-status projection, PowerShell updates and evidence records | Student ran 35 regression tests successfully and checked details/history, resolution highlighting, navigation and internal-note privacy in the browser | MODIFIED; peer review pending | Activity labels required correction. Earlier assumed lifecycle passes were withdrawn after tester clarification. Remaining browser and shared-interface gaps stay open |
+
+### M4 workflow completion — 18 October 2026
+
+| Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
+|---|---|---|---|---|---|---|---|
+| 18/10/2026 | Edward Goosen 602882 | ChatGPT/Codex | Complete existing staff/Oversight workflows and reassess acceptance | Assisted interface code, installer, mock DOM checks, browser steps and evidence/RTM updates | Student ran installer regression/static checks and confirmed the named browser steps. Assistant syntax/mock checks are distinct from real browser execution | MODIFIED; team review pending | Button styling adjusted. Remaining reassignment/rejection/accessibility and operational evidence limits retained. No final release approval claimed |
+
+### M4 measured verification and reconciliation — 18 October 2026
+
+| Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
+|---|---|---|---|---|---|---|---|
+| 18/10/2026 | Edward Goosen 602882 | ChatGPT/Codex | Verify assignment, recovery and formal performance; reconcile acceptance records | Assisted isolated verification runners, response assertions, source fingerprints, PowerShell automation and JSON/Excel/document updates | Student executed API/recovery and full 900-second load runners successfully. Scripts checked saved source hashes and reopened Excel for comparison. Results retain environment and workload limits | MODIFIED; provisional assessment for team review | API checks are not browser automation. Local recovery/load do not establish production TLS, outage alerting, representative usability or ongoing/off-site backup operations |
