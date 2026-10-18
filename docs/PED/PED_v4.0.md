@@ -1,6 +1,6 @@
-# Project Engineering Document v4.0 — CivicConnect Final Project (DRAFT)
+# Project Engineering Document v4.0 — CivicConnect Final Project
 
-**Document status:** M4 consolidation draft — final baseline, acceptance and team approval pending  
+**Document status:** Final M4 consolidation, prepared for team review and submission; final document approval must be recorded through the review process  
 **Baseline:** PED v3.0 continued into v4.0; original M1 acceptance criteria remain the scope baseline  
 **Historical M3 evidence baseline:** Person 3's merged contribution, PR #25, merge commit `4e988dcb8890dda9b15442ae4d4c2fe2ca3b2263`; current M4 evidence is reconciled below  
 **Team:** Amelia van der Walt, Edward Goosen, Albert Du Plooy  
@@ -13,11 +13,11 @@
 | v1.0 | Original PED and M1 requirements baseline; retained as historical record | Historical — superseded, not deleted |
 | v2.0 | M2 architecture, design, requirements traceability and engineering baseline | Historical — superseded, not deleted |
 | v3.0 review candidate | Consolidated M3 architecture/conformance, defects, testing, CI, staging, performance and release evidence | Historical M3 record |
-| v4.0 draft | Updated M4 scope, acceptance, workflows, measured verification and closure reflection | Pending final SHA/CI, release decision and team approval |
+| v4.0 Final | Consolidates M4 delivery, 85.71% acceptance, approved change/defect closure, final application candidate, matching CI and staging/production decision | Final document prepared for team review |
 
-This document preserves the M1/M2 baselines rather than silently rewriting them. CR-P2-001 (due date must be later than the current time) remains subject to a recorded team decision. The final tested commit and release classification must be recorded before the team declares M3 accepted.
+This document preserves the M1/M2/M3 baselines as historical evidence. The authoritative final M4 scope assessment, controlled team decisions and release position are provided in the final M4 section. Historical statements in the M3 sections below (including past draft, pending, and release-candidate language) describe the state at that earlier milestone and are **not current M4 findings**.
 
-## Historical M3 submission information
+## Historical M3 submission information (archived; not current M4 release information)
 
 - **Team:** Amelia van der Walt, Edward Goosen and Albert Du Plooy.
 - **Repository:** [CivicConnect on GitHub](https://github.com/Amelia-VanDerWalt/CivicConnect).
@@ -27,6 +27,10 @@ This document preserves the M1/M2 baselines rather than silently rewriting them.
 - **CI/test evidence:** [GitHub Actions workflow runs](https://github.com/Amelia-VanDerWalt/CivicConnect/actions), [M3 test plan](../../backend/docs/quality/m3/test-plan.md), [test matrix](../../backend/docs/quality/m3/test-matrix.csv), [before-fix results](../../backend/docs/quality/m3/before-fix.tap), [after-fix results](../../backend/docs/quality/m3/after-fix.tap), and [run manifest](../../backend/docs/quality/m3/run-manifest.json). Run #11 is evidence for its recorded earlier baseline only; a fresh successful run for the final candidate is still required.
 - **Staging/demo instructions:** From `backend/`, use Node.js 24.19.0 or a compatible later 24.x release, then run `npm ci --ignore-scripts`, `npm run setup`, `npm test`, `npm run check`, `npm run staging:verify`, `npm run perf`, and `npm start`. Use only local/synthetic demo data and privately generated credentials. `staging:verify` is simulated local staging, not a production deployment. Verify these instructions against the final candidate before submission.
 - **Submission date:** 15 October 2026 (planned/documentation date; confirm the actual submission date when the team submits).
+
+## Historical M3 record — Sections 1–12 (archived)
+
+> **Reading note:** The M3 sections below intentionally preserve the contemporaneous M3 evidence, status and unresolved issues. They were superseded during M4. For current decisions, acceptance, CI, and deployment, use the **Final M4 consolidation and submission evidence** at the end of this document.
 
 ## 1. M3 overview and architecture conformance
 
@@ -343,93 +347,107 @@ Preserve PED v1.0 and v2.0 as historical baselines. Update this PED, the RTM, re
 
 ---
 
-## M4 updated evidence — 18 October 2026 (supersedes historical M3 findings)
+## Final M4 consolidation and submission evidence — 18 October 2026
 
-**Status:** Current provisional assessment; final team acceptance and release approval remain pending. The earlier M3 sections and older provisional M4 scoring remain historical, not the current position.
+**Current authority:** This section supersedes all earlier provisional M4 and historical M3 status statements in this PED. Historical sections remain unchanged to preserve the engineering evidence trail.
 
-### Scope and acceptance
+### Submission and release identification
 
-The approved M1 baseline contains 21 named acceptance criteria. The latest [Person 2 handoff](../../backend/docs/quality/m3/PED-handoff.md) and [RTM](../../backend/docs/requirements/rtm-data.json) report **16 Met, 3 Partially Met and 2 Not Met**. Weighted scope completion is **(16 + 3 × 0.5) / 21 = 83.33%**. This supersedes the earlier 57.14%, 64.29% and 71.43% assessments. The numerical 80% target is exceeded provisionally, but unresolved Must criteria and final team approval still matter.
+| Item | Final recorded position |
+|---|---|
+| Project | CivicConnect — SEN381 Final Project / Milestone 4 |
+| Team | Amelia van der Walt (Person 1), Edward Goosen (Person 2), Albert Du Plooy (Person 3) |
+| Repository | [Amelia-VanDerWalt/CivicConnect](https://github.com/Amelia-VanDerWalt/CivicConnect) |
+| PED | v4.0 Final — team review/sign-off to be recorded |
+| Verified integrated application candidate SHA | [`5d6069822d4c125ce642a5d119a28ca4555a2b32`](https://github.com/Amelia-VanDerWalt/CivicConnect/commit/5d6069822d4c125ce642a5d119a28ca4555a2b32) |
+| Matching hosted quality gate | [GitHub Actions run #88 — SUCCESS](https://github.com/Amelia-VanDerWalt/CivicConnect/actions/runs/39168788769), executed on the exact candidate SHA |
+| Additional matching CI evidence | [GitHub Actions run #89 — SUCCESS](https://github.com/Amelia-VanDerWalt/CivicConnect/actions/runs/39168918452), also on that exact SHA |
+| Release / deployment classification | **STAGING — NO-GO for public production** |
+| RTM | [Machine-readable JSON](../../backend/docs/requirements/rtm-data.json) and [Excel RTM](../milestone2/CivicConnect_Milestone2_Person2_RTM_SA_English.xlsx) |
+| Technical release handoff | [Person 3 M4 closure](m3-albert-handoff.md) |
+| Date of evidence reconciliation | 18 October 2026 |
 
-| M1 requirement | Latest criterion status | Final M4 implementation/evidence position |
+**Commit provenance:** The SHA above identifies the integrated **application/evidence candidate Albert verified**, not a promise that subsequent PED-only documentation commits have the same SHA. After this PED amendment is merged, the team must identify the repository submission SHA and confirm its matching CI result; do not silently re-label the earlier candidate as the later documentation commit. No final Git tag is claimed unless a tag has actually been created.
+
+### Final M1-to-M4 scope completion and acceptance
+
+The approved M1 baseline remains **21 named acceptance criteria** (FR-001–FR-013 and NFR-001–NFR-008). The final [Person 2 handoff](../../backend/docs/quality/m3/PED-handoff.md) and [RTM](../../backend/docs/requirements/rtm-data.json) assess **17 Met, 2 Partially Met and 2 Not Met**, giving a weighted completion of **(17 + 2 × 0.5) / 21 = 18 / 21 = 85.71%**. This supersedes all earlier provisional scores, including 83.33%, without removing any original criterion.
+
+| M1 requirement | M4 status | Final implementation / evidence basis |
 |---|---|---|
-| FR-001 | Met | Login/logout and role/ownership enforcement |
+| FR-001 | Met | Login/logout and backend role/ownership enforcement |
 | FR-002 | Met | Request submission and persisted defaults |
 | FR-003 | Met | Category validation and historical labels |
 | FR-004 | Met | Requester details, own requests and public history |
-| FR-005 | Met | Requester-visible public updates, feedback and privacy |
+| FR-005 | Met | Public updates, requester feedback and privacy |
 | FR-006 | Met | Staff scoped queue, details and history |
-| FR-007 | Met | Staff browser search/filter/sort and reset |
-| FR-008 | Met | Assignment/reassignment; API reassignment and audit checked |
-| FR-009 | Partially Met | Scheduling exists; CR-P2-001 due-date decision pending |
-| FR-010 | Met | Status lifecycle, resolution summary and requester feedback |
-| FR-011 | Met | Public/Internal browser notes and visibility checks |
-| FR-012 | Met | Read-only Oversight browser reporting and date filters |
+| FR-007 | Met | Staff browser search, filter, sort and reset |
+| FR-008 | Met | Assignment/reassignment, API and audit checks |
+| FR-009 | **Met** | Scheduling browser check, automated priority/due-date validation and audit; approved CR-P2-001 |
+| FR-010 | Met | Lifecycle, resolution summary and requester feedback |
+| FR-011 | Met | Public/Internal notes and visibility checks |
+| FR-012 | Met | Read-only Oversight browser reports and date filters |
 | FR-013 | Met | Audit trail and requester restrictions |
-| NFR-001 | Met | Selected role and scope checks |
-| NFR-002 | Partially Met | Selected security checks; production TLS/full scanning unproven |
-| NFR-003 | Met | Transactions, stale edits and forced application restart |
+| NFR-001 | Met | Selected role and access-scope checks |
+| NFR-002 | **Partially Met** | Selected security checks pass; production TLS/comprehensive assurance unproven |
+| NFR-003 | Met | Transactions, stale-version checks and forced application restart |
 | NFR-004 | Met | Formal local 5,000-record, 20-user, 15-minute workload |
-| NFR-005 | Not Met | Representative-user timed usability study absent |
-| NFR-006 | Partially Met | Selected keyboard/zoom checks; full text-scaling coverage unproven |
-| NFR-007 | Not Met | Timed outage alerting and full diagnostic-log evidence absent |
-| NFR-008 | Met | Timed local restoration verified; off-site recovery unproven |
+| NFR-005 | **Not Met** | Representative-user timed usability study absent |
+| NFR-006 | **Partially Met** | Selected keyboard/zoom checks; full accessibility/text-scaling acceptance unproven |
+| NFR-007 | **Not Met** | Required outage alerting/diagnostic logging not demonstrated |
+| NFR-008 | Met | Timed local restoration; off-site disaster recovery still unproven |
 
-No M1 criterion is treated as removed through an approved change. Do not infer acceptance merely from implementation.
+The 85.71% score meets the numerical 80% scope-completion target but **does not establish unconditional release readiness**, and any original Must criteria that remain partial or unmet retain their stated acceptance risks. An approved requirement clarification is not equivalent to a new verification run.
 
-### Current M4 product and defect position
+### Controlled team decisions and defect closure
 
-Requester details/public history, Staff filtering/sorting, reassignment, scheduling, separate note visibility and the read-only Oversight interface are implemented in the merged M4 workflow work. Selected browser verification was recorded on 18 October; see [browser evidence](../../backend/docs/quality/m3/browser-acceptance.md). Earlier descriptions of absent browser functionality in this PED refer to the **historical M3 baseline**.
+**CR-P2-001 — APPROVED (18 October 2026).** Edward, Albert and Amelia recorded their agreement in [PR #28](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/28). When Staff assign or reschedule a request, the due timestamp must be strictly later than server current time; previously valid dates may naturally become overdue later. The implemented rule and tests already follow this clarification. The denominator remains 21.
 
-The [Defect Register](../Defect_Register.md) now describes **DEF-M3-006 as ready for peer closure review**, not fully unresolved/unimplemented and not yet formally Closed. CR-P2-001 remains pending approval.
+**DEF-M3-006 — CLOSED (18 October 2026).** The three members agreed to close the original missing-browser-interface defect in [PR #28](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/28). M4 implemented Requester details/history, Staff workflows and Oversight browser reporting, with [selected browser acceptance evidence](../../backend/docs/quality/m3/browser-acceptance.md) and [API/recovery verification](../../backend/docs/quality/m3/m4-api-recovery-results.md). Closure does not imply that unrelated NFR limitations are solved.
 
-### Updated performance and recovery
+The [change record](../../backend/docs/CR-P2-001.md), [Defect Register](../Defect_Register.md), [Risk Register](../risk/CivicConnect_Constraints_and_Risk_Register.md), and JSON/Excel RTM reflect these decisions.
 
-The [formal M4 load evidence](../../backend/docs/quality/m3/m4-formal-load-results.md) reports **900.015 seconds**, **5,000 initial active records**, **20 concurrent virtual users**, **7,200 reads**, **1,800 writes**, read p95 **395.5 ms**, write p95 **42.86 ms**. This was local loopback HTTP testing, not a public production performance measurement.
+### Implemented product and architecture conclusion
 
-The [recovery evidence](../../backend/docs/quality/m3/m4-api-recovery-results.md) reports local backup restoration in **1,262.77 ms** and forced application restart in **655.72 ms**, with acknowledged business records retained in those drills. Same-host snapshot restoration does not prove ongoing off-site backup, disaster-site RTO/RPO or power-loss resilience.
+CivicConnect delivers principal Requester submission/details/history/feedback, scoped Staff queue/search/filter/sort/assignment/reassignment/scheduling/notes/lifecycle, and read-only Oversight reporting workflows. It retains a **modular layered monolith** with browser/HTTP, application/service-policy, domain and repository/SQLite responsibilities. This follows the original architecture rationale without introducing unnecessary distributed infrastructure.
 
-### Significant decisions and consequences
+Design decisions DES-001 (shared Request and data-driven category rules instead of premature Factory Method subclasses) and DES-002 (explicit service-coordinated audit writes instead of unnecessary Observer/event distribution) remain proportionate. Remaining in-memory list/report processing, limited browser automation, custom auth and single-host recovery controls are retained in the [Technical Debt Register](../Technical_Debt_Register.md).
 
-The layered modular monolith and SQLite remain a proportionate solution with clear HTTP, service/policy and persistence responsibilities. DES-001 retained data-driven category validation instead of premature Factory Method subclasses; DES-002 retained explicit service-coordinated audit updates instead of an Observer/event system. These choices support clarity and maintainability but do not remove operational scaling and deployment responsibilities.
+### Final M4 quality and recovery evidence
 
-### Residual risk, release and conclusion
+The [formal local load test](../../backend/docs/quality/m3/m4-formal-load-results.md) ran **900.015 seconds** with **5,000 initial active records**, **20 concurrent virtual users**, **7,200 reads** and **1,800 writes**. Read p95 was **395.5 ms** and write p95 was **42.86 ms**. This passes the recorded local workload; it is not public-network, TLS, or production capacity evidence.
 
-Unresolved: CR-P2-001, production TLS/comprehensive security checks, representative-user usability, complete accessibility, 60-second outage alerting/diagnostic logging, off-site recovery and sustained backup scheduling. **Albert must still provide the frozen final commit/tag, matching hosted CI result and documented deployment/go/no-go decision.** Neither the provisional 83.33% scope score nor local verification authorizes public production release.
+The [timed local recovery drill](../../backend/docs/quality/m3/m4-api-recovery-results.md) recorded **1,262.77 ms** for local backup restoration and **655.72 ms** for forced application restart, with acknowledged business records retained for those scenarios. This does not verify off-site retention, recurring backup scheduling, host/disaster-site loss or production RTO/RPO.
 
-**Provisional conclusion:** CivicConnect now supports the principal Requester, Staff and Oversight journeys and demonstrates meaningful improvement from the M3 baseline. The local workload and recovery drills add concrete quality evidence, but remaining operational and acceptance gaps require transparent final team decisions. The project outcome must be reported against the final frozen candidate, not historical CI runs.
+The mandatory configured hosted quality gate passed on the integrated candidate: [Actions run #88](https://github.com/Amelia-VanDerWalt/CivicConnect/actions/runs/39168788769) and [run #89](https://github.com/Amelia-VanDerWalt/CivicConnect/actions/runs/39168918452) both report **SUCCESS**, each at commit `5d6069822d4c125ce642a5d119a28ca4555a2b32`. The workflow covers dependency installation, static/security checks, automated regression, simulated staging/backup verification and performance smoke. The **formal 900-second local load and recovery drills are separate saved evidence**, not steps falsely attributed to Actions.
 
----
+### Final deployment and release decision
 
-## M4 recorded team decisions — 18 October 2026
+**Final deployment state: STAGING — NO-GO for production.** Albert's [Person 3 release handoff](m3-albert-handoff.md) records this position. The integrated candidate and controlled local/demo evidence are suitable for the staged academic demonstration, but public production deployment is **not approved**. Unresolved requirements and risks include:
 
-This section supersedes earlier pending CR-P2-001/DEF-M3-006 positions
-and the preceding 83.33% assessment. Historical evidence retains its
-original dates and tested candidates.
+- Production HTTPS/TLS and comprehensive production security assurance;
+- Outage alerting and diagnostic logs meeting the defined operational targets;
+- Representative-user usability testing;
+- Complete accessibility verification and text-scaling acceptance;
+- Scheduled/off-site backup and disaster-site recovery controls.
 
-Decision evidence: https://github.com/Amelia-VanDerWalt/CivicConnect/pull/28
-Edward Goosen, Albert Du Plooy and Amelia van der Walt explicitly confirmed:
+These are explicit remaining limitations, not defects retrospectively declared fixed by passing smoke tests or reaching 85.71%.
 
-- CR-P2-001 APPROVED: due dates must be strictly later than the server's
-  current time when assigned or rescheduled. Existing requests may
-  naturally become overdue.
-- DEF-M3-006 CLOSED: the merged Requester, Staff and Oversight workflows
-  resolve the original missing-interface defect. Remaining quality and
-  operational limitations are tracked separately.
+### Startup, evidence and final submission controls
 
-FR-009 is now assessed as Met against AC-F09, supported by T19,
-M3-U03, M3-U06 and the recorded 18 October browser scheduling check.
-Approval resolves the requirement ambiguity; it is not a new test run.
+From the repository root, with Node.js 24.19.0 or compatible 24.x and a modern browser:
 
-The current assessment is 17 Met, 2 Partially Met and 2 Not Met:
-(17 + 2 x 0.5) / 21 = 85.71%. No criterion was removed.
-The JSON and Excel RTM contain the same assessment.
+```bash
+cd backend
+npm ci --ignore-scripts
+npm run setup
+npm start
+```
 
-NFR-002 and NFR-006 remain Partially Met.
-NFR-005 and NFR-007 remain Not Met.
+Open **http://127.0.0.1:3000**. Setup prints generated demonstration credentials once; share them privately and do not publish them in the repository. From `backend/`, the documented commands `npm test`, `npm run check`, `npm run staging:verify` and `npm run perf` run the respective automated checks. Simulated staging uses an isolated local database and is not a production deployment.
 
-These decisions do not approve production release. Production TLS,
-comprehensive security assurance, complete accessibility, representative-user
-usability, outage alerting and production/off-site recovery remain
-limitations. The release owner must record the final candidate SHA/tag,
-matching hosted CI result and final deployment/readiness decision.
+Preserve the [PED v1.0](PED_v1.0.md), [PED v2.0](PED_v2.0.md) and [PED v3.0](PED_v3.0.md) as historical engineering records. The final submission should reference this PED v4.0, the RTM, risk/defect/debt registers, AI usage register, architecture/design decisions, the documented application candidate and CI evidence, and the final **repository submission SHA** after this documentation PR merges. Record the actual submission date and team approval in the submission record rather than inventing them here.
+
+### Final project conclusion
+
+Relative to the original M1 baseline, CivicConnect delivers the principal three-role service-request journeys, coherent layer boundaries and traceable tests, with **85.71% weighted scope completion** and recorded load/recovery verification. The team resolved the due-date-rule ambiguity and closed the missing-interface defect through explicit peer decisions. The delivered product is an evidenced **staging/demo candidate, not a production-approved service**. Its remaining security, operational monitoring, representative-user usability, full accessibility and off-site recovery gaps are transparently retained for future work.
