@@ -140,7 +140,7 @@ Existing owners and ratings remain unchanged pending shared review.
 | M2-R06 / RISK-002 | Pending change decision | CR-P2-001 has no established formal approval. Team must resolve and align the rule. |
 | M2-R07 | Open; evidence improved | Dated local and browser records exist; full load, representative usability, final accessibility, monitoring and timed recovery evidence remain incomplete. |
 | M2-R09 / RISK-005 | Controls reported; final confirmation required | Merged handoffs report PR reviews and CI gates. Exact final release CI, settings and approval must be confirmed by the release owner. |
-| RISK-001 / RISK-003 | Critical; open | Provisional acceptance score is 13.5/21 (64.29%), below the 80% target. Prioritise agreed gaps; do not inflate scores or silently remove scope. |
+| RISK-001 / RISK-003 | Critical; open | Provisional acceptance score is 12/21 (57.14%), corrected after PR #28 review, below the 80% target. Prioritise agreed gaps; do not inflate scores or silently remove scope. |
 | RISK-008 | Monitoring | AI assistance recorded; assessments require evidence and team review. |
 | RISK-009 | Open | Production hosting, operational limits and costs are not established by local staging. |
 

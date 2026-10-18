@@ -121,15 +121,15 @@ are considered together. Historical evidence is not presented as a new run.
 | AC-F01 | Met | 1 | Login, access checks and logout tested; automated protected access after logout. |
 | AC-F02 | Met | 1 | Creation/defaults/retrieval tests; browser confirmation in earlier checks; M4 submission and blank-title retention passed. |
 | AC-F03 | Met | 1 | T02/T03 verify active categories, rejection and preserved historical labels. |
-| AC-F04 | Met | 1 | Own-record lists/status and isolation tested. Full requester detail/history functionality remains a requirement-level gap. |
+| AC-F04 | Met | 1 | Requester list/status and ownership isolation covered by existing tests. PR #29 adds details and public history; 17 October screenshots confirm submitted fields, receipt/assignment history and resolution feedback. Refresh/back passed. Separate final-candidate release verification remains pending. |
 | AC-F05 | Partially Met | 0.5 | Persisted public/internal activities exist; dashboard does not display the required explanations and summaries. |
 | AC-F06 | Partially Met | 0.5 | Category isolation tested; staff details omit required fields/history. |
-| AC-F07 | Met | 1 | API combined-filter/sort tests and empty-result UI exist; full browser search/filter controls remain a requirement-level gap. |
+| AC-F07 | Partially Met | 0.5 | API filtering/sorting tests pass, but complete staff browser search, combined filters and sorting controls are absent. API evidence alone does not establish the full staff workflow. |
 | AC-F08 | Partially Met | 0.5 | Owner eligibility, required due time and reassignment audit tested; requester-facing notification remains incomplete. |
 | AC-F09 | Partially Met | 0.5 | Priority/date validation and audit tested; CR-P2-001 date-rule discrepancy remains unresolved. |
 | AC-F10 | Partially Met | 0.5 | Lifecycle and mandatory notes tested, including M4 browser journey; requester notification content remains incomplete. |
-| AC-F11 | Met | 1 | API notes preserve metadata and explicit visibility; public projection and immutable history tested. Separate browser note controls remain absent. |
-| AC-F12 | Met | 1 | API report calculations, date validation and oversight permissions tested. Oversight browser interface remains absent. |
+| AC-F11 | Partially Met | 0.5 | API note metadata, explicit visibility and immutable history are tested. Requester public history and internal-note privacy were checked on 17 October. Separate staff browser note/visibility controls remain absent. |
+| AC-F12 | Partially Met | 0.5 | API report calculations, date validation and oversight permissions are tested. Oversight browser reporting is unavailable, so the complete user workflow is not accepted. |
 | AC-F13 | Met | 1 | Audit metadata, prior/new values, immutability and requester restrictions covered by existing tests. |
 | AC-N01 | Met | 1 | Selected role-matrix tests cover unauthorised requester/staff/oversight operations. |
 | AC-N02 | Partially Met | 0.5 | Selected repository hygiene checks exist; TLS and complete repository/log/build-output coverage are not established. |
@@ -140,9 +140,9 @@ are considered together. Historical evidence is not presented as a new run.
 | AC-N07 | Not Met | 0 | Timed outage alerts and required diagnostic-log properties not established. |
 | AC-N08 | Partially Met | 0.5 | Backup integrity/readback tested; timed full-system restoration not established. |
 
-Met: 9. Partially Met: 9. Not Met: 3.
-Weighted score: 13.5 / 21.
-Provisional scope completion: 64.29%.
+Met: 6. Partially Met: 12. Not Met: 3.
+Weighted score: 12 / 21.
+Provisional scope completion: 57.14%.
 
 Criterion scores do not erase broader requirement-level interface gaps.
 DEF-M3-006 remains open. No approved scope removal has been established.
@@ -175,7 +175,7 @@ Accepting a demo limitation does not automatically remove an approved
 criterion or make it Met.
 
 No additional evidence reviewed changes the provisional acceptance scores.
-The 64.29% assessment remains subject to team review, particularly where
+The 57.14% assessment remains subject to team review, particularly where
 API-level criterion satisfaction differs from complete browser delivery.
 Final release approval and final-candidate CI remain separate.
 
@@ -236,7 +236,7 @@ Proposed responsibilities below follow existing team roles and require confirmat
 | Resolve representative-user/accessibility evidence gaps | Amelia and Edward | Dated actual observations, environment and measured results |
 | Consolidate PED v4.0 | Amelia, using all contributions | Scope table, calculated acceptance result, residual risks and team release decision |
 
-Current provisional acceptance result: 13.5/21 = 64.29%.
+Current provisional acceptance result: 12/21 = 57.14%.
 It is below the 80% target. Additional implementation or valid evidence is
 needed to improve it; a review or accepted limitation alone does not do so.
 
@@ -259,6 +259,30 @@ Correction: the initial M4 browser lifecycle passes were assumed rather
 than executed and are withdrawn. Historical 14 October browser evidence
 and actual automated results remain separate.
 
-The earlier RTM scores and 64.29% assessment describe the preceding candidate.
+The earlier RTM scores and 57.14% assessment describe the preceding candidate.
 They have not been upgraded for this branch. Reassess affected criteria,
 synchronise JSON/Excel and record the final candidate after verification.
+
+## PR #28 acceptance review correction — 18 October 2026
+
+This correction supersedes the earlier API-only scoring interpretation
+and its 64.29% total. Earlier sections retain their original dates;
+their assessment table and current totals have been corrected.
+
+Reviewed application revision: 979edcc, including requester-history PR #29.
+FR-004 remains Met using the added details/history and existing isolation
+evidence. FR-007, FR-011 and FR-012 are Partially Met because their full
+browser workflows remain incomplete.
+
+Current provisional result: 6 Met, 12 Partially Met, 3 Not Met.
+Weighted score: 12/21 = 57.14%.
+The accepted denominator remains 21. No requirements were removed.
+
+The 17 October 35-test results and selected browser observations retain
+their recorded source revisions/hashes. No new 18 October test run,
+final-candidate CI success or release approval is claimed.
+Assumed M4 lifecycle checks remain withdrawn.
+DEF-M3-006 and CR-P2-001 remain open.
+
+The JSON is updated here; Excel must be synchronised and verified before
+this correction is committed.
