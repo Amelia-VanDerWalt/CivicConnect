@@ -61,3 +61,9 @@
 | Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
 |---|---|---|---|---|---|---|---|
 | 18/10/2026 | Edward Goosen 602882 | ChatGPT/Codex | Verify assignment, recovery and formal performance; reconcile acceptance records | Assisted isolated verification runners, response assertions, source fingerprints, PowerShell automation and JSON/Excel/document updates | Student executed API/recovery and full 900-second load runners successfully. Scripts checked saved source hashes and reopened Excel for comparison. Results retain environment and workload limits | MODIFIED; provisional assessment for team review | API checks are not browser automation. Local recovery/load do not establish production TLS, outage alerting, representative usability or ongoing/off-site backup operations |
+
+### M4 recorded team decisions — 18 October 2026
+
+| Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
+|---|---|---|---|---|---|---|---|
+| 18/10/2026 | Edward Goosen 602882 | ChatGPT/Codex | Record team decisions and reconcile acceptance | Assisted PowerShell updates and AC-F09 evidence assessment | Checked explicit GitHub confirmations from all three members and the complete AC-F09 wording against existing test/browser records | MODIFIED; decisions supplied by the team | Historical pending positions retained; final release approval and remaining quality gaps stay separate |

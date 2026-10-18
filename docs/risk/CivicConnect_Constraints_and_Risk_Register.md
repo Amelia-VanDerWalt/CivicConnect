@@ -177,3 +177,20 @@ and off-site recovery remain operational limitations.
 TLS, comprehensive security assurance, outage alerting, representative-user
 usability and complete accessibility remain unresolved. CR-P2-001 needs a
 recorded team decision. Final release/production approval remains pending.
+
+## Team-decision risk reconciliation — 18 October 2026
+
+Decision evidence: https://github.com/Amelia-VanDerWalt/CivicConnect/pull/28
+
+The due-date ambiguity tracked through CR-P2-001 is resolved by explicit
+team approval. The missing-interface defect DEF-M3-006 is closed following
+team confirmation of the merged implementation and recorded verification.
+
+The current assessment is 18/21 = 85.71%. This supersedes the previous
+83.33% assessment without changing the original scope denominator.
+
+Security/TLS, complete accessibility, representative-user usability,
+outage alerting and production/off-site backup limitations remain open.
+Meeting the numerical scope target does not close those risks or approve
+production deployment. Final candidate CI and release evidence remain
+the release owner's responsibility.
