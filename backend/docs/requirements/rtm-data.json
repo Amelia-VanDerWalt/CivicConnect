@@ -49,8 +49,8 @@
                      "Met",
                      1,
                      "Login, access checks and logout tested; automated protected access after logout.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "FR-002",
@@ -75,8 +75,8 @@
                      "Met",
                      1,
                      "Creation/defaults/retrieval tests; browser confirmation in earlier checks; M4 submission and blank-title retention passed.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "FR-003",
@@ -101,8 +101,8 @@
                      "Met",
                      1,
                      "T02/T03 verify active categories, rejection and preserved historical labels.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "FR-004",
@@ -127,8 +127,8 @@
                      "Met",
                      1,
                      "Requester list/status and ownership isolation covered by existing tests. PR #29 adds details and public history; 17 October screenshots confirm submitted fields, receipt/assignment history and resolution feedback. Refresh/back passed. Separate final-candidate release verification remains pending.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "FR-005",
@@ -142,7 +142,7 @@
                      "Node 24.x / SQLite candidate; tested Node 24.19.0, SQLite 3.53.3",
                      "RequestRepository.activity/history; RequestService.mutate",
                      "T01, T09, T19, T20",
-                     "Backend activity feed implemented; UI highlights pending",
+                     "Implemented; selected automated and 18 October browser checks passed; peer review pending.",
                      "ADR-P2-001; ADR-P2-002; ADR-P2-003; P2-R05",
                      "Original supplied status: Draft; team approval pending",
                      "Pending actual issue/commit/PR/review; not fabricated",
@@ -150,11 +150,11 @@
                      "Requester cannot see internal note or snapshots; 201 create;200 valid changes;Closed visible;internal note hidden;logout denies read",
                      "after-fix.tap: named tests pass; browser/operational checks not inferred",
                      "Backend activity tests pass; DEF-M3-006 complete requester feedback/history UI remains open.",
-                     "Partially Met",
-                     0.5,
-                     "Persisted public/internal activities exist; dashboard does not display the required explanations and summaries.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "Met",
+                     1,
+                     "18 October: public notes, scheduling updates, resolution/closure feedback and requester sign-out persistence confirmed. Internal notes hidden. Existing automated activity/privacy cases pass.",
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "FR-006",
@@ -168,7 +168,7 @@
                      "Node 24.x / SQLite candidate; tested Node 24.19.0, SQLite 3.53.3",
                      "RequestRepository.eligible/scoped; RequestService.authorized",
                      "T05",
-                     "Implemented backend; UI integration pending",
+                     "Implemented; selected automated and 18 October browser checks passed; peer review pending.",
                      "ADR-P2-001; ADR-P2-002; ADR-P2-003; P2-R05",
                      "Original supplied status: Draft; team approval pending",
                      "Pending actual issue/commit/PR/review; not fabricated",
@@ -176,11 +176,11 @@
                      "Read and mutation denied; 400 invalid;404 isolated reads;reason required;Rejected public reason;409 stale without extra activity",
                      "Automated scope tests pass. Browser IT staff queue isolation and Facilities staff access passed. Full staff queue/details references passed retests on 14 October.",
                      "DEF-M3-004 fixed and retested; DEF-M3-006 complete staff fields/history remains open.",
-                     "Partially Met",
-                     0.5,
-                     "Category isolation tested; staff details omit required fields/history.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "Met",
+                     1,
+                     "18 October: staff queue/details show submitted fields, owner, priority, due date and history. Existing backend category/direct-access tests pass.",
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "FR-007",
@@ -194,7 +194,7 @@
                      "Node 24.x / SQLite candidate; tested Node 24.19.0, SQLite 3.53.3",
                      "RequestService.list/dateRange",
                      "T14, T16",
-                     "Implemented backend; in-memory filtering; load check pending",
+                     "Implemented; selected automated and 18 October browser checks passed; peer review pending.",
                      "ADR-P2-001; ADR-P2-002; ADR-P2-003; P2-R02",
                      "Original supplied status: Draft; team approval pending",
                      "Pending actual issue/commit/PR/review; not fabricated",
@@ -202,11 +202,11 @@
                      "Only matches; null due last; unknown query empty; 400",
                      "after-fix.tap: named tests pass; browser/operational checks not inferred",
                      "Selected automated behaviour verified; full acceptance/approval separate",
-                     "Partially Met",
-                     0.5,
-                     "API filtering/sorting tests pass, but complete staff browser search, combined filters and sorting controls are absent. API evidence alone does not establish the full staff workflow.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "Met",
+                     1,
+                     "18 October: combined title/status filtering, no-results message and reset passed in the browser. Search/filter/sort controls implemented; existing automated combined-filter/null-last-sort cases pass.",
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "FR-008",
@@ -220,7 +220,7 @@
                      "Node 24.x / SQLite candidate; tested Node 24.19.0, SQLite 3.53.3",
                      "RequestService.mutate; RequestRepository.update/activity/transaction",
                      "T06, T10, T11, T20",
-                     "Implemented candidate; due-date clarification pending",
+                     "Implemented; measured M4 checks passed in the recorded local environment; peer review pending.",
                      "ADR-P2-001; ADR-P2-002; ADR-P2-003; P2-R06; CR-P2-001",
                      "Original supplied status: Draft; team approval pending",
                      "Pending actual issue/commit/PR/review; not fabricated",
@@ -228,11 +228,11 @@
                      "Invalid assignment rejected; valid assignment version 2; New owner saved; old owner retained in audit; 201 create;200 valid changes;Closed visible;internal note hidden;logout denies read",
                      "Automated assignment/reassignment cases pass. Manual browser assignment passed. See after-fix.tap and browser-acceptance.md.",
                      "Selected automated behaviour verified; full acceptance/approval separate",
-                     "Partially Met",
-                     0.5,
-                     "Owner eligibility, required due time and reassignment audit tested; requester-facing notification remains incomplete.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "Met",
+                     1,
+                     "Assignment and reassignment controls implemented. Isolated automated check changed eligible owner 3 to 5, verified prior/new audit values and requester-visible feedback, and rejected ineligible/missing-date assignments without mutation. Browser controls were inspected; this reassignment execution was API-based.",
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "FR-009",
@@ -257,8 +257,8 @@
                      "Partially Met",
                      0.5,
                      "Priority/date validation and audit tested; CR-P2-001 date-rule discrepancy remains unresolved.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "FR-010",
@@ -272,7 +272,7 @@
                      "Node 24.x / SQLite candidate; tested Node 24.19.0, SQLite 3.53.3",
                      "policy.transition; RequestService.mutate",
                      "T07, T08",
-                     "Implemented backend; client integration pending",
+                     "Implemented; selected automated and 18 October browser checks passed; peer review pending.",
                      "ADR-P2-001; ADR-P2-002; ADR-P2-003; P2-R06",
                      "Original supplied status: Draft; team approval pending",
                      "Pending actual issue/commit/PR/review; not fabricated",
@@ -280,11 +280,11 @@
                      "Valid order succeeds; invalid transitions rejected; Reason required; rejected record terminal; Only valid transitions with required reason accepted; 201 create;200 valid changes;Closed visible;internal note hidden;logout denies read; 400 invalid;404 isolated reads;reason required;Rejected public reason;409 stale without extra activity",
                      "Automated lifecycle cases pass. Browser invalid Received-to-Closed jump blocked. On 14 October, blank resolution/rejection notes were blocked without status changes; supplied summaries/reasons allowed transitions. Correction commit 16e5594.",
                      "DEF-M3-005 fixed and browser retested; correction included in main. Complete requester notification acceptance remains separate.",
-                     "Partially Met",
-                     0.5,
-                     "Automated lifecycle/mandatory-note cases pass. Resolution/rejection browser validation retains its 14 October date. Assumed M4 lifecycle passes were withdrawn. New requester history displays existing resolution feedback; full lifecycle notification acceptance remains incomplete.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "Met",
+                     1,
+                     "18 October: Assigned to In progress to Resolved to Closed executed. Empty resolution summary blocked. Requester sees final status, summary and highlighted history. Existing rejection/transition tests pass; withdrawn 17 October assumptions remain withdrawn.",
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "FR-011",
@@ -298,7 +298,7 @@
                      "Node 24.x / SQLite candidate; tested Node 24.19.0, SQLite 3.53.3",
                      "RequestService.mutate; RequestRepository.history; activity triggers",
                      "T09, T12, T24",
-                     "Implemented backend; UI integration pending",
+                     "Implemented; selected automated and 18 October browser checks passed; peer review pending.",
                      "ADR-P2-001; ADR-P2-002; ADR-P2-003; P2-R05; P2-R08",
                      "Original supplied status: Draft; team approval pending",
                      "Pending actual issue/commit/PR/review; not fabricated",
@@ -306,11 +306,11 @@
                      "Requester cannot see internal note or snapshots; 400; no extra history; 201 create;200 valid changes;Closed visible;internal note hidden;logout denies read",
                      "after-fix.tap: named tests pass; browser/operational checks not inferred",
                      "Automated visibility and append-only cases pass; DEF-M3-006 complete work-history UI remains open.",
-                     "Partially Met",
-                     0.5,
-                     "API note metadata, explicit visibility and immutable history are tested. Requester public history and internal-note privacy were checked on 17 October. Separate staff browser note/visibility controls remain absent.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "Met",
+                     1,
+                     "18 October: explicit Public/Internal browser note controls saved notes; public note visible to requester and Internal note hidden. Staff history displays metadata/visibility. Existing immutable-history cases pass.",
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "FR-012",
@@ -324,7 +324,7 @@
                      "Node 24.x / SQLite candidate; tested Node 24.19.0, SQLite 3.53.3",
                      "RequestService.report/dateRange",
                      "T13, T15, T16",
-                     "Implemented candidate; reporting interpretations pending",
+                     "Implemented; selected automated and 18 October browser checks passed; peer review pending.",
                      "ADR-P2-001; ADR-P2-002; ADR-P2-003; P2-R02; P2-R06",
                      "Original supplied status: Draft; team approval pending",
                      "Pending actual issue/commit/PR/review; not fabricated",
@@ -332,11 +332,11 @@
                      "Oversight reads but cannot write; requester denied reports; Total 3/open 2/overdue 1/undated 1/resolved 1/MTTR 2h; 400",
                      "after-fix.tap: named tests pass; browser/operational checks not inferred",
                      "Automated report calculations pass; DEF-M3-006 reporting UI remains open.",
-                     "Partially Met",
-                     0.5,
-                     "API report calculations, date validation and oversight permissions are tested. Oversight browser reporting is unavailable, so the complete user workflow is not accepted.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "Met",
+                     1,
+                     "18 October: Oversight report screen, date filtering, empty results and read-only details passed. Existing automated report/date/MTTR/role cases pass; browser observations do not independently recompute every metric.",
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "FR-013",
@@ -361,8 +361,8 @@
                      "Met",
                      1,
                      "Audit metadata, prior/new values, immutability and requester restrictions covered by existing tests.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "NFR-001",
@@ -387,8 +387,8 @@
                      "Met",
                      1,
                      "Selected role-matrix tests cover unauthorised requester/staff/oversight operations.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "NFR-002",
@@ -413,8 +413,8 @@
                      "Partially Met",
                      0.5,
                      "Selected repository hygiene checks exist; TLS and complete repository/log/build-output coverage are not established.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "NFR-003",
@@ -428,7 +428,7 @@
                      "Node 24.x / SQLite candidate; tested Node 24.19.0, SQLite 3.53.3",
                      "database.js; RequestRepository.transaction/update",
                      "T10, T11, T17; crash/multi-process tests Planned",
-                     "Initial evidence only; semantic create deduplication undefined",
+                     "Implemented; measured M4 checks passed in the recorded local environment; peer review pending.",
                      "ADR-P2-001; ADR-P2-002; ADR-P2-003; P2-R01; P2-R02",
                      "Original supplied status: Draft; team approval pending",
                      "Pending actual issue/commit/PR/review; not fabricated",
@@ -436,11 +436,11 @@
                      "Second gets 409 without extra audit; Request status/version rolls back; Reference retained; integrity_check ok; Only positive safe integer accepted; 400 invalid;404 isolated reads;reason required;Rejected public reason;409 stale without extra activity",
                      "after-fix.tap: named tests pass; browser/operational checks not inferred",
                      "Selected automated behaviour verified; full acceptance/approval separate",
-                     "Partially Met",
-                     0.5,
-                     "Rollback, stale edits and normal close/reopen persistence tested; forced-restart recovery not established.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "Met",
+                     1,
+                     "Forced application termination preserved all acknowledged requests, activities, accounts and category permissions. Integrity checks passed. Existing rollback/stale-edit cases and the additional conflict check passed. Process-crash evidence does not establish host power-loss behaviour.",
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "NFR-004",
@@ -454,7 +454,7 @@
                      "Node 24.x / SQLite candidate; tested Node 24.19.0, SQLite 3.53.3",
                      "migration 001 indexes; RequestService.list/report; perf-check.js",
                      "Performance smoke test in CI run #30 used 200 seeded requests, 10 live writes and 50 authenticated sequential read/filter requests. Reported results: total 943.37 ms; reads 50/50, average 4.51 ms, p95 6.81 ms, max 13.08 ms; writes 10/10, average 5.05 ms, p95/max 9.99 ms. These are smoke-test figures only.",
-                     "Partial performance evidence: configured smoke thresholds passed for the tested small workload. Formal AC-N04 workload (5,000 active records, 20 concurrent users, 15 minutes, 80/20 read-write mix) has not been run; no full NFR-004 compliance claim.",
+                     "Implemented; measured M4 checks passed in the recorded local environment; peer review pending.",
                      "ADR-P2-001; ADR-P2-002; ADR-P2-003; P2-R02",
                      "Original supplied status: Draft; team approval pending",
                      "[PR #23 — CI, security, staging and performance implementation](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/23); [PR #25 — merged Person 3 handoff](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/25); [successful GitHub Actions run #30 on commit `98ff24f459de205cb125ab88a6c26e0ef5b27912`](https://github.com/Amelia-VanDerWalt/CivicConnect/actions/runs/38797557518); [PR #27 — PED/RTM integration and review](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/27). The cited CI run is evidence for its recorded commit, not a substitute for a fresh run on the final submitted SHA.",
@@ -462,11 +462,11 @@
                      "For the smoke workload, read p95 \u003c= 2,000 ms and write p95 \u003c= 3,000 ms; separately, formal NFR-004 requires the 5,000-record / 20-user / 15-minute workload.",
                      "CI smoke results reported: total 943.37 ms; read average/p95/max 4.51/6.81/13.08 ms (50/50 success); write average/p95/max 5.05/9.99/9.99 ms (10/10 success). Smoke thresholds passed; full load criterion not tested.",
                      "Smoke-test evidence incorporated. Full NFR-004 acceptance remains pending; TD-M3-001 scalability concern remains relevant.",
-                     "Not Met",
-                     0,
-                     "Performance smoke evidence does not meet the specified workload and 15-minute test.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "Met",
+                     1,
+                     "Formal local workload passed: 900.015 seconds, 5000 initial active records, 20 concurrent virtual users, 7200 reads and 1800 writes. Read p95 395.5 ms; write p95 42.86 ms. Response content and acknowledged-write persistence checked. Loopback HTTP environment; not a production network claim.",
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "NFR-005",
@@ -491,8 +491,8 @@
                      "Not Met",
                      0,
                      "Representative-user unassisted timed study not established.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "NFR-006",
@@ -517,8 +517,8 @@
                      "Partially Met",
                      0.5,
                      "Earlier selected keyboard/200% browser zoom checks passed; final-candidate font-scaling and complete workflow coverage not established.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "NFR-007",
@@ -543,8 +543,8 @@
                      "Not Met",
                      0,
                      "Timed outage alerts and required diagnostic-log properties not established.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ],
                  [
                      "NFR-008",
@@ -558,7 +558,7 @@
                      "Node 24.x / SQLite candidate; tested Node 24.19.0, SQLite 3.53.3",
                      "scripts/backup.js; node:sqlite backup",
                      "Simulated staging verification ran the real server on an isolated staging SQLite database, completed the critical Requester/Staff lifecycle, created a backup snapshot, checked SQLite integrity and confirmed retained request state in the backup. Timed full restore and off-site recovery are not demonstrated.",
-                     "Partial: backup snapshot creation/readability and SQLite integrity are evidenced by the simulated staging CI flow. RTO \u003c=60 minutes, RPO \u003c=24 hours and off-site disaster recovery remain unproven.",
+                     "Implemented; measured M4 checks passed in the recorded local environment; peer review pending.",
                      "ADR-P2-001; ADR-P2-002; ADR-P2-003; P2-R01; P2-R03",
                      "Original supplied status: Draft; team approval pending",
                      "[PR #23 — CI, security, staging and performance implementation](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/23); [PR #25 — merged Person 3 handoff](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/25); [successful GitHub Actions run #30 on commit `98ff24f459de205cb125ab88a6c26e0ef5b27912`](https://github.com/Amelia-VanDerWalt/CivicConnect/actions/runs/38797557518); [PR #27 — PED/RTM integration and review](https://github.com/Amelia-VanDerWalt/CivicConnect/pull/27). The cited CI run is evidence for its recorded commit, not a substitute for a fresh run on the final submitted SHA.",
@@ -566,11 +566,11 @@
                      "Create and validate a backup snapshot and preserve request data; separately prove full restore within 60 minutes and \u003c=24 hours data loss to satisfy formal AC-N08.",
                      "Person 3 handoff reports simulated staging success, backup snapshot creation, PRAGMA integrity_check success and confirmation that the completed request exists in the backup. No timed full-system restore or off-site recovery evidence.",
                      "Backup snapshot/integrity evidence incorporated. Formal RTO/RPO and disaster-recovery acceptance remain pending; do not claim full NFR-008 compliance.",
-                     "Partially Met",
-                     0.5,
-                     "Backup integrity/readback tested; timed full-system restoration not established.",
-                     "f52bb8fd6c15e4a72abf182a9b4fe43511f1027e",
-                     "Provisional; team review pending; assessed 17 October 2026"
+                     "Met",
+                     1,
+                     "Local backup restoration drill passed in 1262.77 ms. Restored server health, account access, requests, activities, permissions and report counts verified; zero acknowledged business-record loss in this drill. Fresh same-host snapshot; ongoing backup schedule, off-site retention and disaster-site recovery remain unproven.",
+                     "11dc19df95590aa9daf518e0f04441cf389ad0ed plus runtime files fingerprinted in m4-formal-load-results.json",
+                     "Provisional 18 October 2026; team review and final release approval pending"
                  ]
              ]
 }

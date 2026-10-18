@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-18T16:39:34.331Z",
+  "environment": "v24.20.0 win32/x64",
+  "baseCommit": "11dc19df95590aa9daf518e0f04441cf389ad0ed",
+  "sourceHashes": {
+    "src/frontend/index.html": "735c7f41d1a517ecede97e55e944f49e87332061ff38f0814dcb918a575f40b1",
+    "src/frontend/app.js": "9aa0d8ed726fb8d53e3df6d511d656a1161c0027b1513a23f27ace26e5ba4f71",
+    "src/frontend/requester-history.js": "3daa00cb26db4d285eef8787a6478504589bbff8f7199b2037dd2c00ff8d3e51",
+    "src/frontend/staff-workflows.js": "d8ea64307b37489b43be4f60efe8ccbed2d3569804da3fde40c5af6ca1951f96",
+    "backend/src/server.js": "adcfd4c298493e2fa264048f4bc0ff98b6d0fd47f66af1f476380726b8706653",
+    "backend/src/http/app.js": "34aa3fd438684be50838d0c81506e489ce2126b20bce8fe8adf8c2eabcbc43c1",
+    "backend/src/application/request-service.js": "14d123095bd56cd157152707e6c4f6723e11d3ce0c9c28b40ac017a9b38bf036",
+    "backend/src/domain/policy.js": "ba33d86a8254b1ba69a9e513a784c8aa23731ce2c2a945e0f83fcaf7406f12df",
+    "backend/src/infrastructure/request-repository.js": "23dbb8df97585e9c56ad28b27f2a5fb548d0dc3a463b681cde7a9a737c68cc04",
+    "backend/src/infrastructure/database.js": "5394b7d2407176450af2068edd0e456eb5be351c2eddce3d50930ef62a7c55c7",
+    "backend/src/infrastructure/auth.js": "609e74edc610aaa5ed46bf940868cc6976d2a6cac88c42389d204dddc24fd971",
+    "backend/db/migrations/001_initial.sql": "725b85184aee51b1163628193c709e2dc6ce0629c19e8f637f1b375c0f3e3aca"
+  },
+  "checks": [
+    {
+      "name": "Assignment, eligibility and actual reassignment",
+      "status": "PASS",
+      "durationMs": 151.82,
+      "detail": "Owner changed 3 to 5; old/new audit values and requester-visible update verified; invalid assignment made no change."
+    },
+    {
+      "name": "Notes, lifecycle, blank resolution and stale-edit conflict",
+      "status": "PASS",
+      "durationMs": 234.15,
+      "detail": ""
+    },
+    {
+      "name": "Rejection reason, cross-account/category isolation and Oversight read-only",
+      "status": "PASS",
+      "durationMs": 157.33,
+      "detail": ""
+    },
+    {
+      "name": "Forced application termination preserves acknowledged business state",
+      "status": "PASS",
+      "durationMs": 655.83,
+      "detail": "Zero acknowledged request/activity loss; integrity and role/category/account data match; restart/read check 655.72 ms."
+    },
+    {
+      "name": "Timed application restoration from a local SQLite backup",
+      "status": "PASS",
+      "durationMs": 1262.9,
+      "detail": "Health, account logins, requests, activities, category permissions and report counts restored in 1262.77 ms; zero acknowledged business-record loss in this drill."
+    }
+  ],
+  "boundaries": [
+    "Isolated synthetic database and temporary child servers only; demonstration database untouched.",
+    "HTTP/API and recovery checks, not browser interaction or representative-user usability.",
+    "Forced application-process termination is not a host power-loss or disk-failure test.",
+    "Timed restoration uses a fresh local snapshot and the same code/host; no off-site retention, scheduled 24-hour backup operation or disaster-site recovery is established.",
+    "No new load, TLS, outage-alert or final release approval evidence is created."
+  ],
+  "forcedRestartMs": 655.72,
+  "restoreMs": 1262.77,
+  "backupAgeAtRecoveryMs": 1279,
+  "acknowledgedBusinessRecordsLost": 0,
+  "status": "PASS"
+}

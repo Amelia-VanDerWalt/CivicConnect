@@ -1,0 +1,50 @@
+{
+  "at": "2026-10-18T16:45:00.375Z",
+  "environment": "v24.20.0 win32/x64",
+  "baseCommit": "11dc19df95590aa9daf518e0f04441cf389ad0ed",
+  "requestedDurationSeconds": 900,
+  "formalWorkloadRequested": true,
+  "seededActiveRecords": 5000,
+  "concurrentVirtualUsers": 20,
+  "userMix": "10 Requesters and 10 Staff; one distinct account/session per virtual user",
+  "workload": "Each round has 100 operations: 80 reads and 20 writes. Each user performs 5 sequential actions, paced every 2 seconds; rounds start no faster than every 10 seconds. No fixed throughput requirement is assumed.",
+  "authentication": "Synthetic authenticated sessions provisioned in the isolated fixture; login/TLS/browser rendering are outside the measured workload.",
+  "sourceHashes": {
+    "backend/src/server.js": "adcfd4c298493e2fa264048f4bc0ff98b6d0fd47f66af1f476380726b8706653",
+    "backend/src/http/app.js": "34aa3fd438684be50838d0c81506e489ce2126b20bce8fe8adf8c2eabcbc43c1",
+    "backend/src/application/request-service.js": "14d123095bd56cd157152707e6c4f6723e11d3ce0c9c28b40ac017a9b38bf036",
+    "backend/src/infrastructure/request-repository.js": "23dbb8df97585e9c56ad28b27f2a5fb548d0dc3a463b681cde7a9a737c68cc04",
+    "backend/src/infrastructure/database.js": "5394b7d2407176450af2068edd0e456eb5be351c2eddce3d50930ef62a7c55c7",
+    "backend/src/infrastructure/auth.js": "609e74edc610aaa5ed46bf940868cc6976d2a6cac88c42389d204dddc24fd971",
+    "backend/src/domain/policy.js": "ba33d86a8254b1ba69a9e513a784c8aa23731ce2c2a945e0f83fcaf7406f12df",
+    "backend/db/migrations/001_initial.sql": "725b85184aee51b1163628193c709e2dc6ce0629c19e8f637f1b375c0f3e3aca",
+    "src/frontend/index.html": "735c7f41d1a517ecede97e55e944f49e87332061ff38f0814dcb918a575f40b1",
+    "src/frontend/app.js": "9aa0d8ed726fb8d53e3df6d511d656a1161c0027b1513a23f27ace26e5ba4f71",
+    "src/frontend/requester-history.js": "3daa00cb26db4d285eef8787a6478504589bbff8f7199b2037dd2c00ff8d3e51",
+    "src/frontend/staff-workflows.js": "d8ea64307b37489b43be4f60efe8ccbed2d3569804da3fde40c5af6ca1951f96"
+  },
+  "failures": [],
+  "limits": [
+    "Loopback HTTP on this single test host; no production network/TLS or municipal deployment claim.",
+    "Database grows as acknowledged writes are added. Think time is excluded from request latency.",
+    "Search/list/detail response content and created-record fields are asserted, not status alone.",
+    "An abbreviated diagnostic run cannot satisfy AC-N04."
+  ],
+  "measuredDurationSeconds": 900.015,
+  "completedRounds": 90,
+  "reads": {
+    "count": 7200,
+    "averageMs": 135.68,
+    "p95Ms": 395.5,
+    "maxMs": 1831.79
+  },
+  "writes": {
+    "count": 1800,
+    "averageMs": 26.83,
+    "p95Ms": 42.86,
+    "maxMs": 159.83
+  },
+  "readFraction": 0.8,
+  "finalActiveRecords": 6800,
+  "status": "PASS"
+}

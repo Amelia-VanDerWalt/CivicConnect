@@ -147,3 +147,33 @@ Existing owners and ratings remain unchanged pending shared review.
 The provisional score is an assessment proposal, not team acceptance.
 Accepting a demo limitation does not automatically remove baseline scope.
 See the M4 sections in PED-handoff.md, browser-acceptance.md and the RTM.
+
+## M4 workflow follow-up — 18 October 2026
+
+Staff controls and Oversight reporting are now implemented on
+feature/m4-complete-workflows. Selected browser checks passed;
+see browser-acceptance.md for exact scope and source hashes.
+
+The current provisional assessment is 15/21 = 71.43%, superseding
+the preceding candidate's 57.14%. Scope/schedule risk remains open
+because the 80% target is not yet demonstrated.
+CR-P2-001, remaining verification gaps and release decisions stay open.
+No automatic closure of DEF-M3-006 or operational risks is claimed.
+
+## M4 measured-verification risk position — 18 October 2026
+
+This update supersedes earlier candidate percentages for the current source.
+Current provisional assessment: 17.5/21 = 83.33%; team review pending.
+
+Formal local load passed with 5000 initial active records and 20 virtual users
+for 900.015 seconds. Memory filtering/pagination debt
+remains; a local pass does not establish unlimited scalability.
+
+Forced-process restart and timed local restoration passed with zero
+acknowledged business-record loss in the drill. RISK-007/M2-R03 are further
+mitigated, not universally closed: host/disk failure, ongoing backup operations
+and off-site recovery remain operational limitations.
+
+TLS, comprehensive security assurance, outage alerting, representative-user
+usability and complete accessibility remain unresolved. CR-P2-001 needs a
+recorded team decision. Final release/production approval remains pending.
