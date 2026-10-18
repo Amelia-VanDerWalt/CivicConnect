@@ -4,7 +4,7 @@ CivicConnect is a Community Service Request Management Platform developed for th
 
 The system provides a centralised way for requesters to submit and track community service requests, while authorised staff can view, assign and update requests through a controlled lifecycle.
 
-The current Milestone 2 implementation includes:
+The current CivicConnect implementation includes:
 
 - A browser-based HTML, CSS and JavaScript frontend.
 - A Node.js backend and JSON API.
@@ -199,11 +199,9 @@ Invalid lifecycle transitions are rejected by the backend.
 
 ### Oversight
 
-The backend includes read-only Oversight/reporting functionality through the API.
+The current baseline includes read-only Oversight/reporting functionality through the API.
 
-However, the **Oversight browser interface is not yet implemented** in the current Milestone 2 frontend.
-
-The Oversight role is therefore currently useful mainly for backend/API reporting verification.
+The final M4 browser-interface status will be confirmed against the integrated release baseline.
 
 ---
 
@@ -406,20 +404,15 @@ The current application is the CivicConnect project candidate being finalised fo
 
 Known limitations include:
 
-- The Oversight/reporting browser UI is not yet implemented.
-- Full staff search, filtering and sorting functionality is not yet exposed through the frontend.
-- Full staff reassignment controls are not yet available in the frontend.
-- Full priority and due-date editing is not yet available in the frontend.
-- Full Public/Internal work-note editing is not yet available in the frontend.
-- Requester activity/history views are incomplete.
-- Request reopening is not supported.
-- Password reset is not implemented.
-- Email and SMS notifications are not implemented.
-- File/photo attachments are not implemented.
+Known limitations and outstanding finalisation items include:
+
+- Final M4 browser-workflow and acceptance status is still being reconciled against the integrated release baseline.
 - Production HTTPS/TLS deployment has not been established.
-- Production monitoring and alerting have not been established.
-- Performance/load targets have not yet been fully verified.
-- Disaster-recovery targets have not yet been fully demonstrated.
+- Production monitoring and outage alerting have not been established.
+- Complete accessibility verification has not been demonstrated.
+- Representative-user usability testing has not been completed.
+- CR-P2-001 still requires a final team decision.
+- Production readiness has not been approved.
 
 These limitations are documented intentionally rather than presenting the final academic project as a production-ready system.
 
