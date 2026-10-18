@@ -402,8 +402,6 @@ architecture_continued.md
 
 The current application is the CivicConnect project candidate being finalised for Milestone 4. It is not currently considered a production-ready system.
 
-Known limitations include:
-
 Known limitations and outstanding finalisation items include:
 
 - Final M4 browser-workflow and acceptance status is still being reconciled against the integrated release baseline.
