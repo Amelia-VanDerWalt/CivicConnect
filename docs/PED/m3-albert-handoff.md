@@ -260,12 +260,56 @@ However, this must not be described as an unconditional production `READY` decis
 
 The final `READY / CONDITIONALLY READY / NOT READY` classification is a team decision and must be made against the exact final M3 release-candidate commit.
 
-### 10.4 Final integration note
+---
 
-Before this content is integrated into the final PED v3.0:
+## M4 Person 3 Final Release and Deployment Closure
 
-- identify the exact final M3 release-candidate SHA/tag;
-- confirm the required CI gate passes on that exact candidate;
-- align the final RTM, Risk Register, Defect Register and Technical Debt Register with that candidate;
-- record the team's final decision on `DEF-M3-006`;
-- replace this provisional release position with the agreed team classification.
+### Final M4 verification position
+
+The M4 evidence now extends the earlier M3 release-readiness work.
+
+The formal local NFR-004 workload was executed for 900.015 seconds with:
+
+- 5,000 initial active records;
+- 20 concurrent virtual users;
+- 7,200 reads;
+- 1,800 writes;
+- read p95 of 395.5 ms;
+- write p95 of 42.86 ms.
+
+A timed local recovery drill also completed successfully:
+
+- local backup restoration: 1,262.77 ms;
+- forced application restart: 655.72 ms;
+- acknowledged business records retained in the recorded drill.
+
+These results improve the M3 performance and recovery evidence, but they remain local verification. They do not establish public-production network performance, ongoing off-site backup operations, disaster-site recovery or complete production operational readiness.
+
+### Final deployment / go-live decision
+
+**Final deployment state: STAGING — NO-GO for production.**
+
+CivicConnect has passed the configured CI/regression gate and the documented M4 local verification, including the formal load workload and timed local recovery drill.
+
+Production release is not approved because the following remain unproven or incomplete:
+
+- production HTTPS/TLS deployment;
+- operational outage alerting within the required target;
+- representative-user usability acceptance;
+- complete accessibility verification;
+- production/off-site backup and disaster-recovery controls;
+- comprehensive production security assurance.
+
+These remaining security and operational risks make production release unjustified at the final project deadline.
+
+Production release should only proceed after these controls are implemented and verified.
+
+### Final startup / demonstration instructions
+
+From the repository root:
+
+```bash
+cd backend
+npm ci --ignore-scripts
+npm run setup
+npm start
