@@ -41,3 +41,9 @@
 | Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
 |---|---|---|---|---|---|---|---|
 | 17/10/2026 | Edward Goosen 602882 | ChatGPT/Codex | Final acceptance assessment and evidence reconciliation | Assisted baseline comparison, browser-check steps, provisional scoring, PowerShell automation, JSON/Excel synchronisation and register updates | Student ran 35 automated tests successfully and confirmed selected browser checks. Compared assessments with accepted PED criteria and merged team handoffs; synchronisation command reported successful execution | MODIFIED; provisional assessment pending team review | Conflicting historical requirement IDs, incomplete browser scope and operational evidence; provisional score below 80%. Final release approval remains outstanding |
+
+### M4 requester-history assistance — 17 October 2026
+
+| Date | Student | Tool | Engineering task | AI contribution | Verification | Decision | Issues found |
+|---|---|---|---|---|---|---|---|
+| 17/10/2026 | Edward Goosen 602882 | ChatGPT/Codex | Complete requester history and public feedback | Assisted frontend implementation, safe text rendering, public activity-status projection, PowerShell updates and evidence records | Student ran 35 regression tests successfully and checked details/history, resolution highlighting, navigation and internal-note privacy in the browser | MODIFIED; peer review pending | Activity labels required correction. Earlier assumed lifecycle passes were withdrawn after tester clarification. Remaining browser and shared-interface gaps stay open |

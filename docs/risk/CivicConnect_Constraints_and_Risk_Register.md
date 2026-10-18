@@ -136,7 +136,7 @@ Existing owners and ratings remain unchanged pending shared review.
 | M2-R01 / M2-R02 / M2-R08 | Corrective controls implemented; monitor regression | Merged server fixes and passing actual-server M4 regression. Recheck when entry-point/static handling changes. |
 | M2-R03 / RISK-007 | Open; partially mitigated | Transaction, persistence and snapshot checks pass; forced restart and timed full recovery remain unproven. |
 | M2-R04 / RISK-006 | Open; partially mitigated | Selected access/security checks pass; TLS and comprehensive security verification remain incomplete. |
-| M2-R05 | Materialised; partially corrected | Reference/note fixes merged; M4 resolution validation passed. DEF-M3-006 browser-workflow gaps remain open. |
+| M2-R05 | Materialised; partially corrected | Reference/note fixes merged; Resolution/rejection browser retests remain dated 14 October; the assumed M4 resolution-validation pass was withdrawn. DEF-M3-006 browser-workflow gaps remain open. |
 | M2-R06 / RISK-002 | Pending change decision | CR-P2-001 has no established formal approval. Team must resolve and align the rule. |
 | M2-R07 | Open; evidence improved | Dated local and browser records exist; full load, representative usability, final accessibility, monitoring and timed recovery evidence remain incomplete. |
 | M2-R09 / RISK-005 | Controls reported; final confirmation required | Merged handoffs report PR reviews and CI gates. Exact final release CI, settings and approval must be confirmed by the release owner. |
